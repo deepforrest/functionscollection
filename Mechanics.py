@@ -46,11 +46,46 @@ def iForceNewtonLawofGravity(iMass_1, iMass_2, iDistance)
 
     return iGravityConstant * (iMass_1 * iMass_2) / (iDistance ** 2)
 
+def iVelocityTerminal(iMass, iAreaSurface):
+
+    return sqrt((4 * iMass * iAccelGravEarth) / iAreaSurface)
 
 
+def iVelocityOrbit(iRadius, iAccel = iAccelGravEarth):
+
+    return sqrt(iRadius * iAccel)
 
 
+# Conservation Laws
 def iMomentum(iMass, iVelocity):
 
     return iMass * iVelocity
+
+def iImpulse(iForce, iDeltaTime):
+
+    return iForce * iDeltaTime
+
+def iEnergyPotentialGrav(iMass, iDistance, iAccel = iAccelGravEarth):
+
+    return iMass * iAccel * iDistance
+
+def iEnergyKineticDef (iMass, iVel):
+
+    return 1 / 2 * iMass * (iVel ** 2)
+
+def iEnergyKineticAlt(iMomentum, iMass):
+
+    return (iMomentum ** 2) / (2 * iMass)
+
+def iForceHookesLaw(iSpringConst, iDeltaPosition):
+
+    return - iSpringConst * iDeltaPosition
+
+def iEnergyPotentialElastic(iSpringConst, iDeltaPosition):
+
+    return 1/2 * iSpringConst * (iDeltaPosition ** 2)
+
+def iWork(iForce, iDeltaPosition, iAngle = 90):
+
+    return iForce * iDeltaPosition
 
