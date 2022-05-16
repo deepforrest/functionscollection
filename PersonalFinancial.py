@@ -1,6 +1,4 @@
-iArrFebRevenue = [850, 990, 850, 990, 42, 42, 42, 42, 150, 150, 150, 100, 120, 120]
-iArrFebCosts = [1300, 100, 150, 40, 40, 40, 40]
-
+# 01 - Income To Expense Ratio
 def iIncomeToExpenseRatio (iArrRevenueData, iArrExpensesData):
 
     iTotalRevenue = 0
@@ -19,6 +17,48 @@ def iIncomeToExpenseRatio (iArrRevenueData, iArrExpensesData):
 
     return round(iTotalRevenue / iTotalExpenses, 2)
 
-iFebIncomeToExpenseRatio = iIncomeToExpenseRatio(iArrFebRevenue, iArrFebCosts)
 
-print(iFebIncomeToExpenseRatio)
+# 02 - Profit
+def iProfit(iArrRevenueData, iArrExpensesData):
+
+    iTotalRevenue = 0
+    iTotalExpenses = 0
+
+    for iDataPoint in range(len(iArrRevenueData)):
+
+        iTotalRevenue += iArrRevenueData[iDataPoint]
+
+    for iDataPoint in range(len(iArrExpensesData)):
+
+        iTotalExpenses += iArrExpensesData[iDataPoint]
+
+    print("Total Revenue: " + str(iTotalRevenue))
+    print("Total Expenses: " + str(iTotalExpenses))
+
+    return iTotalRevenue - iTotalExpenses
+
+
+#03
+
+def iBehToRecurExpensesRatio(iArrBehExpData, iArrRecurExpData):
+
+    # Initializations
+    iTotalExpenses = 0
+    iTotalBehavioralExpenses = 0
+    iTotalRecurringExpenses = 0
+
+    for iDataPoint in range(len(iArrBehExpData)):
+
+        iTotalExpenses += iArrBehExpData[iDataPoint]
+        iTotalBehavioralExpenses += iArrBehExpData[iDataPoint]
+
+    for iDataPoint in range(len(iArrRecurExpData)):
+
+        iTotalExpenses += iArrRecurExpData[iDataPoint]
+        iTotalRecurringExpenses += iArrRecurExpData[iDataPoint]
+
+    print("Total Behavioral Expenses: " + iTotalBehavioralExpenses)
+    print("Total Recurring Expenses: " + iTotalRecurringExpenses)
+    print("Total Expenses: " + iTotalExpenses)
+
+    return round(iTotalBehavioralExpenses / iTotalRecurringExpenses, 2)
