@@ -1,18 +1,8 @@
 # Constants (Move To Constants.py later)
-iHoursPerWorkweek = 40
-iSecondsPerMinute = 60
-iMinutesPerHour = 60
-iHoursPerDay = 24
-iHoursWorkPerDay = 8
-iWeeksPerYear = 52
-iMonthsPerYear = 12
-iOvertimeCoef = 1.5
 
-iAvgWeeksPerMonth = iWeeksPerYear / iMonthsPerYear
 
 # Summatives
-
-def iWeeklyPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek:
+def iWeeklyPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek):
 
     return iHourlyWage * iHoursPerWeek
 
@@ -65,9 +55,21 @@ def iSalaryPerHour(iSalary, iHoursPerWeek = iHoursPerWorkweek):
     return iSalaryPayPerWeek(iSalary) / iHoursPerWeek
 
 
+def iSalaryPerMinute(iSalary, iHoursPerWeek = iHoursPerWorkweek):
 
+    if iSalaryPerHour(iSalary, iHoursPerWorkweek) / iMinutesPerHour < 10 ** -2:
+        
+        print("Too small to calculate")
+        return 0
 
+    return  iSalaryPerHour(iSalary, iHoursPerWorkweek) / iMinutesPerHour
 
+'''
+Other Functions to Consider
+
+    - 
+
+'''
 
 
 
