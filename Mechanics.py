@@ -1,35 +1,19 @@
-def iPositionFinal(iPosInit, iVel, iAccel, iTime):
+import math
 
-    return iPosInit + iVel * iTime + 1 / 2 * iAccel * (iTime ** 2)
+iRightAngle = math.pi() / 2
 
-
-def iPositionInit(iPosFinal, iVel, iTime):
-
-    return iPosFinal - (iVel * iTime + 1 / 2 * iAccel * (iTime ** 2))
-
-
-def iVelocityAvg(iPosFinal, iPosInit, iTimeFinal, iTimeInit):
-
-    return (iPosFinal - iPosInit) / (iTimeFinal - iTimeInit)
-
-
-def iVelocityFinal(iVelInit, iAccel, iDeltaTime):
-
-    return iVelInit + iAccel * iDeltaTime
-
-
-def iAccelerationAvg(iVelFinal, iVelInit, iTimeFinal, iTimeInit):
-
-    return (iVelFinal - iVelInit) / (iTimeFinal - iTimeInit)
+'''
 
 
 def iAccelerationCentripetal(iVel, iRadius)
 
     return (iVel ** 2) / iRadius
 
+
 def iCircularMotionPeriod(iRadius, iVelocity)
 
     return (2 * math.pi() * iRadius) / iVelocity
+
 
 
 def iForce(iMass, iAcceleration):
@@ -42,18 +26,20 @@ def iReactiveForce(iForce):
 
     return -iForce
 
+
 def iForceNewtonLawofGravity(iMass_1, iMass_2, iDistance)
 
     return iGravityConstant * (iMass_1 * iMass_2) / (iDistance ** 2)
 
+
 def iVelocityTerminal(iMass, iAreaSurface):
 
-    return sqrt((4 * iMass * iAccelGravEarth) / iAreaSurface)
+    return math.sqrt((4 * iMass * iAccelGravEarth) / iAreaSurface)
 
 
 def iVelocityOrbit(iRadius, iAccel = iAccelGravEarth):
 
-    return sqrt(iRadius * iAccel)
+    return math.sqrt(iRadius * iAccel)
 
 
 # Conservation Laws
@@ -61,31 +47,78 @@ def iMomentum(iMass, iVelocity):
 
     return iMass * iVelocity
 
+
 def iImpulse(iForce, iDeltaTime):
 
     return iForce * iDeltaTime
+
 
 def iEnergyPotentialGrav(iMass, iDistance, iAccel = iAccelGravEarth):
 
     return iMass * iAccel * iDistance
 
+
 def iEnergyKineticDef (iMass, iVel):
 
-    return 1 / 2 * iMass * (iVel ** 2)
+    return (iMass * (iVel ** 2)) / 2
+
 
 def iEnergyKineticAlt(iMomentum, iMass):
 
     return (iMomentum ** 2) / (2 * iMass)
 
-def iForceHookesLaw(iSpringConst, iDeltaPosition):
 
-    return - iSpringConst * iDeltaPosition
+def iWork(iForce, iDeltaPosition, iAngle = iRightAngle):
 
-def iEnergyPotentialElastic(iSpringConst, iDeltaPosition):
+    return iForce * iDeltaPosition ( iAngle)
 
-    return 1/2 * iSpringConst * (iDeltaPosition ** 2)
 
-def iWork(iForce, iDeltaPosition, iAngle = 90):
+def iForceHookesLaw(iSpringConst, iDeltaPosition, iNormAngle = iRightAngle):
 
-    return iForce * iDeltaPosition
+    return - iSpringConst * iDeltaPosition * sin(iNormAngle)
+
+
+def iEnergyHookesLaw(iSpringConst, iDeltaPosition, iNormAngle = iRightAngle):
+
+    return 1/2 * iSpringConst * (iDeltaPosition ** 2) * math.sin(iNormAngle)
+
+
+'''
+
+# Math
+
+def iDiff(iFinal, iInit):
+
+    return iFinal - iInit
+
+# Kinematics, 1D
+
+def iVelocityFinalAlt(iVelInit, iAccel, iPosFinal, iPosInit):
+
+    return math.sqrt((iVelInit ** 2) + 2 * iAccel * iDiff(iPosFinal, iPosInit))
+
+
+def iPositionFinal(iPosInit, iVel, iAccel, iTime):
+
+    return iPosInit + iVel * iTime + 1 / 2 * iAccel * (iTime ** 2)
+
+
+def iPositionInit(iPosFinal, iVel, iTime):
+
+    return iPosFinal - (iVel * iTime + iAccel * (iTime ** 2) / 2)
+
+
+def iVelocityAvg(iPosFinal, iPosInit, iTimeFinal, iTimeInit = 0):
+
+    return iDiff(iPosFinal, iPosInit) / iDiff(iTimeFinal, iTimeInit)
+
+
+def iVelocityFinal(iVelInit, iAccel, iTimeFinal, iTimeInit = 0):
+
+    return iVelInit + iAccel * iDiff(iTimeFinal, iTimeInit)
+
+
+def iAccelerationAvg(iVelFinal, iVelInit, iTimeFinal, iTimeInit = 0):
+
+    return iDiff(iVelFinal, iVelInit) / iDiff(iTimeFinal, iTimeInit)
 
