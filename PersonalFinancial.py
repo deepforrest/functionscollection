@@ -1,3 +1,76 @@
+# Constants (Move To Constants.py later)
+iHoursPerWorkweek = 40
+iSecondsPerMinute = 60
+iMinutesPerHour = 60
+iHoursPerDay = 24
+iHoursWorkPerDay = 8
+iWeeksPerYear = 52
+iMonthsPerYear = 12
+iOvertimeCoef = 1.5
+
+iAvgWeeksPerMonth = iWeeksPerYear / iMonthsPerYear
+
+# Summatives
+
+def iWeeklyPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek:
+
+    return iHourlyWage * iHoursPerWeek
+
+
+def iWeeklyPayOT(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek, bOvertimeTrigger = True):
+
+    # Takes into consideration
+    if (iHoursPerWeek > iHoursPerWorkweek and bOvertimeTrigger = True):
+
+        iOvertimeHours = iDiff(iHoursPerWeek, iHoursPerWorkweek)
+
+        return iHourlyWage * (iHoursPerWorkweek + iOvertimeCoef * iOvertimeHours)
+
+    return iHourlyWage * iHoursPerWeek
+
+
+def iBiweeklyPayForHourly(iHourlyWage, iHoursBiweekly = 2 iHoursPerWorkweek)
+
+    return iWeeklyPayForHourly(iHourlyWage, iHoursBiweekly)
+
+
+def iMonthlyPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek):
+
+    return iHourlyWage * iHoursPerWorkweek * iAvgWeeksPerMonth
+
+# Breakdowns
+
+def iAnnualPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek)
+
+    return iMonthlyPayForHourly(iHourlyWage, iHoursPerWeek)
+
+
+def iSalaryPerMonth(iSalary):
+
+    return iSalary / iMonthsPerYear
+
+
+def iSalaryBiweekly(iSalary):
+
+    return iSalaryPerMonth(iSalary) / 2
+
+
+def iSalaryPerWeek(iSalary):
+
+    return iSalary / iWeeksPerYear
+
+
+def iSalaryPerHour(iSalary, iHoursPerWeek = iHoursPerWorkweek):
+
+    return iSalaryPayPerWeek(iSalary) / iHoursPerWeek
+
+
+
+
+
+
+
+
 # 01 - Income To Expense Ratio
 def iIncomeToExpenseRatio (iArrRevenueData, iArrExpensesData):
 

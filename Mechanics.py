@@ -16,22 +16,6 @@ def iCircularMotionPeriod(iRadius, iVelocity)
 
 
 
-def iForce(iMass, iAcceleration):
-
-    return iMass * iAcceleration
-
-
-# Newton's Third Law
-def iReactiveForce(iForce):
-
-    return -iForce
-
-
-def iForceNewtonLawofGravity(iMass_1, iMass_2, iDistance)
-
-    return iGravityConstant * (iMass_1 * iMass_2) / (iDistance ** 2)
-
-
 def iVelocityTerminal(iMass, iAreaSurface):
 
     return math.sqrt((4 * iMass * iAccelGravEarth) / iAreaSurface)
@@ -122,3 +106,62 @@ def iAccelerationAvg(iVelFinal, iVelInit, iTimeFinal, iTimeInit = 0):
 
     return iDiff(iVelFinal, iVelInit) / iDiff(iTimeFinal, iTimeInit)
 
+
+# Vector Components
+
+def iAdjComponent(iHyp, iAngle):
+
+    return iHyp * math.cos(iAngle)
+
+
+def iOppComponent(iHyp, iAngle):
+
+    return iHyp * math.sin(iAngle)
+
+
+def iComponentResultant(iArrComponents)
+
+    return sum(iArrComponents)
+
+
+def iAngleBetweenResultants(iArrResY, iArrResX):
+
+    return math.arctan(iArrResY / iArrResX)
+
+
+def iHeightFromRise(iVelInit, iAccel = iAccelGravEarth):
+
+    return (iVelInit ** 2) / (2 * iAccel)
+
+def iDistanceResultant(iVelInit, iAngle, iAccel = iAccelGravEarth):
+
+    return ((iVelInit ** 2) * math.sin(2 * iAngle)) / iAccel
+
+# Dynamics - Forces, Newtons Laws of Motion
+
+def iForce(iMass, iAcceleration):
+
+    return iMass * iAcceleration
+
+
+def iReactiveForce(iForce):
+
+    return -iForce
+
+
+def iForceAttract(iMass_1, iMass_2, iDistance):
+
+    return iGravityConstant * (iMass_1 * iMass_2) / (iDistance ** 2)
+
+
+def iWeight(iMass, iAccel = iAccelGravEarth):
+
+    return(iMass * iAccel)
+
+# Friction, Drag, Elasticity
+
+def iStress(iForce, iArea):
+
+    return iForce / iArea
+
+ 
