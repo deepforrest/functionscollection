@@ -2,6 +2,7 @@
 
 
 # Summatives
+
 def iWeeklyPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek):
 
     return iHourlyWage * iHoursPerWeek
@@ -28,12 +29,13 @@ def iMonthlyPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek):
 
     return iHourlyWage * iHoursPerWorkweek * iAvgWeeksPerMonth
 
-# Breakdowns
 
 def iAnnualPayForHourly(iHourlyWage, iHoursPerWeek = iHoursPerWorkweek)
 
     return iMonthlyPayForHourly(iHourlyWage, iHoursPerWeek)
 
+
+# Breakdowns
 
 def iSalaryPerMonth(iSalary):
 

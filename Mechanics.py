@@ -52,10 +52,6 @@ def iEnergyKineticAlt(iMomentum, iMass):
     return (iMomentum ** 2) / (2 * iMass)
 
 
-def iWork(iForce, iDeltaPosition, iAngle = iRightAngle):
-
-    return iForce * iDeltaPosition ( iAngle)
-
 
 def iForceHookesLaw(iSpringConst, iDeltaPosition, iNormAngle = iRightAngle):
 
@@ -133,9 +129,11 @@ def iHeightFromRise(iVelInit, iAccel = iAccelGravEarth):
 
     return (iVelInit ** 2) / (2 * iAccel)
 
+
 def iDistanceResultant(iVelInit, iAngle, iAccel = iAccelGravEarth):
 
     return ((iVelInit ** 2) * math.sin(2 * iAngle)) / iAccel
+
 
 # Dynamics - Forces, Newtons Laws of Motion
 
@@ -158,10 +156,18 @@ def iWeight(iMass, iAccel = iAccelGravEarth):
 
     return(iMass * iAccel)
 
+
 # Friction, Drag, Elasticity
 
 def iStress(iForce, iArea):
 
     return iForce / iArea
 
- 
+
+ # Energy, Work
+
+def iWork(iForce, iDeltaPosition, iAngle = iRightAngle):
+
+    return iForce * iDeltaPosition * math.sin(iAngle)
+
+
