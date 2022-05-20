@@ -108,4 +108,6 @@ def bDiffRequiresBorrowing(iLargerNum, iSmallerNum):
 
     # print(iArrSSum + " vs. " + iArrLSum) 
 
+    # Needs to iterate R to L.
+
     return False
