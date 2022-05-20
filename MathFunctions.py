@@ -103,11 +103,27 @@ def bDiffRequiresBorrowing(iLargerNum, iSmallerNum):
     if iLargerNum =< iSmallerNum return False
 
     # Turn numbers into arrays and analyze them from right to left
-    iArrSNum = int(iDigits) for iDigits in str(iSmallerNum)
-    iArrLNum = int(iDigits) for iDigits in str(iLargerNum)
+    iArrSNum = iArrBreakDigits(iSmallerNum)
+    iArrLNum = iArrBreakDigits(iLargerNum)
 
     # print(iArrSSum + " vs. " + iArrLSum) 
 
     # Needs to iterate R to L.
 
     return False
+
+
+def iArrBreakDigits(iNum):
+
+    return int(iDigits) for iDigits in str(iNum)
+
+
+def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
+
+    if iLargerNum =< iSmallerNum:
+
+        iLargerNum, iSmallerNum = iSmallerNum, iLargerNum
+
+    iArrSNum = iArrBreakDigits(iSmallerNum)
+    iArrLNum = iArrBreakDigits(iLargerNum)
+
