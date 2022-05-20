@@ -169,5 +169,3 @@ def iStress(iForce, iArea):
 def iWork(iForce, iDeltaPosition, iAngle = iRightAngle):
 
     return iForce * iDeltaPosition * math.sin(iAngle)
-
-

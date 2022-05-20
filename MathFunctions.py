@@ -1,3 +1,7 @@
+# Even though is a math.function, this is an exercise
+# for myself in the event I take this into a different
+# language that doesn't have such libraries.
+
 def iFactorial(iNum):
 
     iResult = 1
@@ -9,24 +13,25 @@ def iFactorial(iNum):
 
     return iResult
 
-
+# Combinations in probability and statestics
 def iCombinations(iSelection, iSetTotal):
 
     return iFactorial(iSetTotal) / (iFactorial(iSelection) * iFactorial(iSetTotal - iSelection))
 
 
+# Permutations are similar to combinations
 def iPermutations(iSelection, iSetTotal):
 
     return iFactorial(iSetTotal) / iFactorial(iSetTotal - iSelection)
 
-
+# Numerical solution to a polynomial term according to the power rule
 def iIntegratePolyTerm(iCoeff, iVar, iPower):
 
     iNewPower = iPower + 1
 
     return (iCoeff * (iVar ** iNewPower)) / iNewPower
 
-
+# Numerical solution to a polynomial term according to the power rule
 def iDifferentiatePolyTerm(iCoeff, iVar, iPower):
 
     iNewPower = iPower - 1
