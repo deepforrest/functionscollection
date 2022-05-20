@@ -84,3 +84,28 @@ def bIsPrimeNumber(iNum):
             iDivisor += 1
 
     return True
+
+
+def bHasPrimeFactor(iNum, iFactor):
+
+    iArrOfFactors = iArrFactorsOfNum(iNum)
+
+    for iPrimeNo in range(len(iArrOfFactors)):
+
+        if iArrOfFactors[iPrimeNo] == iFactor:
+
+            return True
+        
+    return False
+
+def bDiffRequiresBorrowing(iLargerNum, iSmallerNum):
+
+    if iLargerNum =< iSmallerNum return False
+
+    # Turn numbers into arrays and analyze them from right to left
+    iArrSNum = int(iDigits) for iDigits in str(iSmallerNum)
+    iArrLNum = int(iDigits) for iDigits in str(iLargerNum)
+
+    # print(iArrSSum + " vs. " + iArrLSum) 
+
+    return False
