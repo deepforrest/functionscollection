@@ -98,6 +98,12 @@ def bHasPrimeFactor(iNum, iFactor):
         
     return False
 
+
+def iArrBreakDigits(iNum):
+
+    return int(iDigits) for iDigits in str(iNum)
+
+
 def bDiffRequiresBorrowing(iLargerNum, iSmallerNum):
 
     if iLargerNum =< iSmallerNum return False
@@ -106,16 +112,23 @@ def bDiffRequiresBorrowing(iLargerNum, iSmallerNum):
     iArrSNum = iArrBreakDigits(iSmallerNum)
     iArrLNum = iArrBreakDigits(iLargerNum)
 
-    # print(iArrSSum + " vs. " + iArrLSum) 
+    # print(iArrSSum + " vs. " + iArrLSum)
+
+    iArrSNLen = len(iArrSNum) - 1
+    iArrLNLen = len(iArrLNum) - 1
 
     # Needs to iterate R to L.
 
+    while iArrSNLen >= 0:
+
+        if iArrSNum[iArrSNLen] > iArrLNum[iArrLNLen]:
+
+            return True
+
+        iArrSNLen -= 1
+        iArrLNLen -= 1
+
     return False
-
-
-def iArrBreakDigits(iNum):
-
-    return int(iDigits) for iDigits in str(iNum)
 
 
 def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
@@ -127,3 +140,19 @@ def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
     iArrSNum = iArrBreakDigits(iSmallerNum)
     iArrLNum = iArrBreakDigits(iLargerNum)
 
+    # Provides indices of right most index
+    iArrSNLen = len(iArrSNum) - 1
+    iArrLNLen = len(iArrLNum) - 1
+
+    # Needs to iterate R to L.
+
+    while iArrSNLen >= 0:
+
+        if iArrSNum[iArrSNLen] + iArrLNum[iArrLNLen] > 10:
+
+            return True
+
+        iArrSNLen -= 1
+        iArrLNLen -= 1
+
+    return False
