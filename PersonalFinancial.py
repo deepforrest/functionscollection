@@ -113,4 +113,45 @@ def iCalcRevAndCostTotals(iArrRevenueData, iArrCostsData):
 
     print("Total Revenue: " + str(iTotalRevenue))
     print("Total Expenses: " + str(iTotalExpenses))
-    
+
+# Function that takes current wages and earnings and calculates how many hours a person working
+# At minimum wage would need to work to achieve that income level.  
+def iMinWageHours(iArrEarnings, iArrHours):
+
+    iTotalEarnings = sum(iArrEarnings)
+    iTotalHours = sum(iArrHours)
+
+    if len(iArrEarnings) != len(iArrHours):
+        print("Number of Total Earnings: " + str(len(iArrEarnings)))
+        print("Number of Total Hour Entries: " + str(len(iArrHours)))
+        print("Double check entries and try again")
+        return -1
+
+    print("Total Entries = " + str(len(iArrEarnings)))
+    print("Totals: $" + str(round(iTotalEarnings, 2)) + " / " + str(iTotalHours) + " Hours")
+    iArrEarningsPerHour = []
+
+    iEntryIndex = 0
+
+    while iEntryIndex < len(iArrEarnings):
+
+        iArrEarningsPerHour.append(round(iArrEarnings[iEntryIndex] / iArrHours[iEntryIndex], 2))
+        iEntryIndex += 1
+
+    print("Earnings Per Hour Array: " + str(iArrEarningsPerHour))
+    iMinWage = 14  #CA, 2022
+
+    iAvgHourlyWage = round(iTotalEarnings / iTotalHours, 2)
+
+    iWageRatio = round(iAvgHourlyWage / iMinWage, 2)
+
+    iMinHoursReq = round(iWageRatio * iTotalHours, 1)
+
+    print("Average Wage / Hour: $" + str(iAvgHourlyWage))
+    print("Wage/Min Ratio: " + str(iWageRatio))
+    print("Min Wage Hours = " + str(iMinHoursReq))
+
+    if iMinHoursReq > 7 * 24:
+        print("UNSUSTAINABLE!")
+
+    return round(iWageRatio * iTotalHours, 1)
