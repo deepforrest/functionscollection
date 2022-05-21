@@ -138,7 +138,8 @@ def bDiffRequiresBorrowing(iLargerNum, iSmallerNum):
 
 def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
 
-    if iLargerNum =< iSmallerNum:
+    # Switches inputs in the event they were entered out of order
+    if iLargerNum < iSmallerNum:
 
         iLargerNum, iSmallerNum = iSmallerNum, iLargerNum
 
@@ -149,7 +150,7 @@ def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
     iArrSNLen = len(iArrSNum) - 1
     iArrLNLen = len(iArrLNum) - 1
 
-    # Needs to iterate R to L.
+    # Needs to iterate R to L, and only on the smallest number.
 
     while iArrSNLen >= 0:
 
