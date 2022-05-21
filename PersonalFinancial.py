@@ -155,3 +155,35 @@ def iMinWageHours(iArrEarnings, iArrHours):
         print("UNSUSTAINABLE!")
 
     return round(iWageRatio * iTotalHours, 1)
+
+# Min Weekly Earnings per Day, Given Expenses
+def iMinWeeklyEarningsPerDay(iArrMonthlyExpenses):
+
+    iDaysPerWeek = 7
+    iTotalWeeklyExpenses = sum(iArrMonthlyExpenses) * iDaysPerWeek / 30
+
+    for iDay in range(1, iDaysPerWeek + 1):
+
+        iEarningsPerDay = round(iTotalWeeklyExpenses / iDay, 2)
+
+        print("In a " + str(iDay) + "-Day Workweek, you need to make $" + str(iEarningsPerDay) + "/Day")
+
+
+def iProjectedFederalTaxes(iArrIncome):
+
+    # Checks to see if an array was passed, otherwise a scalar
+    if isinstance(iArrIncome, list):
+
+        iTotalIncome = sum(iArrIncome)
+
+    else:
+
+        iTotalIncome = iArrIncome
+
+    iTotalTaxes = 0
+
+    while iTotalIncome > 0:
+
+        # Create the tax table here:
+
+    return iTotalTaxes
