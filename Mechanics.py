@@ -142,7 +142,7 @@ def iForce(iMass, iAcceleration):
     return iMass * iAcceleration
 
 
-def iReactiveForce(iForce):
+def iForceReactive(iForce):
 
     return -iForce
 
@@ -154,7 +154,7 @@ def iForceAttract(iMass_1, iMass_2, iDistance):
 
 def iWeight(iMass, iAccel = iAccelGravEarth):
 
-    return(iMass * iAccel)
+    return iMass * iAccel
 
 
 # Friction, Drag, Elasticity

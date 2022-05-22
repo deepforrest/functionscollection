@@ -151,7 +151,6 @@ def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
     iArrLNLen = len(iArrLNum) - 1
 
     # Needs to iterate R to L, and only on the smallest number.
-
     while iArrSNLen >= 0:
 
         if iArrSNum[iArrSNLen] + iArrLNum[iArrLNLen] > 10:
