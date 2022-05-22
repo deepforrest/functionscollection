@@ -1,10 +1,17 @@
 # Physics Constants
 
-iGravityConstant = 6.67 * (10 ** -11) # [m][m][s] / [kg][kg][kg]
-
+iGravityConstant = 6.67 * (10 ** -11)   # [m][m][s] / [kg][kg][kg]
 iRadiusOfEarth = 6.3781 * (10 ** 6)     # [m]
+
+# Known Astronomical Constants & Data
+iMassOfMercury = 
+iMassOfVenus =
 iMassOfEarth = 5.9722 * (10 ** 24)      # [kg]
-iMassOfMoon = 7.34767309 * (10 ** 22)  # [kg]
+iMassOfMoon = 7.34767309 * (10 ** 22)   # [kg]
+iMassOfMars = 
+iMassOfSaturn =
+
+# Calculated Constants
 iAccelGravEarth = (iGravityConstant * iMassOfEarth) / (iRadiusOfEarth ** 2)
 
 
@@ -28,3 +35,51 @@ iOvertimeCoef = 1.5
 
 # Calculated Economic Constants
 iWorkDaysPerYear = iWorkDaysPerWeek * iHoursWorkPerDay * iWeeksPerYear
+
+# Proposed Classes
+class AtomicElement:
+
+class Planet:
+    
+    def __init__(self, name, radius, mass):
+
+        self.name = sName
+        self.radius = iRadius
+        self.mass = iMass
+
+        iVolume = iSphericalVolume(iRadius)
+        iSurfaceArea = iSpherSurfArea(iRadius)
+
+
+
+class Moon(Planet):
+    
+    # Add super function
+    def __init__(self, planetOrbit):
+
+        self.planetOrbit = sPlanetName
+    
+
+class Star:
+    
+    def __init__(self, *args):
+    # Has some physical properties of planets, including:
+        # Mass
+        # Volume = f(r)
+        # Surface Area
+        # Radius
+
+
+class Molecule:
+
+    def __init__(self, *args):
+    
+    # Somehow, the molecule has to be made as a function of the
+    # elements attached to it.  It has to draw from the atomic
+    # element classes that are associated with it and accept multiple
+    # arguments for its arrangement.  This will probably require different
+    # functions to analyze molecules and match with a database.
+
+class Particle:
+
+    def __init__(self, ...):
