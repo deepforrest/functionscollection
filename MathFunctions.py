@@ -195,3 +195,17 @@ def iAngleLawofSins(iSideA, iSideB, iAngleB):
     return math.asin(iSideA * math.sin(iAngleB) / iSideB) * iConvDegToRad
 
 
+def iSideLawOfCosines(iSideA, iSideB, iAngleCDeg, sType = "Deg"):
+
+    if sType == "Deg":
+        iAngleC = iConvDegToRad * iAngleCDeg
+
+    return math.sqrt(iSideA ** 2 + iSideB ** 2 - 2 * iSideA * iSideB * math.cos(iAngleC))
+
+
+def iAngleLawofCosines(iSideA, iSideB, iSideC, sType = "Deg"):
+
+    if sType != "Deg":
+        return math.acos((iSideC ** 2 - iSideA ** 2 - iSideB ** 2) / (2 * iSideA * iSideB))
+
+    return math.acos((iSideC ** 2 - iSideA ** 2 - iSideB ** 2) / (2 * iSideA * iSideB)) / iConvDegToRad
