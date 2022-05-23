@@ -71,6 +71,7 @@ def iArrFactorsOfNum(iNum):
 
     return iArrFactors
 
+
 def bIsPrimeNumber(iNum):
 
     iMidPoint = iNum // 2
@@ -245,3 +246,91 @@ def iCalcThirdAngle(iAngle01, iAngle02)
     iKnownAngles = [iAngle01, iAngle02]
     
     return 180 - sum(iKnownAngles)
+
+
+def sReduceFraction(iNum, iDen):
+
+    # Calculate Factors of Numerator and Denominator
+    iArrNumFactors = iArrFactorsOfNum(iNum)
+    iArrDenFactors = iArrFactorsOfNum(iDen)
+
+    # Create A Whole New Array of Relevant Prime Numbers to Iterate Through:
+    iArrAllFactors = []
+
+    # Function Needs To Optimally Iterate Through All Factors and Add Nonduplicates
+    for iFactor in iArrFactorsOfNum:
+
+        iArrAllFactors.append(iFactor)
+
+    for iFactors in iArrFactorsOfDen:
+
+        iArrAllFactors.append(iFactor)
+
+    iArrAllFactors.sort()
+    iArrIndex = 1
+
+    # Removes Duplicates
+    while iArrIndex <= len(iArrAllFactors):
+
+        if iArrAllFactors[iArrIndex] = iArrAllFactors[iArrIndex - 1]:
+
+            iArrAllFactors.pop(iArrIndex)
+            
+        iArrIndex += 1
+
+    # Analysis of which has the most of each factor:
+
+    iArrNumReducedFactors = [1]
+    iArrDenReducedFactors = [1]
+
+    for iFactor in iArrAllFactors:
+
+        iNumCount = 0
+        iDenCount = 0
+
+        for iFact in iArrNumFactors:
+
+            if iArrAllFactors[iFactor] == iArrNum[iFact]:
+
+                iNumCount += 1
+
+        for iFact in iArrDenFactors:
+
+            if iArrAllFactors[iFactor] == iArrDen[iFact]:
+
+                iDenCount += 1
+
+        iCountDiff = math.abs(iNumCount - iDenCount)
+
+        if iNumCount > iDenCount:
+
+            while iCountDiff != 0:
+
+                iArrNumReducedFactors.append(iArrAllFactors[iFactor])
+                iCountDiff -= 1
+
+        elif iNumCount < iDenCount:
+
+            while iCountDiff != 0
+
+                iArrDenReducedFactors.append(iArrAllFactors[iFactor])
+                iCountDiff -= 1
+
+        else
+
+            pass
+
+    # Finally, take the product of the new factors on num and den and return string
+
+    iNumReduced = product(iArrNumReducedFactors)
+    iDenReduced = product(iArrDenReducedFactors)
+
+    print("Reduced Fraction: " + str(iNumReduced) + " / " + str(iDenReduced))
+
+
+
+
+
+
+
+
