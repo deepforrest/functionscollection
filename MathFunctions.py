@@ -162,4 +162,7 @@ def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
 
     return False
 
-# Test Functions
+# Converts an angle in the DMS (Degree, Minute, Second) system as a float.
+def iDegDec(iDeg, iMin, iSec = 0):
+
+    return iDeg + iMin / 60 + iSec / (60 ** 2)
