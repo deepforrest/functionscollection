@@ -1,3 +1,8 @@
+import math
+
+# Mathematical Constants / Conversions
+iConvDegToRad = 180 / math.pi
+
 # Physics Constants
 
 iGravityConstant = 6.67 * (10 ** -11)   # [m][m][s] / [kg][kg][kg]

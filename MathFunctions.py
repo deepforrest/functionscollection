@@ -166,3 +166,20 @@ def bAddRequiresCarryingDigits(iLargerNum, iSmallerNum):
 def iDegDec(iDeg, iMin, iSec = 0):
 
     return iDeg + iMin / 60 + iSec / (60 ** 2)
+
+
+# Returns a side of a triangle, given another side, its corresponding angle, and the other side's angle.
+def iSideLawofSins(iSideB, iAngleA, iAngleB):
+
+    iAngleA *= iConvDegToRad
+    iAngleB *= iConvDegToRad
+
+    return math.sin(iAngleA) * iSideB / math.sin(iAngleB)
+
+
+def iAngleLawofSins(iSideA, iSideB, iAngleB):
+
+    iAngleB *= iConvDegToRad
+
+    return math.asin(iSideA * math.sin(iAngleB) / iSideB) * iConvDegToRad
+
