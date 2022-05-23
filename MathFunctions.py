@@ -198,6 +198,7 @@ def iAngleLawofSins(iSideA, iSideB, iAngleB):
 def iSideLawOfCosines(iSideA, iSideB, iAngleCDeg, sType = "Deg"):
 
     if sType == "Deg":
+        
         iAngleC = iConvDegToRad * iAngleCDeg
 
     return math.sqrt(iSideA ** 2 + iSideB ** 2 - 2 * iSideA * iSideB * math.cos(iAngleC))
@@ -205,7 +206,42 @@ def iSideLawOfCosines(iSideA, iSideB, iAngleCDeg, sType = "Deg"):
 
 def iAngleLawofCosines(iSideA, iSideB, iSideC, sType = "Deg"):
 
-    if sType != "Deg":
-        return math.acos((iSideC ** 2 - iSideA ** 2 - iSideB ** 2) / (2 * iSideA * iSideB))
+    iAngle = math.acos((iSideC ** 2 - (iSideA ** 2 + iSideB ** 2)) / (-2 * iSideA * iSideB))
+    
+    if sType != "Rad":
 
-    return math.acos((iSideC ** 2 - iSideA ** 2 - iSideB ** 2) / (2 * iSideA * iSideB)) / iConvDegToRad
+        iAngle /= iConvDegToRad 
+
+    return iAngle
+
+
+def iCalcResultVect(iVectorMag01, iVectorMag02, iAngleBetween, sAngleType = "Deg", bDebug = False):
+
+    iNewAngle = iCalcSupplementaryAngle(iAngleBetween)
+
+    if bDebug:
+        
+        print("New angle = " + str(iNewAngle))
+
+    if sAngleType != "Deg":
+
+        return iSideLawOfCosines(iVectorMag01, iVectorMag02, iNewAngle, "Rad")        
+
+    return iSideLawOfCosines(iVectorMag01, iVectorMag02, iNewAngle, "Deg")
+
+
+def iCalcComplementaryAngle(iAngle):
+
+    return 90 - iAngle
+
+
+def iCalcSupplementaryAngle(iAngle):
+
+    return 180 - iAngle
+
+
+def iCalcThirdAngle(iAngle01, iAngle02)
+
+    iKnownAngles = [iAngle01, iAngle02]
+    
+    return 180 - sum(iKnownAngles)
