@@ -168,6 +168,17 @@ def iDegDec(iDeg, iMin, iSec = 0):
     return iDeg + iMin / 60 + iSec / (60 ** 2)
 
 
+def iDegToMin(iDeg):
+
+    return 60 * round(iDeg - math.floor(iDeg), 4)
+
+
+def iDegToSec(iDeg):
+
+    iDegDec = iDegToMin(iDeg)
+    return int(round(iDegDec - math.floor(iDegDec), 4) * 60)
+
+
 # Returns a side of a triangle, given another side, its corresponding angle, and the other side's angle.
 def iSideLawofSins(iSideB, iAngleA, iAngleB):
 
@@ -182,4 +193,5 @@ def iAngleLawofSins(iSideA, iSideB, iAngleB):
     iAngleB *= iConvDegToRad
 
     return math.asin(iSideA * math.sin(iAngleB) / iSideB) * iConvDegToRad
+
 
