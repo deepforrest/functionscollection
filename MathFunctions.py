@@ -41,6 +41,7 @@ def iDifferentiatePolyTerm(iCoeff, iVar, iPower):
 # Tested.  Returns an array of prime numbers that when multiplied together, create the original number.  Optimized for speed
 def iArrFactorsOfNum(iNum):
 
+    iOrigNum = int(iNum)
     iArrFactors = []
     iDivisor = 2
 
@@ -55,7 +56,7 @@ def iArrFactorsOfNum(iNum):
             #print(str(iNum) + " is divisible by " + str(iDivisor))
 
             iNum /= iDivisor
-            #print("New Number: " + str(iNum))
+            #print("\nNew Number: " + str(iNum))
 
         if iDivisor != 2:
 
@@ -67,7 +68,7 @@ def iArrFactorsOfNum(iNum):
 
     if len(iArrFactors) == 1:
 
-        return "1 and itself"
+        return [1, iOrigNum]
 
     return iArrFactors
 
