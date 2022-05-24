@@ -249,59 +249,65 @@ def iCalcThirdAngle(iAngle01, iAngle02)
     return 180 - sum(iKnownAngles)
 
 
-def sReduceFraction(iNum, iDen, bDebug = False):
+def sReduceFractionByFactoring(iNum, iDen, bDebug = False):
 
-    print("Original Fraction = {} / {}".format(iNum, iDen))
+    iOrigNum = iNum
+    iOrigDen = iDen
 
-    # Calculate Factors of Numerator and Denominator
+    # Calculate Factors of Numerator and Denominator from Factor Array Function:
     iArrNumFactors = iArrFactorsOfNum(iNum)
     iArrDenFactors = iArrFactorsOfNum(iDen)
 
+    bDebug and print("\nStep 1 - Find Factors of Numerator and Denominator")
     bDebug and print("Factors of {}: {}".format(iNum, iArrNumFactors))
     bDebug and print("Factors of {}: {}".format(iDen, iArrDenFactors))
 
     # Create A Whole New Array of Relevant Prime Numbers to Iterate Through:
     iArrAllFactors = []
 
-    bDebug and print("\nAdd The Numbers To The Factor:")
+    bDebug and print("\nStep 2a - Add The Numbers The All Factor Array from Num:")
     # Function Needs To Optimally Iterate Through All Factors and Add Nonduplicates
     for iFactor in iArrNumFactors:
 
         iArrAllFactors.append(iFactor)
-        bDebug and print(iArrAllFactors)
+        bDebug and print("Updated All Factors Array: {} ".format(iArrAllFactors))
 
-    bDebug and print("\nAdd The Denominator Factors")
+    bDebug and print("\nStep 2b - Add The Numbers The All Factor Array from Num:")
 
     for iFactors in iArrDenFactors:
 
         iArrAllFactors.append(iFactors)
-        bDebug and print(iArrAllFactors)
+        bDebug and print("Updated All Factors Array: {} ".format(iArrAllFactors))
 
-    bDebug and print("\nNumbers All Sorted:")
+
+    bDebug and print("\nStep 3 - Sort All Numbers:")
     iArrAllFactors.sort()
 
-    bDebug and print(iArrAllFactors)
+    bDebug and print("Sorted Array: {}".format(iArrAllFactors))
     iArrIndex = 1
+    iArrIter = 0
 
     # Removes Duplicates
+    bDebug and print("\nStep 4 - Remove Duplicates Within Array:")
     while iArrIndex <= len(iArrAllFactors) - 1:
 
-        bDebug and print("\nNew length of array: " + str(len(iArrAllFactors)))
+        iArrIter += 1
+        bDebug and print("\nMaster Array Iteration: {}".format(iArrIter))
+        bDebug and print("Current Length of Array: {} ".format(len(iArrAllFactors)))
 
         while iArrAllFactors[iArrIndex] == iArrAllFactors[iArrIndex - 1] and len(iArrAllFactors) > 1:
 
-            bDebug and print("\n{} in position {} is the same as {} in position {}".format(iArrAllFactors[iArrIndex], iArrIndex, iArrAllFactors[iArrIndex - 1], iArrIndex - 1))
+            bDebug and print("\nFactor {} at Index {} = Factor {} at Index {}".format(iArrAllFactors[iArrIndex], iArrIndex, iArrAllFactors[iArrIndex - 1], iArrIndex - 1))
             
             iArrIndex -= 1
             iArrAllFactors.pop(iArrIndex)
 
             if iArrIndex < 0: iArrIndex = 0
             
-            bDebug and print("\nNumber removed: {} at Index {}".format(iArrAllFactors[iArrIndex], iArrIndex))
-            bDebug and print(iArrAllFactors)
+            bDebug and print("\nDuplicate Factor {} removed at Index {}".format(iArrAllFactors[iArrIndex], iArrIndex))
+            bDebug and print("Updated List: {}".format(iArrAllFactors))
 
         iArrIndex += 1
-        bDebug and print(iArrAllFactors)
 
     # Analysis of which has the most of each factor:
 
@@ -311,16 +317,19 @@ def sReduceFraction(iNum, iDen, bDebug = False):
     iArrDenReducedFactors = [1]
     iMasterFactor = 0
 
+    bDebug and print("\nStep 5 - Compare Number of Factors in Num/Den While Iterating Through Master Array")
+
     while iMasterFactor <= len(iArrAllFactors) - 1:
         
-        bDebug and print("\nFactor in examination: {}".format(iMasterFactor))
-        bDebug and print("\nFactors Length: {} with Index {}".format(len(iArrAllFactors), iMasterFactor))
+        bDebug and print("\nFactor: {}".format(iArrAllFactors[iMasterFactor]))
+        bDebug and print("\nFactors Array Length: {} with Index {}".format(len(iArrAllFactors), iMasterFactor))
 
 
         # Initialization of Counters for Each Factor
         iNumCount = 0
         iDenCount = 0
 
+        # Iterate Through Numerator
         for iFactNum in range(len(iArrNumFactors)):
 
             bDebug and print("\nMaster Factor Index: {}  \nNum Factor Index {}".format(iMasterFactor, iFactNum))
@@ -329,52 +338,69 @@ def sReduceFraction(iNum, iDen, bDebug = False):
             if iArrAllFactors[iMasterFactor] == iArrNumFactors[iFactNum]:
 
                 iNumCount += 1
-                bDebug and print("\nNumber of {} factors in numerator = {}".format(iMasterFactor, iNumCount))
+                bDebug and print("Numerator has factor of {}".format(iArrAllFactors[iMasterFactor]))
 
+            bDebug and print("\nNumber of {} Factors in Numerator = {}".format(iArrAllFactors[iMasterFactor], iNumCount))
+
+        # Iterate Through Denominator
         for iFactDen in range(len(iArrDenFactors)):
 
             if iArrAllFactors[iMasterFactor] == iArrDenFactors[iFactDen]:
 
                 iDenCount += 1
-                bDebug and print("\nNumber of {} factors in denominator = {}".format(iMasterFactor, iDenCount))
+                bDebug and print("Denominator has factor of {}".format(iArrAllFactors[iMasterFactor]))
+                
+            bDebug and print("\nNumber of {} factors in denominator = {}".format(iArrAllFactors[iMasterFactor], iDenCount))
 
         iCountDiff = abs(iNumCount - iDenCount)
-        
-        bDebug and print("\nCount Diff: {}".format(iCountDiff))
+    
+        bDebug and print("\nStep 6 - Compare Numerator and Denominator Counts of The Factor {}".format(iArrAllFactors[iMasterFactor]))
+        bDebug and print("Num Count: {} \nDen Count: {}".format(iNumCount, iDenCount))
+        bDebug and print("Absolute Difference = {}".format(iCountDiff))
 
-        bDebug and print("\nFactor: {} \nNum Count: {} \nDen Count: {}".format(iArrAllFactors[iMasterFactor], iNumCount, iDenCount))
 
         if iNumCount > iDenCount:
 
-            bDebug and print("\nNumerator wins the factor of {}!".format(iArrAllFactors[iMasterFactor]))
+            bDebug and print("\nNumerator has highest count of Factor: {}".format(iArrAllFactors[iMasterFactor]))
+            bDebug and print("and will be added {} times".format(iCountDiff))
+
             while iCountDiff != 0:
 
-                bDebug and print("{} added to Num Array!".format(iArrAllFactors[iMasterFactor]))
                 iArrNumReducedFactors.append(iArrAllFactors[iMasterFactor])
                 iCountDiff -= 1
 
         elif iNumCount < iDenCount:
             
-            bDebug and print("\nDenominator wins the factor of {}!".format(iArrAllFactors[iMasterFactor]))
+            bDebug and print("\nDenominator has highest count of Factor: {}".format(iArrAllFactors[iMasterFactor]))
+            bDebug and print("and will be added {} times".format(iCountDiff))
+
             while iCountDiff != 0:
-                bDebug and print("{} added to Den Array!".format(iArrAllFactors[iMasterFactor]))
+
                 iArrDenReducedFactors.append(iArrAllFactors[iMasterFactor])
                 iCountDiff -= 1
 
         else:
 
-            bDebug and print("It is a tie between Num and Den - no additions made.")
+            bDebug and print("Num and Den have the same amount of {}s.  Factor discarded.".format(iArrAllFactors[iMasterFactor]))
             pass
 
         iMasterFactor += 1
-        bDebug and print("\nNum Factors: {}".format(iArrNumReducedFactors))
-        bDebug and print("\nDen Factors: {}".format(iArrDenReducedFactors))
+
+        bDebug and print("\nUpdated Arrays:")
+        bDebug and print("Num Factor Array: {}".format(iArrNumReducedFactors))
+        bDebug and print("Den Factor Array: {}".format(iArrDenReducedFactors))
 
     # Finally, take the product of the new factors on num and den and return string
-
+    
+    bDebug and print("\nFinal Reduced Arrays:")
+    bDebug and print("Num Factor Array: {}".format(iArrNumReducedFactors))
+    bDebug and print("Den Factor Array: {}".format(iArrDenReducedFactors))
+    
+    # Initialized Variables for Product of All Arrays:
     iNumReduced = 1
     iDenReduced = 1
 
+    # Iterate Arrays for Product of Num / Den
     for iNumRedInd in range(len(iArrNumReducedFactors)):
         
         iNumReduced *= iArrNumReducedFactors[iNumRedInd] 
@@ -383,7 +409,8 @@ def sReduceFraction(iNum, iDen, bDebug = False):
         
         iDenReduced *= iArrDenReducedFactors[iDenRedInd] 
     
-    print("\nFraction reduces to {}".format(iNumReduced)) if iDenReduced == 1 else print("Fraction reduces to {} / {}".format(iNumReduced, iDenReduced))
+    print("\n\nFinal Result for Fraction {:,} / {:,}:".format(iOrigNum, iOrigDen))
+    print("\nReduces to {:,}".format(iNumReduced)) if iDenReduced == 1 else print("Fraction reduces to {:,} / {:,}".format(iNumReduced, iDenReduced))
 
 def sReduceFractionAlt(iNum, iDen):
 
