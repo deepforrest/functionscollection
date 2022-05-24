@@ -412,24 +412,32 @@ def sReduceFractionByFactoring(iNum, iDen, bDebug = False):
     print("\n\nFinal Result for Fraction {:,} / {:,}:".format(iOrigNum, iOrigDen))
     print("\nReduces to {:,}".format(iNumReduced)) if iDenReduced == 1 else print("Fraction reduces to {:,} / {:,}".format(iNumReduced, iDenReduced))
 
-def sReduceFractionAlt(iNum, iDen):
+def sReduceFractionFast(iNum, iDen):
 
-    print("Fraction: {} / {}".format(iNum, iDen))
+    print("Fraction: {:,} / {:,}".format(iNum, iDen))
 
+    # Start the factor at the middle of the lowest number to save time
     iFactor = iNum // 2 if (iNum <= iDen) else iDen // 2
+    
+    #Starts the function at an odd number so that the only even number analyzed is 2
+    if iFactor % 2 == 0: iFactor += 1
     iFactorArray = []
 
+
+    # Go down the list 
     while iFactor > 1:
 
+        # Checks to see if both numerator and denominator can be divided by the same number into an integer 
         if iNum % iFactor == 0 and iDen % iFactor == 0:
 
+            # Necessary because sometimes you may be able to factor out a number multiple times.
             while iNum % iFactor == 0 and iDen % iFactor == 0:
 
                 iNum /= iFactor
                 iDen /= iFactor
                 iFactorArray.append(iFactor)
 
-        iFactor -= 1
+        iFactor -= 2 if iFactor != 3 else iFactor -= 1
     
-    print("Reduced Fraction: {} / {}".format(int(iNum), int(iDen)))
+    print("Reduced Fraction: {:,} / {:,}".format(int(iNum), int(iDen)))
     print("Factor Array: {}".format(iFactorArray))
