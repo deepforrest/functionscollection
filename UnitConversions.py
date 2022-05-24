@@ -1,56 +1,66 @@
 # Temperature - Basics
 
-iDegKtoR = 5 / 9
-iDiffCtoK = 273.15
-iDiffFtoR = 459.67
-iDiffCtoF = 32
+iDeg_K_to_R = 5 / 9
+iDiff_C_to_K = 273.15
+iDiff_F_to_R = 459.67
+iDiff_C_to_F = 32
 
-def iDegreesCtoK(iTemp):
+def iDegrees_C_to_K(iTemp_C):
 
-    return iTemp + iDiffCtoK
-
-
-def iDegreesKtoC(iTemp):
-
-    return iTemp - iDiffCtoK
+    return iTemp_C + iDiff_C_to_K
 
 
-def iDegreesFtoR(iTemp):
+def iDegrees_K_to_C(iTemp_K):
 
-    return iTemp + iDiffFtoR
+    return iTemp_K - iDiff_C_to_K
 
 
-def iDegreesRtoF(iTemp):
+def iDegrees_F_to_R(iTemp_F):
 
-    return iTemp - iDiffFtoR
+    return iTemp_F + iDiff_F_to_R
+
+
+def iDegrees_R_to_F(iTemp_R):
+
+    return iTemp_R - iDiff_F_to_R
 
 # Temperature - More Sophisticated
 
-def iDegreesCtoF(iTemp):
+def iDegrees_C_to_F(iTemp_C):
 
-    return iDegKtoR * (iTemp - iDiffCtoF)
-
-
-def iDegreesFtoC(iTemp):
-
-    return iTemp / iDegKtoR + iDiffCtoF
+    return iDeg_K_to_R * (iTemp_C - iDiff_C_to_F)
 
 
-def iDegreesKtoR(iTemp):
+def iDegrees_F_to_C(iTemp_F):
 
-    return iDegKtoR * iTemp
-
-
-def iDegreesRtoK(iTemp):
-
-    return iTemp / iDegKtoR
+    return iTemp_F / iDeg_K_to_R + iDiff_C_to_F
 
 
-def iDegreesRtoC(iTemp):
+def iDegrees_K_to_R(iTemp_K):
 
-    return iDegreesCtoK(iDegreesRtoK(iTemp))
+    return iDeg_K_to_R * iTemp_K
 
 
-def iDegreesKtoF(iTemp):
+def iDegrees_R_to_K(iTemp_R):
 
-    return iDegreesFtoR(iDegreesKtoR(iTemp))
+    return iTemp_R / iDeg_K_to_R
+
+
+def iDegrees_R_to_C(iTemp_R):
+
+    return iDegrees_C_to_K(iDegrees_R_to_K(iTemp_R))
+
+
+def iDegrees_K_to_F(iTemp_K):
+
+    return iDegrees_F_to_R(iDegrees_K_to_R(iTemp_K))
+
+#------------------Length--Conversions---------------
+
+def iInchesTo_cm(iLenInches):
+
+    return 2.54 * iLenInches
+
+def i_cmTo_mm(iLen_cm):
+
+    return 10 * iLen_cm
