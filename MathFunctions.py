@@ -251,6 +251,8 @@ def iCalcThirdAngle(iAngle01, iAngle02)
 
 def sReduceFraction(iNum, iDen, bDebug = False):
 
+    print("Original Fraction = {} / {}".format(iNum, iDen))
+
     # Calculate Factors of Numerator and Denominator
     iArrNumFactors = iArrFactorsOfNum(iNum)
     iArrDenFactors = iArrFactorsOfNum(iDen)
@@ -286,15 +288,18 @@ def sReduceFraction(iNum, iDen, bDebug = False):
 
         bDebug and print("\nNew length of array: " + str(len(iArrAllFactors)))
 
-        while iArrAllFactors[iArrIndex] == iArrAllFactors[iArrIndex - 1]:
+        while iArrAllFactors[iArrIndex] == iArrAllFactors[iArrIndex - 1] and len(iArrAllFactors) > 1:
 
             bDebug and print("\n{} in position {} is the same as {} in position {}".format(iArrAllFactors[iArrIndex], iArrIndex, iArrAllFactors[iArrIndex - 1], iArrIndex - 1))
             
             iArrIndex -= 1
             iArrAllFactors.pop(iArrIndex)
+
+            if iArrIndex < 0: iArrIndex = 0
             
-            bDebug and print("\nIndex removed: {}".format(iArrIndex))
-            
+            bDebug and print("\nNumber removed: {} at Index {}".format(iArrAllFactors[iArrIndex], iArrIndex))
+            bDebug and print(iArrAllFactors)
+
         iArrIndex += 1
         bDebug and print(iArrAllFactors)
 
@@ -316,7 +321,7 @@ def sReduceFraction(iNum, iDen, bDebug = False):
         iNumCount = 0
         iDenCount = 0
 
-        for iFactNum in range(len(iArrNumFactors) - 1):
+        for iFactNum in range(len(iArrNumFactors)):
 
             bDebug and print("\nMaster Factor Index: {}  \nNum Factor Index {}".format(iMasterFactor, iFactNum))
             bDebug and print("\nMaster Array Length: {}  \nNum Array Length {}".format(len(iArrAllFactors), len(iArrNumFactors)))
@@ -326,7 +331,7 @@ def sReduceFraction(iNum, iDen, bDebug = False):
                 iNumCount += 1
                 bDebug and print("\nNumber of {} factors in numerator = {}".format(iMasterFactor, iNumCount))
 
-        for iFactDen in range(len(iArrDenFactors) - 1):
+        for iFactDen in range(len(iArrDenFactors)):
 
             if iArrAllFactors[iMasterFactor] == iArrDenFactors[iFactDen]:
 
@@ -337,22 +342,28 @@ def sReduceFraction(iNum, iDen, bDebug = False):
         
         bDebug and print("\nCount Diff: {}".format(iCountDiff))
 
+        bDebug and print("\nFactor: {} \nNum Count: {} \nDen Count: {}".format(iArrAllFactors[iMasterFactor], iNumCount, iDenCount))
+
         if iNumCount > iDenCount:
 
+            bDebug and print("\nNumerator wins the factor of {}!".format(iArrAllFactors[iMasterFactor]))
             while iCountDiff != 0:
 
+                bDebug and print("{} added to Num Array!".format(iArrAllFactors[iMasterFactor]))
                 iArrNumReducedFactors.append(iArrAllFactors[iMasterFactor])
                 iCountDiff -= 1
 
         elif iNumCount < iDenCount:
-
+            
+            bDebug and print("\nDenominator wins the factor of {}!".format(iArrAllFactors[iMasterFactor]))
             while iCountDiff != 0:
-
+                bDebug and print("{} added to Den Array!".format(iArrAllFactors[iMasterFactor]))
                 iArrDenReducedFactors.append(iArrAllFactors[iMasterFactor])
                 iCountDiff -= 1
 
         else:
 
+            bDebug and print("It is a tie between Num and Den - no additions made.")
             pass
 
         iMasterFactor += 1
@@ -372,6 +383,4 @@ def sReduceFraction(iNum, iDen, bDebug = False):
         
         iDenReduced *= iArrDenReducedFactors[iDenRedInd] 
     
-    print("\nReduced Fraction: " + str(iNumReduced) + " / " + str(iDenReduced))
-
-sReduceFraction(28, 72, True)
+    print("\nFraction reduces to {}".format(iNumReduced)) if iDenReduced == 1 else print("Fraction reduces to {} / {}".format(iNumReduced, iDenReduced))
