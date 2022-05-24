@@ -424,7 +424,7 @@ def sReduceFractionFast(iNum, iDen):
     iFactorArray = []
 
 
-    # Go down the list 
+    # Go down the list of odd numbers
     while iFactor > 1:
 
         # Checks to see if both numerator and denominator can be divided by the same number into an integer 
@@ -437,6 +437,8 @@ def sReduceFractionFast(iNum, iDen):
                 iDen /= iFactor
                 iFactorArray.append(iFactor)
 
+        # Testing Req'd to Verify this procedure works
+        # Makes the last number 2 if it is at 3
         iFactor -= 2 if iFactor != 3 else iFactor -= 1
     
     print("Reduced Fraction: {:,} / {:,}".format(int(iNum), int(iDen)))
