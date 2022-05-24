@@ -384,3 +384,25 @@ def sReduceFraction(iNum, iDen, bDebug = False):
         iDenReduced *= iArrDenReducedFactors[iDenRedInd] 
     
     print("\nFraction reduces to {}".format(iNumReduced)) if iDenReduced == 1 else print("Fraction reduces to {} / {}".format(iNumReduced, iDenReduced))
+
+def sReduceFractionAlt(iNum, iDen):
+
+    print("Fraction: {} / {}".format(iNum, iDen))
+
+    iFactor = iNum // 2 if (iNum <= iDen) else iDen // 2
+    iFactorArray = []
+
+    while iFactor > 1:
+
+        if iNum % iFactor == 0 and iDen % iFactor == 0:
+
+            while iNum % iFactor == 0 and iDen % iFactor == 0:
+
+                iNum /= iFactor
+                iDen /= iFactor
+                iFactorArray.append(iFactor)
+
+        iFactor -= 1
+    
+    print("Reduced Fraction: {} / {}".format(int(iNum), int(iDen)))
+    print("Factor Array: {}".format(iFactorArray))
