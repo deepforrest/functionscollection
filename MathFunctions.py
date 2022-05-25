@@ -500,3 +500,22 @@ def iNumericPolynomial(iArrCoeff, iVar, bDebug = False):
         iPower -= 1
 
     return iNumericSolution
+
+
+def sDefineEndToEndBehavior(iArrCoeff):
+    
+    iIndex = 0
+
+    # Validation to ensure no 0 coefficients appear in the lead terms.
+    while iArrCoeff[iIndex] == 0:
+
+        iIndex += 1
+    
+    iHighestPower = len(iArrCoeff) - iIndex - 1
+    iLeadCoeff = iArrCoeff[iIndex]
+    
+    if iHighestPower % 2 == 0:
+
+        return "Quadrant II to Quadrant I" if iLeadCoeff > 0, else "Quadrant III to Quadrant IV"
+
+    return "Quadrant III to Quadrant I" if iLeadCoeff > 0, else "Quadrant II to Quadrant IV"
