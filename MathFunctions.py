@@ -462,11 +462,41 @@ def iProductPower(iNumPoly, iNumPower, iDenPoly, iDenPower):
     
     return iNumPower + iDenPower
 
+
 def iNumericPolyTerm(iCoeff, iVar, iPower):
 
     return iCoeff * (iVar ** iPower)
+
 
 def iExponentiatePolyTerm(iCoeff, iPoly, iPower, iExponent)
 
     return iNumericPolyTerm(iCoeff ** iExponent, iPoly, iPower * iExponent)
 
+
+def iNumericPolynomial(iArrCoeff, iVar, bDebug = False):
+
+    iLeadingPower = len(iArrCoeff) - 1
+    
+    if bDebug:
+
+        sPolyStatement = "Numeric Polynomial = "
+        iPower = iLeadingPower
+
+        for iCoefficients in iArrCoeff:
+
+            sPolyStatement += str(iArrCoeff[iCoefficients]) + "x^" + str(iPower)
+            iPower >= 1 and sPolyStatement += " + " 
+            
+            iPower -= 1
+
+        print(sPolyStatement)
+
+    iPower = iLeadingPower
+    iNumericSolution = 0
+
+    for iCoefficients in iArrCoeff:
+
+        iNumericSolution += iNumericPolyTerm(iArrCoeff[iCoefficients], iVar, iPower)
+        iPower -= 1
+
+    return iNumericSolution
