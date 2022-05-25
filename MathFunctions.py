@@ -13,6 +13,16 @@ def iFactorial(iNum):
 
     return iResult
 
+# Recipricals
+
+def iReciprical(iNum):
+
+    if iNum != 0:
+
+        return 1 / iNum
+
+    return "ERROR! DIV/0"
+
 # Combinations in probability and statestics
 def iCombinations(iSelection, iSetTotal):
 
