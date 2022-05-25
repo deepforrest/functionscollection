@@ -57,10 +57,37 @@ def iDegrees_K_to_F(iTemp_K):
 
 #------------------Length--Conversions---------------
 
-def iInchesTo_cm(iLenInches):
+def iLength_in_to_cm(iLen_in):
 
-    return 2.54 * iLenInches
+    return 2.54 * iLen_in
 
-def i_cmTo_mm(iLen_cm):
+def iLength_m_to_cm(iLen_m):
+
+    return 100 * iLen_m
+
+def iLength_cm_to_mm(iLen_cm):
 
     return 10 * iLen_cm
+
+def iLength_ft_to_in(iLen_ft):
+
+    return 12 * iLen_ft
+
+def iLength_yd_to_ft(iLen_yd):
+
+    return 3 * iLen_yd
+
+def iLength_mi_to_ft(iLen_mi):
+
+    return 5_280 * iLen_mi
+
+
+# Compound Length Conversions
+
+def iLength_ft_to_cm(iLen_ft):
+
+    return iLength_in_to_cm(iLength_ft_to_in(iLen_ft))
+
+def iLength_ft_to_mm(iLen_ft):
+
+    return iLength_cm_to_mm(iLength_ft_to_cm(iLen_ft))

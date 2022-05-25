@@ -443,3 +443,23 @@ def sReduceFractionFast(iNum, iDen):
     
     print("Reduced Fraction: {:,} / {:,}".format(int(iNum), int(iDen)))
     print("Factor Array: {}".format(iFactorArray))
+
+
+def iQuotientPower(iNumPoly, iNumPower, iDenPoly, iDenPower):
+
+    if iNumPoly != iDenPoly:
+
+        return "Not Computable"
+    
+    return iNumPower - iDenPower
+
+
+def iProductPower(iNumPoly, iNumPower, iDenPoly, iDenPower):
+
+    if iNumPoly != iDenPoly:
+
+        return "Not Computable"
+    
+    return iNumPower + iDenPower
+
+
