@@ -23,6 +23,10 @@ def iReciprical(iNum):
 
     return "ERROR! DIV/0"
 
+def iSciNot(iPower):
+
+    return 10 ** iPower
+
 # Combinations in probability and statestics
 def iCombinations(iSelection, iSetTotal):
 

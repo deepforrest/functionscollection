@@ -11,6 +11,60 @@ iLen_in_per_ft = 12
 
 iLen_cm_per_in = 2.54
 
+# VOLUME - IMPERIAL
+iVol_gal_to_qt = 4
+iVol_qt_to_pt = 2
+iVol_pt_to_cup = 2
+iVol_cup_to_gill = 2
+iVol_gill_to_floz = 5
+
+# SI Prefix Conversions
+iSIPrefBaseConv = {
+
+    "Y": iSciNot(-24),
+    "Z": iSciNot(-21),
+    "E": iSciNot(-18),
+    "P": iSciNot(-15),
+    "T": iSciNot(-12),
+    "G": iSciNot(-9),
+    "M": iSciNot(-6),
+    "k": iSciNot(-3),
+    "h": iSciNot(-2),
+    "da": iSciNot(-1),
+    "d": iSciNot(1),
+    "c": iSciNot(2),
+    "m": iSciNot(3),
+    "µ": iSciNot(6),
+    "n": iSciNot(9),
+    "p": iSciNot(12),
+    "f": iSciNot(15),
+    "a": iSciNot(18),
+    "z": iSciNot(21),
+    "y": iSciNot(24)
+
+}
+
+
+# Fundamental Units
+sFundamentalUnits_SI {
+
+    "mass": "kg",
+    "length": "m",
+    "time": "s",
+    "substance": "mol",
+    "electric current": "A",
+    "temperature": "K",
+    "luminous intensity": "cd"
+
+}
+
+print(sFundamentalUnits_SI.mass)
+
+
+
+
+# Temperature Unit Conversions
+
 def iDegrees_C_to_K(iTemp_C):
 
     return iTemp_C + iDiff_C_to_K
@@ -65,12 +119,12 @@ def iDegrees_K_to_F(iTemp_K):
 
 def iLength_m_to_cm(iLen_m):
 
-    return 100 * iLen_m
+    return (10 ** 2) * iLen_m
 
 
-def iLength_cm_to_mm(iLen_cm):
+def iLength_m_to_mm(iLen_cm):
 
-    return 10 * iLen_cm
+    return (10 ** 3) * iLen_cm
 
 
 # Step Conversions - Imperial
@@ -99,7 +153,9 @@ def iLength_cm_to_in(iLen_cm):
     return iReciprical(iLength_in_to_cm(iLen_cm))  # Double check?
 
 
-# Cascading Length Conversions
+#-----------------------Cascading-Length-Conversions-----------------------
+
+# IMPERIAL - FORWARD
 def iLength_mi_to_ft(iLen_mi):
 
     return iLength_yd_to_ft(iLength_mi_to_yd(iLen_mi))
@@ -114,9 +170,24 @@ def iLength_yd_to_in(iLen_yd):
 
     return iLength_ft_to_in(iLength_yd_to_ft(iLen_yd))
 
+# IMPERIAL - BACKWARD
+def iLength_in_to_yd(ilLen_in):
+
+    return iReciprical(iLength_yd_to_in(iLen_in))  # Modify - conversion route incorrect!
+
+
+def iLength_in_to_mi(iLen_in):
+
+    return iReciprical(iLength_mi_to_in(iLen_in))  # Modify - conversion route incorrect!
+
+
+def iLength_ft_to_mi(iLen_mi):
+
+    return iReciprical(iLength_mi_to_ft(iLen_mi))  # Modify - conversion route incorrect!
+
+# METRIC
 
 # Imperial to Metric Conversions
-
 def iLength_ft_to_cm(iLen_ft):
 
     return iLength_in_to_cm(iLength_ft_to_in(iLen_ft))
