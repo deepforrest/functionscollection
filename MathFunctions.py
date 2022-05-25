@@ -462,4 +462,11 @@ def iProductPower(iNumPoly, iNumPower, iDenPoly, iDenPower):
     
     return iNumPower + iDenPower
 
+def iNumericPolyTerm(iCoeff, iVar, iPower):
+
+    return iCoeff * (iVar ** iPower)
+
+def iExponentiatePolyTerm(iCoeff, iPoly, iPower, iExponent)
+
+    return iNumericPolyTerm(iCoeff ** iExponent, iPoly, iPower * iExponent)
 
