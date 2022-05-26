@@ -35,4 +35,4 @@ def iCompleteTheSquareTerm(iQuadCoeff, iLinearCoeff):
 
 def sCompleteTheSquareStatement(iQuadCoeff, iLinearCoeff):
 
-    print("{}x^2 + {}x + {}".format(iQuadCoeff, iLinearCoeff, iCompleteTheSquareTerm(iQuadCoeff, iLinearCoeff)))
+    print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iCompleteTheSquareTerm(iQuadCoeff, iLinearCoeff)))
