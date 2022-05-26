@@ -2,6 +2,11 @@
 # for myself in the event I take this into a different
 # language that doesn't have such libraries.
 
+def iDiff(iFinal, iInit):
+
+    return iFinal - iInit
+
+
 def iFactorial(iNum):
 
     iResult = 1

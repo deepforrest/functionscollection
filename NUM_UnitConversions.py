@@ -95,13 +95,24 @@ sFundamentalUnits_SI {
 
 }
 
-print(sFundamentalUnits_SI.mass)
+def sStandardizeUnit(sUnit):
 
+    if sUnit[0] != "[" or sUnit[len(sUnit) - 1] != "]":
 
+        return "Improperly formatted unit!"
+
+    sLastLetter = sUnit[len(sUnit) - 2]
+
+    # Iterates through the 7 Fundamental Units
+    return sFundamentalUnits_SI("mass") if sLastLetter = "g" else
+        sFundamentalUnits_SI("length") if sLastLetter = "m" else
+        sFundamentalUnits_SI("temperature") if sLastLetter = "K" else
+        sFundamentalUnits_SI("time") if sLastLetter = "s" else
+        sFundamentalUnits_SI("substance") if sLastLetter = "l" else
+        sFundamentalUnits_SI("electric current") if sLastLetter = "A" else sFundamentalUnits_SI("luminous intensity")
 
 
 # Temperature Unit Conversions
-
 def iDegrees_C_to_K(iTemp_C):
 
     return iTemp_C + iDiff_C_to_K

@@ -65,12 +65,6 @@ def iEnergyHookesLaw(iSpringConst, iDeltaPosition, iNormAngle = iRightAngle):
 
 '''
 
-# Math
-
-def iDiff(iFinal, iInit):
-
-    return iFinal - iInit
-
 # Kinematics, 1D
 
 def iVelocityFinalAlt(iVelInit, iAccel, iPosFinal, iPosInit):

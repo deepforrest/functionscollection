@@ -4,7 +4,6 @@ import math
 iConvDegToRad = 180 / math.pi
 
 # Physics Constants
-
 iGravityConstant = 6.67 * (10 ** -11)   # [m][m][s] / [kg][kg][kg]
 iRadiusOfEarth = 6.3781 * (10 ** 6)     # [m]
 
@@ -40,6 +39,13 @@ iOvertimeCoef = 1.5
 
 # Calculated Economic Constants
 iWorkDaysPerYear = iWorkDaysPerWeek * iHoursWorkPerDay * iWeeksPerYear
+
+# Rewrite Constants as a Function of their Units:
+
+def iGetIdealGasConst(sEnergyUnit, sSubstanceUnit, sTempUnit):
+
+    if sEnergyUnit = "[J]" and sSubstanceUnit = "[mol]" and sTempUnit = "[K]": return 8.31446261815324
+    if sEnergyUnit = "[Btu]" and sSubstanceUnit = "[mol]" and sTempUnit = "[ºR]": return 1.985875279009
 
 # Proposed Classes
 class AtomicElement:
