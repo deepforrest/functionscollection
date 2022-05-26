@@ -1,0 +1,21 @@
+Welcome to the functions collection!  This is my database of functions I use to tutor students.
+
+Disclaimer: These functions should be double checked if deployed in professional work.  Developer assumes
+no responsibility for how calculations are interpreted and deployed by users.
+
+Subjects Covered
+
+Business
+
+
+Engineering
+
+
+
+Math
+
+
+General
+
+
+Science
