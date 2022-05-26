@@ -27,16 +27,6 @@ def iSciNot(iPower):
 
     return 10 ** iPower
 
-# Combinations in probability and statestics
-def iCombinations(iSelection, iSetTotal):
-
-    return iFactorial(iSetTotal) / (iFactorial(iSelection) * iFactorial(iSetTotal - iSelection))
-
-
-# Permutations are similar to combinations
-def iPermutations(iSelection, iSetTotal):
-
-    return iFactorial(iSetTotal) / iFactorial(iSetTotal - iSelection)
 
 # Numerical solution to a polynomial term according to the power rule
 def iIntegratePolyTerm(iCoeff, iVar, iPower):
