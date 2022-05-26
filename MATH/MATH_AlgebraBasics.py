@@ -36,3 +36,15 @@ def iCompleteTheSquareTerm(iQuadCoeff, iLinearCoeff):
 def sCompleteTheSquareStatement(iQuadCoeff, iLinearCoeff):
 
     print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iCompleteTheSquareTerm(iQuadCoeff, iLinearCoeff)))
+
+
+# (iA_1*x + iB_1)(iA_2*x + iB_2)
+def sFOILExpression(iA_1, iA_2, iB_1, iB_2):
+
+    iQuadCoeff = iA_1 * iA_2
+    iLinearCoeff = iA_1 * iB_2 + iB_1 * iA_2
+    iConstant = iB_1 * iB_2
+
+    print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iConstant))
+
+
