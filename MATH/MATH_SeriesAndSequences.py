@@ -12,7 +12,7 @@ def sLinearSequence_FindNextNTerms(iInitialTerm, iDifference, iNum):
 
     return sSeriesStatement
 
-def iGeometricSeries_FindNextNTerms(iInitialTerm, iRatio, iNum):
+def iGeometricSeries_ExpandToNTerms(iInitialTerm, iRatio, iNum):
 
     if iNum < 1: return "Not a valid number of terms!"
 

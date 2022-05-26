@@ -523,3 +523,21 @@ def sDefineEndToEndBehavior(iArrCoeff):
         return "Quadrant II to Quadrant I" if iLeadCoeff > 0, else "Quadrant III to Quadrant IV"
 
     return "Quadrant III to Quadrant I" if iLeadCoeff > 0, else "Quadrant II to Quadrant IV"
+
+
+def sTransformDecToFraction(iDecimal, bDebug = False):
+
+    if iDecimal - int(iDecimal) == 0: return "Not a decimal"
+
+    iNum = iDecimal
+    iDen = 1
+
+    # Blows up number and denominator until it is decimalless.  Ceases if the next iteration is divisible by 10
+    while 10 * iNum % 10 != 0:
+
+        iNum *= 10
+        iDen *= 10
+
+        bDebug and print("{:,} / {:,}".format(iNum, iDen))
+
+    sReduceFractionFast(iNum, iDen)

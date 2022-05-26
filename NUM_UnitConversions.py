@@ -44,17 +44,54 @@ iSIPrefBaseConv = {
 
 }
 
+# https://www.ece.utoronto.ca/canadian-metric-association/si-derived-units/
+sDerivedUnits_SI {
+
+    "[C]": "[A][s]",
+    "[F]": "[A][A][s][s][s][s]/[kg][m][m]",
+    "[H]": "[m][m][kg]/[A][A][s][s]",
+    "[Hz]": "[1]/[s]"
+    "[J]": "[kg][m][m]/[s][s]",
+    "[lm]": "[cd][sr]",
+    "[N]": "[kg][m]/[s][s]",
+    "[Ω]": "[m][m][kg]/[A][A][s][s][s]",
+    "[Pa]": "[kg]/[m][s][s]",
+    "[S]": "[A][A][s][s][s]/[m][m][kg]",
+    "[Sv]": "[m][m]/[s][s]",
+    "[T]": "[kg]/[A][s][s]",
+    "[V]": "[kg][m][m]/[A][s][s][s]"
+    "[W]": "[kg][m][m]/[s][s][s]",
+    "[Wb]": "[m][m][kg]/[A][s][s]",
+
+    "[lx]": "[]",
+    "[bq]": "[]",
+    "[Gy]": "[]",
+    "[rad]": "[]",
+    "[sr]": "[]",
+
+}
+
+sConsolidatedUnits_SI {
+
+    "acceleration": "[m]/[s][s]",
+    "force": "[kg][m]/[s][s]"
+    "jerk": "[m]/[s][s][s]",
+    "velocity": "[m]/[s]",
+
+
+}
+
 
 # Fundamental Units
 sFundamentalUnits_SI {
 
-    "mass": "kg",
-    "length": "m",
-    "time": "s",
-    "substance": "mol",
-    "electric current": "A",
-    "temperature": "K",
-    "luminous intensity": "cd"
+    "mass": "[kg]",
+    "length": "[m]",
+    "time": "[s]",
+    "substance": "[mol]",
+    "electric current": "[A]",
+    "temperature": "[K]",
+    "luminous intensity": "[cd]"
 
 }
 
