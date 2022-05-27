@@ -48,3 +48,27 @@ def sFOILExpression(iA_1, iA_2, iB_1, iB_2):
     print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iConstant))
 
 
+def sFactorTrinomial(iArrTrinomialCoeff, bDebug = False):
+
+    if len(iArrTrinomialCoeff) != 3: return "Not a trinomial set of coefficients!"
+
+    bDebug and print("{} x^2 + {} x + {}".format(iArrTrinomialCoeff[0], iArrTrinomialCoeff[1], iArrTrinomialCoeff[2]))
+
+    iA_MaxTerm = iArrTrinomialCoeff[0]
+    iB_MaxTerm = iArrTrinomialCoeff[2]
+
+    iA_MP = round(iSqrt(iA_MaxTerm), 0)
+    iB_MP = round(iSqrt(iB_MaxTerm), 0)
+
+    # Baseline Points to Start The Factoring Process.
+    iA_1 = iA_MP
+    iA_2 = iA_MP
+
+    iB_1 = iB_MP
+    iB_2 = iB_MP
+
+    iA_MP = round(iSqrt(iA_MaxTerm), 0)
+    iB_MP = round(iSqrt(iB_MaxTerm), 0)
+
+    
+     
