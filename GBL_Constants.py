@@ -44,8 +44,18 @@ iWorkDaysPerYear = iWorkDaysPerWeek * iHoursWorkPerDay * iWeeksPerYear
 
 def iGetIdealGasConst(sEnergyUnit, sSubstanceUnit, sTempUnit):
 
-    if sEnergyUnit = "[J]" and sSubstanceUnit = "[mol]" and sTempUnit = "[K]": return 8.31446261815324
-    if sEnergyUnit = "[Btu]" and sSubstanceUnit = "[mol]" and sTempUnit = "[ºR]": return 1.985875279009
+    sUnitArray = [sEnergyUnit, sSubstanceUnit, sTempUnit]
+
+    if sUnitArray = ["[J]", "[mol]", "[K]"]: return 8.31446261815324
+    if sUnitArray = ["[Btu]", "[mol]", "[ºR]"]: return 1.985875279009
+    
+class IdealGasConstant:
+
+    def __init__(self, units):
+
+        self.units = sArrUnits
+        # self.value = f(units)
+
 
 # Proposed Classes
 class AtomicElement:
@@ -60,7 +70,6 @@ class Planet:
 
         iVolume = iSphericalVolume(iRadius)
         iSurfaceArea = iSpherSurfArea(iRadius)
-
 
 
 class Moon(Planet):

@@ -104,12 +104,12 @@ def sStandardizeUnit(sUnit):
     sLastLetter = sUnit[len(sUnit) - 2]
 
     # Iterates through the 7 Fundamental Units
-    return sFundamentalUnits_SI("mass") if sLastLetter = "g" else
-        sFundamentalUnits_SI("length") if sLastLetter = "m" else
-        sFundamentalUnits_SI("temperature") if sLastLetter = "K" else
-        sFundamentalUnits_SI("time") if sLastLetter = "s" else
-        sFundamentalUnits_SI("substance") if sLastLetter = "l" else
-        sFundamentalUnits_SI("electric current") if sLastLetter = "A" else sFundamentalUnits_SI("luminous intensity")
+    return sFundamentalUnits_SI["mass"] if sLastLetter = "g" else
+        sFundamentalUnits_SI["length"] if sLastLetter = "m" else
+        sFundamentalUnits_SI["temperature"] if sLastLetter = "K" else
+        sFundamentalUnits_SI["time"] if sLastLetter = "s" else
+        sFundamentalUnits_SI["substance"] if sLastLetter = "l" else
+        sFundamentalUnits_SI["electric current"] if sLastLetter = "A" else sFundamentalUnits_SI("luminous intensity")
 
 
 # Temperature Unit Conversions
