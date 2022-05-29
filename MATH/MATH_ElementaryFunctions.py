@@ -2,37 +2,6 @@
 # for myself in the event I take this into a different
 # language that doesn't have such libraries.
 
-def iDiff(iFinal, iInit):
-
-    return iFinal - iInit
-
-
-def iFactorial(iNum):
-
-    iResult = 1
-
-    while iNum != 0:
-
-        iResult *= iNum
-        iNum -= 1
-
-    return iResult
-
-# Recipricals
-
-def iReciprical(iNum):
-
-    if iNum != 0:
-
-        return 1 / iNum
-
-    return "ERROR! DIV/0"
-
-def iSciNot(iPower):
-
-    return 10 ** iPower
-
-
 # Numerical solution to a polynomial term according to the power rule
 def iIntegratePolyTerm(iCoeff, iVar, iPower):
 
@@ -453,6 +422,8 @@ def sReduceFractionFast(iNum, iDen):
     print("Reduced Fraction: {:,} / {:,}".format(int(iNum), int(iDen)))
     print("Factor Array: {}".format(iFactorArray))
 
+    return str(iNum) + " / " + str(iDen)
+
 
 def iQuotientPower(iNumPoly, iNumPower, iDenPoly, iDenPower):
 
@@ -545,4 +516,4 @@ def sTransformDecToFraction(iDecimal, bDebug = False):
 
         bDebug and print("{:,} / {:,}".format(iNum, iDen))
 
-    sReduceFractionFast(iNum, iDen)
+    return sReduceFractionFast(iNum, iDen)

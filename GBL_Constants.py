@@ -1,32 +1,53 @@
 import math
 
 # Mathematical Constants / Conversions
-iConvDegToRad = 180 / math.pi
+iConvDegToRad = 180 / math.pi       # 180 degrees = pi radians
 
 # Physics Constants
-iGravityConstant = 6.67 * (10 ** -11)   # [m][m][s] / [kg][kg][kg]
-iRadiusOfEarth = 6.3781 * (10 ** 6)     # [m]
+iGravityConstant = iScientificNotation(6.67, -11)   # [m][m][s] / [kg][kg][kg]
+iRadius_Earth = iScientificNotation(6.3781, 6)     # [m]
 
 # Known Astronomical Constants & Data
-iMassOfMercury = 
-iMassOfVenus =
-iMassOfEarth = 5.9722 * (10 ** 24)      # [kg]
-iMassOfMoon = 7.34767309 * (10 ** 22)   # [kg]
-iMassOfMars = 
-iMassOfSaturn =
+iMass_Mercury = iScientificNotation(3.3011, 23)
+iMass_Venus = iScientificNotation(4.5675, 24)
+iMass_Earth = iScientificNotation(5.9722, 24)      # [kg]
+iMass_Moon = iScientificNotation(7.34767309, 22)   # [kg]
+iMass_Mars = iScientificNotation(6.4171, 23)
+iMass_Jupiter = iScientificNotation(1.8982, 27)
+iMass_Saturn = iScientificNotation(5.6834, 26)
+iMass_Uranus = iScientificNotation(8.6810, 25)
+iMass_Neptune = iScientificNotation(1.02413, 26)
+iMass_Pluto = iScientificNotation(1.303, 22)        # Pluto is still a planet!!
 
 # Calculated Constants
-iAccelGravEarth = (iGravityConstant * iMassOfEarth) / (iRadiusOfEarth ** 2)
+iAccelGravEarth = (iGravityConstant * iMass_Earth) / (iRadiusOfEarth ** 2)
 
 
 # Time Relationship Definitions
-iSecondsPerMinute = 60
-iMinutesPerHour = 60
-iHoursPerDay = 24
-iDaysPerWeek = 7
-iDaysPerYear = 365
-iWeeksPerYear = 52
-iMonthsPerYear = 12
+class ConversionFactor:
+
+    def __init__(self, value, units, system):
+
+        self.value = iValue
+        self.units = sUnits
+        self.system = sSystemType
+
+def sUnits(sNum, sDen = 1):
+
+    if sDen == 1:
+
+        return sNum
+    
+    return str(sNum) + " / " + str(sDen)
+
+# Time Based Units
+cSecondsPerMinute = ConversionFactor(60, sUnits("[s]", "[min]")) 
+cMinutesPerHour = ConversionFactor(60, sUnits("[min]", "[hr]"))
+cHoursPerDay = ConversionFactor(24, sUnits("[hr]", "[day]"))
+cDaysPerWeek = ConversionFactor(7, sUnits("[day]", "[wk]"))
+cDaysPerYear = ConversionFactor(365, sUnit("[day]", "[yr]"))
+cWeeksPerYear = ConversionFactor(52, sUnit("[wk]", "[yr]"))
+cMonthsPerYear = ConversionFactor(12, sUnit("[mo]", "[yr]"))
 
 # Calculated Time Constants
 iAvgWeeksPerMonth = iWeeksPerYear / iMonthsPerYear

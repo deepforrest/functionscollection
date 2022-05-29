@@ -21,26 +21,26 @@ iVol_gill_to_floz = 5
 # SI Prefix Conversions
 iSIPrefBaseConv = {
 
-    "Y": iSciNot(-24),
-    "Z": iSciNot(-21),
-    "E": iSciNot(-18),
-    "P": iSciNot(-15),
-    "T": iSciNot(-12),
-    "G": iSciNot(-9),
-    "M": iSciNot(-6),
-    "k": iSciNot(-3),
-    "h": iSciNot(-2),
-    "da": iSciNot(-1),
-    "d": iSciNot(1),
-    "c": iSciNot(2),
-    "m": iSciNot(3),
-    "µ": iSciNot(6),
-    "n": iSciNot(9),
-    "p": iSciNot(12),
-    "f": iSciNot(15),
-    "a": iSciNot(18),
-    "z": iSciNot(21),
-    "y": iSciNot(24)
+    "Y": iScientificNotation(1, -24),
+    "Z": iScientificNotation(1, -21),
+    "E": iScientificNotation(1, -18),
+    "P": iScientificNotation(1, -15),
+    "T": iScientificNotation(1, -12),
+    "G": iScientificNotation(1, -9),
+    "M": iScientificNotation(1, -6),
+    "k": iScientificNotation(1, -3),
+    "h": iScientificNotation(1, -2),
+    "da": iScientificNotation(1, -1),
+    "d": iScientificNotation(1, 1),
+    "c": iScientificNotation(1, 2),
+    "m": iScientificNotation(1, 3),
+    "µ": iScientificNotation(1, 6),
+    "n": iScientificNotation(1, 9),
+    "p": iScientificNotation(1, 12),
+    "f": iScientificNotation(1, 15),
+    "a": iScientificNotation(1, 18),
+    "z": iScientificNotation(1, 21),
+    "y": iScientificNotation(1, 24)
 
 }
 

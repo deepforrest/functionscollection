@@ -28,14 +28,14 @@ def iQuadraticSolutionNeg(iArrQuadraticCoefficients):
     return (- iB - iDiscriminant) / (2 * iA)
 
 
-def iCompleteTheSquareTerm(iQuadCoeff, iLinearCoeff):
+def iTerm_CompleteTheSquare(iQuadCoeff, iLinearCoeff):
 
-    return((-iLinearCoeff / (2 * iQuadCoeff)) ** 2)
+    return((iLinearCoeff / (2 * iQuadCoeff)) ** 2)
 
 
 def sCompleteTheSquareStatement(iQuadCoeff, iLinearCoeff):
 
-    print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iCompleteTheSquareTerm(iQuadCoeff, iLinearCoeff)))
+    print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iTerm_CompleteTheSquare(iQuadCoeff, iLinearCoeff)))
 
 
 # (iA_1*x + iB_1)(iA_2*x + iB_2)
