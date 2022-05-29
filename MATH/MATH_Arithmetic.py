@@ -61,3 +61,16 @@ def sCompoundFraction(iDec):
 
     sFraction = sTransformDecToFraction(iDec)
     print("{} + {}".format(int(iWholeNum), sFraction))
+
+
+def sAddByCounting(iNum_1, iNum_2, bDebug = False):
+
+    if type(iNum_1) != int or type(iNum_2) != int:
+
+        print("Please use integers!")
+        return
+
+    while iNum_1 <= iNum_2:
+
+        print("{} was added to iNum_1")
+        iNum_1 += 1
