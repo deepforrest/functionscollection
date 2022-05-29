@@ -69,7 +69,7 @@ class Planet:
         self.mass = iMass
 
         iVolume = iSphericalVolume(iRadius)
-        iSurfaceArea = iSpherSurfArea(iRadius)
+        iSurfaceArea = iSphereSurfArea(iRadius)
 
 
 class Moon(Planet):
