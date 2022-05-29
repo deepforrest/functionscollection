@@ -21,6 +21,10 @@ def iRatio(iNum, iDen):
 
 def iFactorial(iNum):
 
+    if type(iNum) =! int:
+
+        iNum = round(iNum, 0) if type(iNum) == float else return "Not a number!"
+
     iResult = 1
 
     while iNum != 0:
