@@ -1,32 +1,84 @@
-def iQuadraticSolutionPos(iArrQuadraticCoefficients):
+# Linear Equations
 
-    len(iArrQuadraticCoefficients) != 3 and return "Not a Quadratic Array!"
+def iTangentOfPoints(iX_2, iX_1, iY_2, iY_1):
+
+    iDelta_X = iDiff(iX_2, iX_1)
+    iDelta_Y = iDiff(iY_2, iY_1)
+
+    if iDelta_X != 0:
+        
+        return iRatio(iDelta_Y, iDelta_X)
+
+
+# Quadratic Solution Definitions
+
+def iQuadraticDiscriminant(iA, iB, iC):
+
+    return iB ** 2 - 4 * iA * iC
+
+def sNoOfRealQuadraticSolutions(iArrQuadraticCoefficients):
 
     iA = iArrQuadraticCoefficients[0]
     iB = iArrQuadraticCoefficients[1]
     iC = iArrQuadraticCoefficients[2]
 
-    iDiscriminant = iB ** 2 - 4 * iA * iC
+    iDiscriminant = iQuadraticDiscriminant(iA, iB, iC)
 
-    iDiscriminant < 0 and return "Nonreal Result"
+    return "Two Solutions" if iDiscriminant > 0 else "No Real Solution" if iDiscriminant < 0 else "One Solution"
 
-    return (- iB + iDiscriminant) / (2 * iA)
+
+def iQuadraticSolutionPos(iArrQuadraticCoefficients):
+
+    if len(iArrQuadraticCoefficients) != 3: 
+        
+        return "Not a Quadratic Array!"
+
+
+    for iCoeff in iArrQuadraticCoefficients:
+
+        if not iCoeff.isnumeric():
+
+            return "Nonnumber detected in array."
+
+
+    iA = iArrQuadraticCoefficients[0]
+    iB = iArrQuadraticCoefficients[1]
+    iC = iArrQuadraticCoefficients[2]
+
+    iDiscriminant = iQuadraticDiscriminant(iA, iB, iC)
+
+    return iRatio(- iB + iDiscriminant, 2 * iA)
 
 
 def iQuadraticSolutionNeg(iArrQuadraticCoefficients):
 
-    len(iArrQuadraticCoefficients) != 3 and return "Not a Quadratic Array!"
+    if len(iArrQuadraticCoefficients) != 3: 
+        
+        return "Not a Quadratic Array!"
+
+    
+    for iCoeff in iArrQuadraticCoefficients:
+
+        if not iCoeff.isnumeric():
+
+            return "Nonnumber detected in array."
+
 
     iA = iArrQuadraticCoefficients[0]
     iB = iArrQuadraticCoefficients[1]
     iC = iArrQuadraticCoefficients[2]
 
-    iDiscriminant = iB ** 2 - 4 * iA * iC
+    iDiscriminant = iQuadraticDiscriminant(iA, iB, iC)
 
-    iDiscriminant < 0 and return "Nonreal Result"
+    return iRatio(- iB - iDiscriminant, 2 * iA)
 
-    return (- iB - iDiscriminant) / (2 * iA)
 
+def iQuadraticSolutionArray(iArrQuadraticCoefficients):
+
+    return [iQuadraticSolutionPos(iArrQuadraticCoefficients), iQuadraticSolutionNeg(iArrQuadraticCoefficients)]
+
+
+# Completing The Square
 
 def iTerm_CompleteTheSquare(iQuadCoeff, iLinearCoeff):
 
@@ -48,9 +100,11 @@ def sFOILExpression(iA_1, iA_2, iB_1, iB_2):
     print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iConstant))
 
 
+# Unfinished
 def sFactorTrinomial(iArrTrinomialCoeff, bDebug = False):
 
     if len(iArrTrinomialCoeff) != 3: 
+
         return "Not a trinomial set of coefficients!"
 
     for iCoeff in iArrTrinomialCoeff:
@@ -78,6 +132,7 @@ def sFactorTrinomial(iArrTrinomialCoeff, bDebug = False):
 
     iMP_Smallest = min(iA_MP, iB_MP)
 
+    # WORKSHOP!
     while iMP_Smallest > 0:
 
         # Initialization Conditions

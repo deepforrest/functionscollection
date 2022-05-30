@@ -23,7 +23,11 @@ def iFactorial(iNum):
 
     if type(iNum) != int:
 
-        iNum = round(iNum, 0) if type(iNum) == float else return "Not a number!"
+        iNum = round(iNum, 0) if iNum.isnumeric() else return "Not a number!"
+
+    if iNum < 0:
+
+        return "Must be a positive integer!" 
 
     iResult = 1
 
@@ -39,20 +43,74 @@ def iReciprical(iNum):
 
     if iNum != 0:
 
-        return 1 / iNum
+        return iRatio(1, iNum)
 
     return "ERROR! DIV/0"
 
 
 def iScientificNotation(iCoeff, iPower):
 
-    return iCoeff * (10 ** iPower)
+    return iPolynomialTerm(iCoefficient, 10, iPower)
+
+
+def iBinaryNotation(iPower):
+
+    return iPolyNomialTerm(1, 2, iPower)
 
 
 def iPercent(iDec):
 
-    return 100 * iDec
+    return iPolynomialTerm(100, iDec)
 
+
+def iPolynomialTerm(iCoefficient, iBase, iPower = 1):
+
+    return iCoefficient * (iBase ** iPower)
+
+
+def iSumOverProduct(iArrNums):
+
+    iSum  = sum(iArrNums)
+    
+    iProd = 1
+    
+    for iNum in range(len(iArrNums)):
+
+        iProd *= iArrNums if iArrNums[iNum] != 0 else iProd = iProd
+
+    return iRatio(iSum, iProd)
+
+
+def iConvertToBinary(iNum):
+
+    if not iNum.isnumeric():
+
+        print("Not a number!")
+        return -1
+
+    iBinaryPower = 1
+
+    while iNum > 0:
+
+        iArrBinaryOutput = []
+
+        while iBinaryNotation(iBinaryPower) <= iNum:
+
+            iBinaryPower +=1
+            iArrBinaryOutput.append(0)
+
+        # Next Step: Compare the length of the array to the power
+
+
+        
+
+
+        
+
+
+
+
+# Print Return Statements
 
 def sCompoundFraction(iDec):
 
@@ -74,7 +132,45 @@ def sAddByCounting(iNum_1, iNum_2, bDebug = False):
         print("Please use integers!")
         return
 
-    while iNum_1 <= iNum_2:
+    iAddCount = 0
 
-        print("{} was added to iNum_1")
-        iNum_1 += 1
+    while iAddCount <= iNum2:
+
+        iAddCount += 1
+        iIntermediateSum = iNum_1 + iAddCount
+
+        print("{} was added to {} to create {}}".format(iAddCount, iNum_1, iIntermediateSum))
+
+
+def sSubtractByCounting(iNum_1, iNum_2, bDebug = False):
+
+    if type(iNum_1) != int or type(iNum_2) != int:   #DRY!
+
+        print("Please use integers!")
+        return
+
+    iSubtractCount = 0
+
+    while iSubtractCount <= iNum_2:
+
+        iSubtractCount += 1
+        iIntermediateDiff = iNum_1 - iSubtractCount
+
+        print("{} was taken away from {} to create {}}".format(iSubtractCount, iNum_1, iIntermediateDiff))
+
+
+def sMultiplyByAdding(iNum_1, iNum_2, bDebug = False):
+
+    if type(iNum_1) != int or type(iNum_2) != int:   #DRY!
+
+        print("Please use integers!")
+        return
+
+    iMultCount = 0
+
+    while iMultCount <= iNum2:
+
+        iMultCount += 1
+        iIntermediateProduct = iNum_1 + iMultCount * iNum_2
+
+        print("{} was added to {} to create {}}".format(iMultCount, iNum1, iIntermediateProduct))
