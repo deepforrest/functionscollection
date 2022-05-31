@@ -76,9 +76,32 @@ def iSumOverProduct(iArrNums):
     
     for iNum in range(len(iArrNums)):
 
-        iProd *= iArrNums if iArrNums[iNum] != 0 else iProd = iProd
+        iProd *= iArrNums[iNum] if iArrNums[iNum] != 0 else iProd = iProd
 
     return iRatio(iSum, iProd)
+
+
+def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
+
+    print("Fractions: {} / {} + {} / {}".format(iNum_1, iDen_1, iNum_2, iDen_2))
+
+    iFractMult_1 = iArrFactorsofNum(iDen_1)
+    iFractMult_2 = iArrFactorsofNum(iDen_2)
+
+    # Creates Factors and Find Correct Multiplier:
+    
+
+    # Multiply Numerator
+
+
+def iMaxPerimeterForArea(iArea):
+
+    return 2 * (iArea + 1)
+
+
+def iMinPerimeterForArea(iArea):
+
+    return 2 * math.sqrt(iArea)
 
 
 def iConvertToBinary(iNum):
