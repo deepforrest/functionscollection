@@ -1,3 +1,17 @@
+# Sides
+def iLengthSide_Square(iArea):
+
+    return iSqrt(iArea)
+
+
+def iLengthSide_Rectangle(iArea, iLength):
+
+    return iRatio(iArea, iLength)
+
+def iLengthDimension_Triangle(iArea, iLength):
+
+    return 2 * iRatio(iArea, iLength)
+    
 # Areas
 def iAreaRectangle(iLength, iWidth):
 
