@@ -84,6 +84,12 @@ def iVolumeCube(iSide):
     return iVolumeParallelepiped(iSide, iSide, iSide)
 
 
-def iCuboid(iSide_Square, iSide_Depth):
+def iVolumeCuboid(iSide_Square, iSide_Depth):
 
     return iAreaSquare(iSide_Square) * iSide_Depth
+
+
+def iVolumePyramidSquare(iSide_Square, iSide_Height):
+
+    return iRatio(iSideSquare(iSide_Square) * iSide_Height, 3)
+
