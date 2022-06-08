@@ -63,3 +63,27 @@ def iAreaCircle_Diameter(iDiameter):
     return iAreaEllipse_Diameter(iDiameter, iDiameter)
 
 # --------------------------- 3D -- GEOMETRY --------------------------- #
+
+def iVolumeCylinder_Radius(iRadius, iHeight):
+
+    return iAreaCircle_Radius(iRadius) * iHeight
+
+
+def iVolumeCylinder_Diameter(iDiameter, iHeight):
+
+    return iAreaCircle(iDiameter) * iHeight
+
+
+def iVolumeParallelepiped(iSide_A, iSide_B, iSide_C):
+
+    return iSide_A * iSide_B * iSide_C
+
+
+def iVolumeCube(iSide):
+
+    return iVolumeParallelepiped(iSide, iSide, iSide)
+
+
+def iCuboid(iSide_Square, iSide_Depth):
+
+    return iAreaSquare(iSide_Square) * iSide_Depth
