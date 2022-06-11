@@ -62,7 +62,39 @@ def iAreaCircle_Diameter(iDiameter):
 
     return iAreaEllipse_Diameter(iDiameter, iDiameter)
 
-# --------------------------- 3D -- GEOMETRY --------------------------- #
+
+# --------------------------- 2D -- GEOMETRY -- ADVANCED --------------------------- #
+
+def iAreaFlatRing_Radius(iOuterRadius, iInnerRadius):
+
+    return iAreaCircle_Radius(iOuterRadius) - iAreaCircle_Radius(iInnerRadius)
+
+
+def iAreaFlatRing_Diameter(iOuterDiameter, iInnerDiameter):
+
+    return iAreaCircle_Diameter(iOuterDiameter) - iAreaCircle_Diameter(iInnerDiameter)
+
+# --------------------------- 3D -- GEOMETRY -- SURFACE - AREA --------------------------- #
+
+def iSurfaceAreaEllipsoid_Radius(iRadius_X, iRadius_Y, iRadius_Z):
+
+    iExpKTF = 1.6075  # With Knud Thompson's Formula
+
+    iKTF_TermXY = iPolynomialTerm(1, iRadius_X * iRadius_Y, iExpKTF)
+    iKTF_TermYZ = iPolynomialTerm(1, iRadius_Y * iRadius_Z, iExpKTF)
+    iKTF_TermXZ = iPolynomialTerm(1, iRadius_X * iRadius_Z, iExpKTF)
+
+    iArrKTFTerms = [iKTF_TermXY, iKTF_TermYZ, KTF_TermXZ]
+
+    iKTF_AvgOfTerms = sum(iArrKTFTerms) / len(iArrKTFTerms)
+
+    return 4 * iPi * iPolynomialTerm(1, iKTF_AvgOfTerms, iReciprical(iExpKTF))
+    
+def iSurfaceAreaEllipsoid_Diameter(iDiameter_X, iDiameter_Y, iDiameter_Z):
+
+    
+
+# --------------------------- 3D -- GEOMETRY -- VOLUME --------------------------- #
 
 def iVolumeCylinder_Radius(iRadius, iHeight):
 
