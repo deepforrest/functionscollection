@@ -102,3 +102,13 @@ def iVolumeEllipsoid_Radius(iRadius_X, iRadius_Y, iRadius_Z):
 def iVolumeEllipsoid_Diameter(iDiameter_X, iDiameter_Y, iDiameter_Z):
 
     return iRatio(iPi * iDiameter_X * iDiameter_Y * iDiameter_Z, 6)
+
+
+def iVolumeSphere_Radius(iRadius):
+
+    return iVolumeEllipsoid_Radius(iRadius, iRadius, iRadius)
+
+
+def iVolumeSphere_Diameter(iDiameter):
+
+    return iVolumeEllipsoid_Diameter(iDiameter, iDiameter, iDiameter)
