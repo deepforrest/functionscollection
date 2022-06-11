@@ -96,5 +96,9 @@ def iVolumePyramidSquare(iSide_Square, iSide_Height):
 
 def iVolumeEllipsoid_Radius(iRadius_X, iRadius_Y, iRadius_Z):
 
-    return 4 / 3 * iPi * iRadius_X * iRadius_Y * iRadius_Z
+    return iRatio(4 * iPi * iRadius_X * iRadius_Y * iRadius_Z, 3)
 
+
+def iVolumeEllipsoid_Diameter(iDiameter_X, iDiameter_Y, iDiameter_Z):
+
+    return iRatio(iPi * iDiameter_X * iDiameter_Y * iDiameter_Z, 6)
