@@ -28,14 +28,15 @@ def iAreaSquare(iSideLength):
 
 def iAreaTriangle(iLength, iWidth):
 
-    return 1 / 2 * iLength * iWidth
+    return iPolynomialTerm(iReciprical(2), iLength * iWidth)
 
 
 def iAreaTriangleHeron(iSide_A, iSide_B, iSide_C):
 
-    iSemiPerimeter = (iSide_A + iSide_B + iSide_C) / 2
+    iSemiPerimeter = iRatio(iSide_A + iSide_B + iSide_C, 2)
+    iProductofDiffs = iDiff(iSemiPerimeter, iSideA) * iDiff(iSemiPerimeter, iSideB) * iDiff(iSemiPerimeter, iSideC)
 
-    return iSqrt(iSemiPerimeter * iDiff(iSemiPerimeter, iSideA) * iDiff(iSemiPerimeter, iSideB) * iDiff(iSemiPerimeter, iSideC))
+    return iSqrt(iSemiPerimeter * iProductofDiffs)
 
 
 def iAreaTrapezoid(iSide_A, iSide_B, iDistances_Sides_AB):
@@ -78,17 +79,18 @@ def iAreaFlatRing_Diameter(iOuterDiameter, iInnerDiameter):
 
 def iSurfaceAreaEllipsoid_Radius(iRadius_X, iRadius_Y, iRadius_Z):
 
-    iExpKTF = 1.6075  # With Knud Thompson's Formula
+    iKTF_Exp = 1.6075  # With Knud Thompson's Formula
+    iKTF_Coeff = 4 * iPi
 
-    iKTF_TermXY = iPolynomialTerm(1, iRadius_X * iRadius_Y, iExpKTF)
-    iKTF_TermYZ = iPolynomialTerm(1, iRadius_Y * iRadius_Z, iExpKTF)
-    iKTF_TermXZ = iPolynomialTerm(1, iRadius_X * iRadius_Z, iExpKTF)
+    iKTF_TermXY = iPolynomialTerm(1, iRadius_X * iRadius_Y, iKTF_Exp)
+    iKTF_TermYZ = iPolynomialTerm(1, iRadius_Y * iRadius_Z, iKTF_Exp)
+    iKTF_TermXZ = iPolynomialTerm(1, iRadius_X * iRadius_Z, iKTF_Exp)
 
     iArrKTFTerms = [iKTF_TermXY, iKTF_TermYZ, KTF_TermXZ]
 
     iKTF_AvgOfTerms = sum(iArrKTFTerms) / len(iArrKTFTerms)
 
-    return iPolynomialTerm(4 * iPi, iKTF_AvgOfTerms, iReciprical(iExpKTF))
+    return iPolynomialTerm(iKTF_Coeff, iKTF_AvgOfTerms, iReciprical(iKTF_Exp))
 
 
 def iSurfaceAreaEllipsoid_Diameter(iDiameter_X, iDiameter_Y, iDiameter_Z):
