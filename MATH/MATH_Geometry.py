@@ -88,11 +88,16 @@ def iSurfaceAreaEllipsoid_Radius(iRadius_X, iRadius_Y, iRadius_Z):
 
     iKTF_AvgOfTerms = sum(iArrKTFTerms) / len(iArrKTFTerms)
 
-    return 4 * iPi * iPolynomialTerm(1, iKTF_AvgOfTerms, iReciprical(iExpKTF))
-    
+    return iPolynomialTerm(4 * iPi, iKTF_AvgOfTerms, iReciprical(iExpKTF))
+
+
 def iSurfaceAreaEllipsoid_Diameter(iDiameter_X, iDiameter_Y, iDiameter_Z):
 
-    
+    iRadius_X = iRatio(iDiameter_X, 2)
+    iRadius_Y = iRatio(iDiameter_Y, 2)
+    iRadius_Z = iRatio(iDiameter_Z, 2)
+
+    return iSurfaceAreaEllipsoid_Radius(iRadius_X, iRadius_Y, iRadius_Z)
 
 # --------------------------- 3D -- GEOMETRY -- VOLUME --------------------------- #
 
