@@ -5,6 +5,11 @@ These functions are basic, but help to make the code more readable in other sect
 '''
 def iDiff(iFinal, iInit):
 
+    if not iFinal.isnumeric() or iInit.isnumeric():
+
+        print("Invalid entry for iDiff!")
+        return
+
     return iFinal - iInit
 
 
