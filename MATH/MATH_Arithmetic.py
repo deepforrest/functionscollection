@@ -5,9 +5,9 @@ These functions are basic, but help to make the code more readable in other sect
 '''
 def iDiff(iFinal, iInit):
 
-    if not iFinal.isnumeric() or iInit.isnumeric():
+    if not iFinal.isnumeric() or not iInit.isnumeric():
 
-        print("Invalid entry for iDiff!")
+        print("Invalid entry for iDiff!\nInputs detected:\niFinal = {}\n iInit = {}".format(iFinal, iInit))
         return
 
     return iFinal - iInit
@@ -15,13 +15,17 @@ def iDiff(iFinal, iInit):
 
 def iRatio(iNum, iDen):
 
-    if iDen != 0:
-        
-        return iNum / iDen
+    if not iNum.isnumeric() or not iDen.isnumeric:
 
-    print("Division by 0 detected with {} / {}".format(iNum, iDen))
-    
-    return 0
+        print("Invalid entry in iRatio!\nSee Inputs:\niNum = {}\n iDen = {}".format(iNum, iDen))
+        return
+
+    if iDen == 0:
+
+        print("Denominator cannot be zero for iRatio!")
+        return
+
+    return iNum / iDen
 
 
 def iFactorial(iNum):
@@ -49,19 +53,30 @@ def iReciprical(iNum):
     if not iNum.isnumeric() or iNum == 0:
 
         print("{} is not a valid input for iReciprical".format(iNum))
+        return
 
     return iRatio(1, iNum)
 
 
-def iScientificNotation(iCoeff, iPower):
+def iPolynomialTerm(iCoeff, iBase, iPower = 1):
 
-    # Validates outputs
-    if not abs(iCoeff).isnumeric() or not abs(iPower).isnumeric():
+    if not abs(iCoeff).isnumeric() or not abs(iPower).isnumeric() or not abs(iPower).isnumeric():
 
-        print("{} or {} is not a number!".format(iCoeff, iPower))
+        print("Inputs are invalid!\niCoeff = {}\niBase = {}\niPower = {}".format(iCoeff, iBase, iPower))
         return
 
-    return iCoeff * (10 ** iPower)
+    return iCoeff * (iBase ** iPower)
+
+
+def iScientificNotation(iCoeff, iPower):
+
+    # Should validation happen before another function call with validation?
+    if not abs(iCoeff).isnumeric() or not abs(iPower).isnumeric():
+
+        print("Inputs are invalid!\niCoeff = {}\niPower = {}".format(iCoeff, iPower))
+        return
+
+    return iPolynomialTerm(iCoeff, 10, iPower)
 
 
 def iPercent(iDec):
@@ -72,11 +87,6 @@ def iPercent(iDec):
         return
         
     return 100 * iDec
-
-
-def iPolynomialTerm(iCoefficient, iBase, iPower = 1):
-
-    return iCoefficient * (iBase ** iPower)
 
 
 def iSumOverProduct(iArrNums):
@@ -104,7 +114,6 @@ def iSumOverProduct(iArrNums):
     
     
     iSum  = sum(iArrNums)
-    
     iProd = 1
     
     for iNum in range(len(iArrNums)):
