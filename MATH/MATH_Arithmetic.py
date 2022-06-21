@@ -50,17 +50,19 @@ def iReciprical(iNum):
 
 def iScientificNotation(iCoeff, iPower):
 
-    return iPolynomialTerm(iCoefficient, 10, iPower)
+    # Validates outputs
+    if abs(iCoeff).isnumeric() and abs(iPower).isnumeric():
 
+        return iCoeff * (10 ** iPower)
 
-def iBinaryNotation(iPower):
-
-    return iPolyNomialTerm(1, 2, iPower)
+    print("{} or {} is not a number!".format(iCoeff, iPower))
 
 
 def iPercent(iDec):
 
-    return iPolynomialTerm(100, iDec)
+    if abs(iDec).isnumeric():
+    
+        return 100 * iDec
 
 
 def iPolynomialTerm(iCoefficient, iBase, iPower = 1):
@@ -109,7 +111,7 @@ def iConvertToBinary(iNum):
     if not iNum.isnumeric():
 
         print("Not a number!")
-        return -1
+        return
 
     iBinaryPower = 1
 
