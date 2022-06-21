@@ -41,28 +41,29 @@ def iFactorial(iNum):
 
 def iReciprical(iNum):
 
-    if iNum != 0:
+    if not iNum.isnumeric() or iNum == 0:
 
-        return iRatio(1, iNum)
+        print("{} is not a valid input for iReciprical".format(iNum))
 
-    return "ERROR! DIV/0"
+    return iRatio(1, iNum)
 
 
 def iScientificNotation(iCoeff, iPower):
 
     # Validates outputs
-    if abs(iCoeff).isnumeric() and abs(iPower).isnumeric():
+    if not abs(iCoeff).isnumeric() or not abs(iPower).isnumeric():
 
-        return iCoeff * (10 ** iPower)
+        print("{} or {} is not a number!".format(iCoeff, iPower))
+        return
 
-    print("{} or {} is not a number!".format(iCoeff, iPower))
+    return iCoeff * (10 ** iPower)
 
 
 def iPercent(iDec):
 
     if not abs(iDec).isnumeric():
     
-        print()
+        print("{} is not a valid input for iPercent!".format(iDec))
         return
         
     return 100 * iDec
