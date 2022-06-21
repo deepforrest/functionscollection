@@ -60,9 +60,12 @@ def iScientificNotation(iCoeff, iPower):
 
 def iPercent(iDec):
 
-    if abs(iDec).isnumeric():
+    if not abs(iDec).isnumeric():
     
-        return 100 * iDec
+        print()
+        return
+        
+    return 100 * iDec
 
 
 def iPolynomialTerm(iCoefficient, iBase, iPower = 1):
@@ -72,6 +75,28 @@ def iPolynomialTerm(iCoefficient, iBase, iPower = 1):
 
 def iSumOverProduct(iArrNums):
 
+    # Some Good Ol' Fashioned Validation: Make sure it's an array and the array has numbers only.
+    if len(iArrNums) == 1:
+
+        print("Your input {} is not valid array for iSumOverProduct.".format(iArrNums))
+        return
+
+    for iNum in range(len(iArrNums)):
+
+        if not iArrNums[iNum].isnumeric():
+
+            print("{} is not a valid number within {}!".format(iArrNums[iNum], iArrNums))
+            return
+
+        elif iArrNums[iNum] == 0:
+
+            print("Warning! Digit {} within array {} has a zero which will be disregarded in the Sum over Product!")
+
+        else
+
+            pass
+    
+    
     iSum  = sum(iArrNums)
     
     iProd = 1
@@ -98,10 +123,20 @@ def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
 
 def iMaxPerimeterForArea(iArea):
 
+    if not iArea.isnumeric:
+        
+        print({} "is not a valid input for iMaxPerimeterForArea()".format(iArea))
+        return
+
     return 2 * (iArea + 1)
 
 
 def iMinPerimeterForArea(iArea):
+
+    if not iArea.isnumeric():
+        
+        print({} "is not a valid input for iMinPerimeterForArea()".format(iArea))
+        return
 
     return 2 * math.sqrt(iArea)
 
