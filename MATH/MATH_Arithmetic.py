@@ -142,9 +142,13 @@ def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
     iArrFract_2 = [iNum_2, iDen_2]
     iArrFracts = [iArrFract_1, iArrFract_2]
 
-    for iFracts in iArrFracts:
+    for iFract in iArrFracts:
 
-        for 
+        for iNum in iFract:
+
+            if not isinstance(iNum, int):
+
+                # Do something here to transform them into decimaless integers
 
     print("Fractions: {} / {} + {} / {}".format(iNum_1, iDen_1, iNum_2, iDen_2))
 
@@ -181,7 +185,7 @@ def iConvertToBinary(iNum):
 
     if not iNum.isnumeric():
 
-        print("Not a number!")
+        print("{} is not a number!".format(iNum))
         return
 
     iBinaryPower = 1
