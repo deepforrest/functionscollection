@@ -125,6 +125,27 @@ def iSumOverProduct(iArrNums):
 
 def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
 
+    # 1 - Validation to ensure inputs are numeric
+    iArrInputs = [iNum_1, iDen_1, iNum_2, iDen_2]
+
+    for iInput in iArrInputs:
+
+        iNumInt = iArrInputs[iInput]
+
+        if not iNumInt.isnumeric():
+
+            print("{} is not a valid input for sAddFractions".format(iNumInt))
+            return
+
+    # 2 - Transformative Process From Float to Integers, which is the definition of a rational num
+    iArrFract_1 = [iNum_1, iDen_1]
+    iArrFract_2 = [iNum_2, iDen_2]
+    iArrFracts = [iArrFract_1, iArrFract_2]
+
+    for iFracts in iArrFracts:
+
+        for 
+
     print("Fractions: {} / {} + {} / {}".format(iNum_1, iDen_1, iNum_2, iDen_2))
 
     iFractMult_1 = iArrFactorsofNum(iDen_1)
