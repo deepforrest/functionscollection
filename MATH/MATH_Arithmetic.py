@@ -212,6 +212,10 @@ def sCompoundFraction(iDec):
         print("{} is not a valid input for sCompoundFraction!")
         return
 
+    if type(iDec) == int:
+
+        print("Input is already an integer:\n{} / 1".format(iDec)
+        return 
 
 
     iWholeNum = 0
