@@ -202,17 +202,17 @@ def iConvertToBinary(iNum):
         # Next Step: Compare the length of the array to the power
 
 
-        
-
-
-        
-
-
-
-
+    
 # Print Return Statements
 
 def sCompoundFraction(iDec):
+
+    if not iDec.isnumeric():
+
+        print("{} is not a valid input for sCompoundFraction!")
+        return
+
+
 
     iWholeNum = 0
 
