@@ -214,10 +214,12 @@ def sCompoundFraction(iDec):
 
     if type(iDec) == int:
 
-        print("Input is already an integer:\n{} / 1".format(iDec)
+        print("Input is already an integer:\n{} / 1".format(iDec))
         return 
 
 
+    # Post Validation
+    # Is the code below legit?
     iWholeNum = 0
 
     while iDec > 1:
