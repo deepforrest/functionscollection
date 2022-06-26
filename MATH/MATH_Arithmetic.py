@@ -191,7 +191,7 @@ def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
 
 def iMaxPerimeterForArea(iArea):
 
-    if not iArea.isnumeric:
+    if not isinstance(iArea, (int, float)):
         
         print({} "is not a valid input for iMaxPerimeterForArea()".format(iArea))
         return
@@ -201,7 +201,7 @@ def iMaxPerimeterForArea(iArea):
 
 def iMinPerimeterForArea(iArea):
 
-    if not iArea.isnumeric():
+    if not isinstance(iArea, (int, float)):
         
         print({} "is not a valid input for iMinPerimeterForArea()".format(iArea))
         return
@@ -211,7 +211,7 @@ def iMinPerimeterForArea(iArea):
 
 def iConvertToBinary(iNum):
 
-    if not iNum.isnumeric():
+    if not isinstance(iNum, int):
 
         print("{} is not a number!".format(iNum))
         return
@@ -235,7 +235,7 @@ def iConvertToBinary(iNum):
 
 def sCompoundFraction(iDec):
 
-    if not iDec.isnumeric():
+    if not isinstance(iDec, (int, float)):
 
         print("{} is not a valid input for sCompoundFraction!")
         return
@@ -257,6 +257,16 @@ def sCompoundFraction(iDec):
 
     sFraction = sTransformDecToFraction(iDec)
     print("{} + {}".format(int(iWholeNum), sFraction))
+
+
+
+
+
+
+# CONTINUE HERE
+
+
+
 
 
 def sAddByCounting(iNum_1, iNum_2, bDebug = False):
