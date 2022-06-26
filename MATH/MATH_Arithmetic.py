@@ -32,11 +32,17 @@ def iFactorial(iNum):
 
     if type(iNum) != int:
 
-        iNum = round(iNum, 0) if iNum.isnumeric() else return "Not a number!"
+        if not iNum.isnumeric(): 
+            
+            print("{} is not a number!".format(iNum))
+            sReduceFractionByFactoring            
+
+        iNum = round(iNum, 0) 
 
     if iNum < 0:
 
-        return "Must be a positive integer!" 
+        print("{} converted to a positive number!".format(iNum))
+        iNum = -iNum
 
     iResult = 1
 
@@ -50,9 +56,14 @@ def iFactorial(iNum):
 
 def iReciprical(iNum):
 
-    if not iNum.isnumeric() or iNum == 0:
+    if not iNum.isnumeric():
 
         print("{} is not a valid input for iReciprical".format(iNum))
+        return
+
+    if iNum == 0:
+
+        print("{} has an indeterminant reciprocal!".format(iNum))
         return
 
     return iRatio(1, iNum)
