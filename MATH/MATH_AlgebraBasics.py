@@ -72,66 +72,62 @@ def iQuadraticDiscriminant(iA, iB, iC):
     return iDiff(iPolynomialTerm(1, iB, 2), iPolyTerm(4, iA * iC))
 
 
-def sNoOfRealQuadraticSolutions(iArrQuadraticCoefficients):
+def sNoOfRealQuadraticSolutions(iA, iB, iC):
 
-    iA = iArrQuadraticCoefficients[0]
-    iB = iArrQuadraticCoefficients[1]
-    iC = iArrQuadraticCoefficients[2]
+    iArrQuadraticCoefficients = [IA, iB, iC]
 
-    iDiscriminant = iQuadraticDiscriminant(iA, iB, iC)
+    iDiscriminant = iQuadraticDiscriminant(iA, iB, iC)  # Validation is contained within function
 
     return "Two Solutions" if iDiscriminant > 0 else "No Real Solution" if iDiscriminant < 0 else "One Solution"
 
 
-def iQuadraticSolutionPos(iArrQuadraticCoefficients):
+def iQuadraticSolutionPos(iA, iB, iC):
 
-    if len(iArrQuadraticCoefficients) != 3: 
-        
-        return "Not a Quadratic Array!"
-
+    iArrQuadraticCoefficients = [iA, iB, iC]
 
     for iCoeff in iArrQuadraticCoefficients:
 
-        if not iCoeff.isnumeric():
+        if not isinstance(iArrQuadraticCoefficients[iCoeff], (int, float)):
 
-            return "Nonnumber detected in array."
-
-
-    iA = iArrQuadraticCoefficients[0]
-    iB = iArrQuadraticCoefficients[1]
-    iC = iArrQuadraticCoefficients[2]
+            print("{} is not a number and cannot be used!".format(iArrQuadraticCoefficients[iCoeff]))
+            return
 
     iDiscriminant = iQuadraticDiscriminant(iA, iB, iC)
 
-    return iRatio(- iB + iDiscriminant, 2 * iA)
+    return iRatio(iDiff(iDiscriminant, iB), iPolynomialTerm(2, iA))
 
 
-def iQuadraticSolutionNeg(iArrQuadraticCoefficients):
+def iQuadraticSolutionNeg(iA, iB, iC):
 
-    if len(iArrQuadraticCoefficients) != 3: 
-        
-        return "Not a Quadratic Array!"
+    iArrQuadraticCoefficients = [iA, iB, iC]
 
-    
     for iCoeff in iArrQuadraticCoefficients:
 
-        if not iCoeff.isnumeric():
+        if not isinstance(iArrQuadraticCoefficients[iCoeff], (int, float)):
 
-            return "Nonnumber detected in array."
-
-
-    iA = iArrQuadraticCoefficients[0]
-    iB = iArrQuadraticCoefficients[1]
-    iC = iArrQuadraticCoefficients[2]
+            print("{} is not a number and cannot be used!".format(iArrQuadraticCoefficients[iCoeff]))
+            return
 
     iDiscriminant = iQuadraticDiscriminant(iA, iB, iC)
 
-    return iRatio(- iB - iDiscriminant, 2 * iA)
+    return iRatio(iDiff(-iDiscriminant, iB), iPolynomialTerm(2, iA))
 
 
-def iQuadraticSolutionArray(iArrQuadraticCoefficients):
+def iArrQuadraticSolution(iA, iB, iC):
 
-    return [iQuadraticSolutionPos(iArrQuadraticCoefficients), iQuadraticSolutionNeg(iArrQuadraticCoefficients)]
+    iArrInputs = [iA, iB, iC]
+
+    for iCoeff in iArrInputs:
+
+        if not isinstance(iArrInputs[iCoeff], (int, float)):
+
+            print("{} is not a usable input!".format(iArrInputs[iCoeff]))
+            return
+
+    iPosSol = iQuadraticSolutionPos(iA, iB, iC)
+    iNegSol = iQuadraticSolutionNeg(iA, iB, iC)
+
+    return [iPosSol, iNegSol]
 
 
 # Completing The Square
