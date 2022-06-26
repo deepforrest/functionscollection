@@ -73,10 +73,14 @@ def iReciprical(iNum):
 
 def iPolynomialTerm(iCoeff, iBase, iPower = 1):
 
-    if not abs(iCoeff).isnumeric() or not abs(iPower).isnumeric() or not abs(iPower).isnumeric():
+    iArrInputs = [iCoeff, iBase, iPower]
 
-        print("Inputs are invalid!\niCoeff = {}\niBase = {}\niPower = {}".format(iCoeff, iBase, iPower))
-        return
+    for iInput in iArrInputs:
+
+        if not iArrInputs[iInput].isnumeric():
+
+            print("Inputs are invalid!\niCoeff = {}\niBase = {}\niPower = {}".format(iCoeff, iBase, iPower))
+            return
 
     return iCoeff * (iBase ** iPower)
 
