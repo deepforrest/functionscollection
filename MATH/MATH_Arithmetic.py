@@ -64,7 +64,7 @@ def iFactorial(iNum):
 
 def iReciprical(iNum):
 
-    if not iNum.isnumeric():
+    if not isinstance(iNum, (int, float)):
 
         print("{} is not a valid input for iReciprical".format(iNum))
         return
@@ -127,7 +127,7 @@ def iSumOverProduct(iArrNums):
 
     for iNum in range(len(iArrNums)):
 
-        if not iArrNums[iNum].isnumeric():
+        if not isinstance(iArrNums[iNum], (int, float)):
 
             print("{} is not a valid number within {}!".format(iArrNums[iNum], iArrNums))
             return
@@ -160,7 +160,7 @@ def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
 
         iNumInt = iArrInputs[iInput]
 
-        if not iNumInt.isnumeric():
+        if not isinstance(iNumInt, (int, float)):
 
             print("{} is not a valid input for sAddFractions".format(iNumInt))
             return
@@ -178,7 +178,7 @@ def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
 
                 # Do something here to transform them into decimaless integers
 
-    print("Fractions: {} / {} + {} / {}".format(iNum_1, iDen_1, iNum_2, iDen_2))
+    print("Validation Complete:\nFractions: {} / {} + {} / {}".format(iNum_1, iDen_1, iNum_2, iDen_2))
 
     iFractMult_1 = iArrFactorsofNum(iDen_1)
     iFractMult_2 = iArrFactorsofNum(iDen_2)
