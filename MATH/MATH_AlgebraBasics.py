@@ -38,7 +38,6 @@ def bIsAFunction(iArrInputs, iArrOutputs, bDebug = False):
 
 
 # Linear Equations
-
 def iTangentOfPoints(iX_2, iX_1, iY_2, iY_1):
 
     iArrInputs = [iX_2, iX_1, iY_2, iY_1]
@@ -62,7 +61,15 @@ def iTangentOfPoints(iX_2, iX_1, iY_2, iY_1):
 
 def iQuadraticDiscriminant(iA, iB, iC):
 
-    return iB ** 2 - 4 * iA * iC
+    iArrInputs = [iA, iB, iC]
+
+    for iCoeff in iArrInputs:
+
+        if not isinstance(iArrInputs[iCoeff], (int, float)):
+
+            print("{} is not an appropriate coefficient!".format(iArrInputs[iCoeff]))
+
+    return iDiff(iPolynomialTerm(1, iB, 2), iPolyTerm(4, iA * iC))
 
 
 def sNoOfRealQuadraticSolutions(iArrQuadraticCoefficients):
