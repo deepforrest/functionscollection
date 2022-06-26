@@ -209,27 +209,42 @@ def iMinPerimeterForArea(iArea):
     return 2 * math.sqrt(iArea)
 
 
-def iConvertToBinary(iNum):
+def iConvertDecToBinary(iNum):
 
-    if not isinstance(iNum, int):
+    if not isinstance(iNum, (int, float)):
 
-        print("{} is not a number!".format(iNum))
+        print("{} is not a valid number for binary!".format(iNum))
         return
 
-    iBinaryPower = 1
+    iExp = 0
 
-    while iNum > 0:
+    iComparator = iPolynomialTerm(1, 2, iExp)
+    iArrBinary = []
 
-        iArrBinaryOutput = []
+    while iComparator < iNum:
 
-        while iBinaryNotation(iBinaryPower) <= iNum:
-
-            iBinaryPower +=1
-            iArrBinaryOutput.append(0)
-
-        # Next Step: Compare the length of the array to the power
+        iExp += 1
+        iComparator = iPolynomialTerm(1, 2, iExp)
 
 
+    if type(iNum) == int:
+
+        while iComparator > 0:
+
+            if iComparator > iNum:
+
+                iArrBinary.append(0)
+
+            else: 
+                
+                iArrBinary.append(1)
+                iNum -= iComparator
+
+            iExp -= 1
+            iComparator = iPolynomialTerm(1, 2, iExp)
+
+        return iArrBinary
+            
     
 # Print Return Statements
 
