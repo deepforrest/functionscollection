@@ -61,12 +61,14 @@ def iReciprical(iNum):
         print("{} is not a valid input for iReciprical".format(iNum))
         return
 
-    if iNum == 0:
+    elif iNum == 0:
 
         print("{} has an indeterminant reciprocal!".format(iNum))
         return
 
-    return iRatio(1, iNum)
+    else
+        
+        return iRatio(1, iNum)
 
 
 def iPolynomialTerm(iCoeff, iBase, iPower = 1):
