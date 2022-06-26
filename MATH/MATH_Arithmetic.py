@@ -38,14 +38,14 @@ def iRatio(iNum, iDen):
 
 def iFactorial(iNum):
 
-    if type(iNum) != int:
+    if not isinstance(iNum, int):
 
-        if not iNum.isnumeric(): 
+        if not isinstance(iNum, float): 
             
             print("{} is not a number!".format(iNum))
             return           
 
-        iNum = round(iNum, 0) 
+        iNum = int(iNum)
 
     if iNum < 0:
 
