@@ -1,6 +1,6 @@
 # Functions
 
-def bIsAFunction(iArrInputs, iArrOutputs):
+def bIsAFunction(iArrInputs, iArrOutputs, bDebug = False):
 
     if len(iArrInputs) != len(iArrOutputs):
 
@@ -21,20 +21,34 @@ def bIsAFunction(iArrInputs, iArrOutputs):
 
     
     # Next, need to write code that analyzes the inputs for duplicates.
-
-
     for iIndNum in iArrInputs:
 
         iIndNum_2 = iIndNum + 1
 
         while iIndNum_2 < len(iArrInputs):
 
-            
+            if iArrInputs[iIndNum] == iArrInputs[iIndNum_2]:
+
+                bDebug and print("{} is duplicated at indices {} & {}!".format(iArrInputs[iIndNum], iIndNum, iIndNum_2))
+                return False
+
+            iIndNum_2 += 1
+
+    return True
 
 
 # Linear Equations
 
 def iTangentOfPoints(iX_2, iX_1, iY_2, iY_1):
+
+    iArrInputs = [iX_2, iX_1, iY_2, iY_1]
+
+    for iInput in iArrInputs:
+
+        if not isinstance(iArrInputs[iInput], (int, float)):
+
+            print("{} is a nonnumber and cannot be used for this function".format(iArrInputs[iInput]))
+            return
 
     iDelta_X = iDiff(iX_2, iX_1)
     iDelta_Y = iDiff(iY_2, iY_1)
@@ -49,6 +63,7 @@ def iTangentOfPoints(iX_2, iX_1, iY_2, iY_1):
 def iQuadraticDiscriminant(iA, iB, iC):
 
     return iB ** 2 - 4 * iA * iC
+
 
 def sNoOfRealQuadraticSolutions(iArrQuadraticCoefficients):
 
