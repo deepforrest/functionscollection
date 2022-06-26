@@ -5,20 +5,28 @@ These functions are basic, but help to make the code more readable in other sect
 '''
 def iDiff(iFinal, iInit):
 
-    if not iFinal.isnumeric() or not iInit.isnumeric():
+    iArrInputs = [iFinal, iInit]
 
-        print("Invalid entry for iDiff!\nInputs detected:\niFinal = {}\n iInit = {}".format(iFinal, iInit))
-        return
+    for iInput in iArrInputs:
+
+        if not isinstance(iArrInputs[iInput], (int, float)):
+
+            print("Invalid entry for iDiff!\nInputs detected:\niFinal = {}\n iInit = {}".format(iFinal, iInit))
+            return
 
     return iFinal - iInit
 
 
 def iRatio(iNum, iDen):
 
-    if not iNum.isnumeric() or not iDen.isnumeric:
+    iArrInputs = [iNum, iDen]
 
-        print("Invalid entry in iRatio!\nSee Inputs:\niNum = {}\n iDen = {}".format(iNum, iDen))
-        return
+    for iInput in iArrInputs:
+
+        if not isinstance(iArrInputs[iInput], (int, float)):
+
+            print("Invalid entry in iRatio!\nSee Inputs:\niNum = {}\n iDen = {}".format(iNum, iDen))
+            return
 
     if iDen == 0:
 
@@ -35,7 +43,7 @@ def iFactorial(iNum):
         if not iNum.isnumeric(): 
             
             print("{} is not a number!".format(iNum))
-            sReduceFractionByFactoring            
+            return           
 
         iNum = round(iNum, 0) 
 
@@ -77,7 +85,7 @@ def iPolynomialTerm(iCoeff, iBase, iPower = 1):
 
     for iInput in iArrInputs:
 
-        if not iArrInputs[iInput].isnumeric():
+        if not isinstance(iArrInputs[iInput], (int, float)):
 
             print("Inputs are invalid!\niCoeff = {}\niBase = {}\niPower = {}".format(iCoeff, iBase, iPower))
             return
@@ -87,18 +95,21 @@ def iPolynomialTerm(iCoeff, iBase, iPower = 1):
 
 def iScientificNotation(iCoeff, iPower):
 
-    # Should validation happen before another function call with validation?
-    if not abs(iCoeff).isnumeric() or not abs(iPower).isnumeric():
+    iArrInputs = [iCoeff, iPower]
 
-        print("Inputs are invalid!\niCoeff = {}\niPower = {}".format(iCoeff, iPower))
-        return
+    for iInput in iArrInputs:
+
+        if not isinstance(iArrInputs[iInput], (int, float)):
+
+            print("Inputs are invalid!\niCoeff = {}\niPower = {}".format(iCoeff, iPower))
+            return
 
     return iPolynomialTerm(iCoeff, 10, iPower)
 
 
 def iPercent(iDec):
 
-    if not abs(iDec).isnumeric():
+    if not isinstance(iDec, (int, float)):
     
         print("{} is not a valid input for iPercent!".format(iDec))
         return
