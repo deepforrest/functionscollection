@@ -1,3 +1,37 @@
+# Functions
+
+def bIsAFunction(iArrInputs, iArrOutputs):
+
+    if len(iArrInputs) != len(iArrOutputs):
+
+        print("Input and output arrays have different lengths!")
+        print("Input: {} has length of {}".format(iArrInputs, len(iArrInputs)))
+        print("Output: {} has length of {}".format(iArrOutputs, len(iArrOutputs)))
+        return
+
+    iArrs = [iArrInputs, iArrOutputs]
+
+    for iArr in iArrs:
+
+        for iAgent in iArr:
+
+            if not isinstance(iArr[iAgent], (int, float)):
+
+                print("{} is not a valid input for analysis!".format(iArr[iAgent]))
+
+    
+    # Next, need to write code that analyzes the inputs for duplicates.
+
+
+    for iIndNum in iArrInputs:
+
+        iIndNum_2 = iIndNum + 1
+
+        while iIndNum_2 < len(iArrInputs):
+
+            
+
+
 # Linear Equations
 
 def iTangentOfPoints(iX_2, iX_1, iY_2, iY_1):
