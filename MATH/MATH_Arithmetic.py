@@ -36,7 +36,9 @@ def iRatio(iNum, iDen):
     return iNum / iDen
 
 
-def iFactorial(iNum):
+def iFactorial(iNum, bConvert = True):
+
+    # Validation of Inputs
 
     if not isinstance(iNum, int):
 
@@ -45,15 +47,23 @@ def iFactorial(iNum):
             print("{} is not a number!".format(iNum))
             return           
 
+        # Converts to Float into an integer
         iNum = int(iNum)
 
-    if iNum < 0:
+    if iNum < 0 and bConvert:
 
         print("{} converted to a positive number!".format(iNum))
         iNum = -iNum
 
+    else
+
+        print("{} cannot be a negative number!".format(iNum))
+        return
+
+    # Baseline Starting Point because 1 * n = n
     iResult = 1
 
+    # A Factorial Calculation is given as n * (n - 1) * (n - 2) ... (n - (n - 2) * (n - (n - 1)))
     while iNum != 0:
 
         iResult *= iNum
@@ -64,23 +74,24 @@ def iFactorial(iNum):
 
 def iReciprical(iNum):
 
+    # Validation of Inputs
     if not isinstance(iNum, (int, float)):
 
         print("{} is not a valid input for iReciprical".format(iNum))
         return
 
-    elif iNum == 0:
+    if iNum == 0:
 
         print("{} has an indeterminant reciprocal!".format(iNum))
         return
 
-    else
-        
-        return iRatio(1, iNum)
+    # Create the Calculation
+    return iRatio(1, iNum)
 
 
 def iPolynomialTerm(iCoeff, iBase, iPower = 1):
 
+    # Validation of Inputs
     iArrInputs = [iCoeff, iBase, iPower]
 
     for iInput in iArrInputs:
