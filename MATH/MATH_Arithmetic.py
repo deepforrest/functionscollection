@@ -2,32 +2,67 @@
 ARITHMETIC OPERATORS
 
 These functions are basic, but help to make the code more readable in other sections.
+
+A wise programmer once said:
+
+"Your code should explain your comments to the computer..."
+
+
 '''
+
 def iDiff(iFinal, iInit):
 
+    ''' 
+    While this function may seem silly at first glance, I've created it for several reasons:
+
+        1 - To reduce my operators shown down to only '+'s,
+        2 - To ensure that order of operations are always fully followed
+        3 - To help with reference calculations in engineering, and
+        4 - To make code more readable from left to right and not worrying about match parentheses
+
+    '''
+
+    # 1 - Validation of Inputs
     iArrInputs = [iFinal, iInit]
 
+    # Checks to Make Sure All Inputs Are Numerical
     for iInput in iArrInputs:
 
-        if not isinstance(iArrInputs[iInput], (int, float)):
+        iNumInQuestion = iArrInputs[iInput]
 
-            print("Invalid entry for iDiff!\nInputs detected:\niFinal = {}\n iInit = {}".format(iFinal, iInit))
-            return
+        if not isinstance(iNumInQuestion, (int, float)):
 
+            print("Invalid entry for function iDiff: {}".format(iNumInQuestion))
+            return # Kill Statement
+
+    # 1 - Validation of Inputs
     return iFinal - iInit
 
 
 def iRatio(iNum, iDen):
 
+    ''' 
+        
+        While this function may seem silly at first glance, I've created it for several reasons:
+
+        1 - To reduce my operators down to only '+'s,
+        2 - To ensure that order of operations are always fully followed
+        3 - To make code more readable from left to right and not worrying about match parentheses
+
+    '''
+
     iArrInputs = [iNum, iDen]
 
     for iInput in iArrInputs:
 
-        if not isinstance(iArrInputs[iInput], (int, float)):
+        iNumInQuestion = iArrInputs[iInput]
 
-            print("Invalid entry in iRatio!\nSee Inputs:\niNum = {}\n iDen = {}".format(iNum, iDen))
-            return
+        if not isinstance(iNumInQuestion, (int, float)):
 
+            print("Invalid entry for function iRatio: {}".format(iNumInQuestion))
+            return # Kill Statement
+
+    # Divide by Zero Issues
     if iDen == 0:
 
         print("Denominator cannot be zero for iRatio!")
