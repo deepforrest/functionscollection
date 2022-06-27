@@ -1,14 +1,28 @@
 '''
-ARITHMETIC OPERATORS
 
-These functions are basic, but help to make the code more readable in other sections.
+I - ARITHMETIC OPERATORS
 
-A wise programmer once said:
+    These functions are basic, but help to make the code more readable in other sections.
 
-"Your code should explain your comments to the computer..."
+A - Coding Philosophy
+    A wise programmer once said:
+    "Your code should explain your comments to the computer..."
 
+    and so you shall see in the code below.
+
+B - codeCase Used
+
+    The codeCase I use is called sTypeCase, which identifies the expected data type for the variable within the first letter:
+
+        - b: Boolean
+        - i: Numeric
+        - s: String
+        - v: Variants (Usually with Arrays)
+
+    If there is an Array/List involved, it is denoted after the data type with Arr, such as vArr, sArr, iArr, etc.
 
 '''
+# Part 1 - Elementary Functions
 
 def iDiff(iFinal, iInit):
 
@@ -19,7 +33,6 @@ def iDiff(iFinal, iInit):
         2 - To ensure that order of operations are always fully followed
         3 - To help with reference calculations in engineering, and
         4 - To make code more readable from left to right and not worrying about match parentheses
-
     '''
 
     # 1 - Validation of Inputs
@@ -35,15 +48,14 @@ def iDiff(iFinal, iInit):
             print("Invalid entry for function iDiff: {}".format(iNumInQuestion))
             return # Kill Statement
 
-    # 1 - Validation of Inputs
+    # 2 - Calculate Result
     return iFinal - iInit
 
 
 def iRatio(iNum, iDen):
 
     ''' 
-        
-        While this function may seem silly at first glance, I've created it for several reasons:
+        While this function may also seem silly at first glance, I've created it for several reasons:
 
         1 - To reduce my operators down to only '+'s,
         2 - To ensure that order of operations are always fully followed
@@ -51,8 +63,10 @@ def iRatio(iNum, iDen):
 
     '''
 
+    # 1 - Validation of Inputs
     iArrInputs = [iNum, iDen]
 
+    # Checks for Nonnumeric inputs
     for iInput in iArrInputs:
 
         iNumInQuestion = iArrInputs[iInput]
@@ -66,12 +80,12 @@ def iRatio(iNum, iDen):
     if iDen == 0:
 
         print("Denominator cannot be zero for iRatio!")
-        return
+        return # Kill Statement
 
     return iNum / iDen
 
 
-def iFactorial(iNum, bConvert = True):
+def iFactorial(iNum, bConvertNegative = True):
 
     # Validation of Inputs
 
@@ -82,18 +96,18 @@ def iFactorial(iNum, bConvert = True):
             print("{} is not a number!".format(iNum))
             return           
 
-        # Converts to Float into an integer
+        # Attempts to Redeem Float By Converting It Into an Integer Required for Factorial Calculations
         iNum = int(iNum)
 
-    if iNum < 0 and bConvert:
+    if iNum < 0 and bConvertNegative:
 
         print("{} converted to a positive number!".format(iNum))
         iNum = -iNum
 
     else
 
-        print("{} cannot be a negative number!".format(iNum))
-        return
+        print("{} cannot be a negative number in iFactorial!".format(iNum))
+        return # Kill Statement
 
     # Baseline Starting Point because 1 * n = n
     iResult = 1
