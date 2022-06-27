@@ -22,6 +22,9 @@ B - codeCase Used
     If there is an Array/List involved, it is denoted after the data type with Arr, such as vArr, sArr, iArr, etc.
 
 '''
+
+from PROG_GenFunctions import bValidateInputs
+
 # Part 1 - Elementary Functions
 
 def iDiff(iFinal, iInit):
@@ -38,18 +41,8 @@ def iDiff(iFinal, iInit):
     # 1 - Validation of Inputs
     iArrInputs = [iFinal, iInit]
 
-    # Checks to Make Sure All Inputs Are Numerical
-    for iInput in iArrInputs:
-
-        iNumInQuestion = iArrInputs[iInput]
-
-        if not isinstance(iNumInQuestion, (int, float)):
-
-            print("Invalid entry for function iDiff: {}".format(iNumInQuestion))
-            return # Kill Statement
-
     # 2 - Calculate Result
-    return iFinal - iInit
+    return if bValidateInputs(iArrInputs, "iDiff") else return (iFinal - iInit)
 
 
 def iRatio(iNum, iDen):
@@ -67,43 +60,42 @@ def iRatio(iNum, iDen):
     iArrInputs = [iNum, iDen]
 
     # Checks for Nonnumeric inputs
-    for iInput in iArrInputs:
-
-        iNumInQuestion = iArrInputs[iInput]
-
-        if not isinstance(iNumInQuestion, (int, float)):
-
-            print("Invalid entry for function iRatio: {}".format(iNumInQuestion))
-            return # Kill Statement
+    if bValidateInputs(iArrInputs, "iRatio"):
+            
+        return # Kill Statement
 
     # Divide by Zero Issues
     if iDen == 0:
 
-        print("Denominator cannot be zero for iRatio!")
+        print("Denominator cannot be {} for iRatio!".format(iDen))
         return # Kill Statement
 
-    return iNum / iDen
+    return (iNum / iDen)
 
 
 def iFactorial(iNum, bConvertNegative = True):
 
-    # Validation of Inputs
+    # 1 Validation of Inputs
 
+    # First checks to make sure it is an integer
     if not isinstance(iNum, int):
 
+        # Checks to make sure the number is at least a float, and if not, aborts the function.
         if not isinstance(iNum, float): 
             
             print("{} is not a number!".format(iNum))
-            return           
+            return # Kill Statement 
 
         # Attempts to Redeem Float By Converting It Into an Integer Required for Factorial Calculations
         iNum = int(iNum)
 
+    # Next, check to make sure the number is positive, and if not, convert it unless overridden in function inputs
     if iNum < 0 and bConvertNegative:
 
         print("{} converted to a positive number!".format(iNum))
         iNum = -iNum
 
+    # Usually only happens if the user explicitly says do not convert.
     else
 
         print("{} cannot be a negative number in iFactorial!".format(iNum))
@@ -113,11 +105,13 @@ def iFactorial(iNum, bConvertNegative = True):
     iResult = 1
 
     # A Factorial Calculation is given as n * (n - 1) * (n - 2) ... (n - (n - 2) * (n - (n - 1)))
-    while iNum != 0:
+    # Function stops at 1 instead of 0 because multiplying by 1 is meaningless.
+    while iNum != 1:
 
         iResult *= iNum
         iNum -= 1
 
+    # Once iNum reaches 1, the result is ready for return
     return iResult
 
 
@@ -129,23 +123,26 @@ def iReciprical(iNum):
         print("{} is not a valid input for iReciprical".format(iNum))
         return
 
+    # Shows 
     if iNum == 0:
 
         print("{} has an indeterminant reciprocal!".format(iNum))
         return
 
-    # Create the Calculation
+    # Calculates from iRatio as 1 / iNum
     return iRatio(1, iNum)
 
 
 def iPolynomialTerm(iCoeff, iBase, iPower = 1):
 
-    # Validation of Inputs
+    # Validation of Inputs (I feel like I could make a function out of the script below:)
     iArrInputs = [iCoeff, iBase, iPower]
 
     for iInput in iArrInputs:
 
-        if not isinstance(iArrInputs[iInput], (int, float)):
+        iNumInQuestion = iArrInputs[iInput]
+
+        if not isinstance(iNumInQuestion, (int, float)):
 
             print("Inputs are invalid!\niCoeff = {}\niBase = {}\niPower = {}".format(iCoeff, iBase, iPower))
             return
