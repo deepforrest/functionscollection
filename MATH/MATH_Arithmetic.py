@@ -242,7 +242,7 @@ def iMinPerimeterForArea(iArea):
         print({} "is not a valid input for iMinPerimeterForArea()".format(iArea))
         return
 
-    return 2 * math.sqrt(iArea)
+    return 4 * math.sqrt(iArea)
 
 
 def iConvertDecToBinary(iNum):
@@ -280,6 +280,13 @@ def iConvertDecToBinary(iNum):
             iComparator = iPolynomialTerm(1, 2, iExp)
 
         return iArrBinary
+
+    if type(iNum) == float:
+
+        # Set up code to have two bounds to look for
+        iComparatorMax = iComparator
+        iComparatorMid = 0
+        # iComparatorMin = -infinity
             
     
 # Print Return Statements
