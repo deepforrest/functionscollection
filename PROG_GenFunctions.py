@@ -3,7 +3,7 @@ def bValidateInputs(iArrInputs, sFunctionName)
     iArrInputs = [iFinal, iInit]
 
     # Checks to Make Sure All Inputs Are Numerical
-    for iInput in iArrInputs:
+    for iInput in range(len(iArrInputs)):
 
         iNumInQuestion = iArrInputs[iInput]
 
