@@ -60,8 +60,8 @@ def iRatio(iNum, iDen):
     iArrInputs = [iNum, iDen]
 
     # Checks for Nonnumeric inputs
-    if bValidateInputs(iArrInputs, "iRatio"):
-            
+    if !bValidateInputs(iArrInputs, "iRatio"):
+
         return # Kill Statement
 
     # Divide by Zero Issues
@@ -135,32 +135,15 @@ def iReciprical(iNum):
 
 def iPolynomialTerm(iCoeff, iBase, iPower = 1):
 
-    # Validation of Inputs (I feel like I could make a function out of the script below:)
+    # Setup for Validation of Inputs
     iArrInputs = [iCoeff, iBase, iPower]
 
-    for iInput in iArrInputs:
-
-        iNumInQuestion = iArrInputs[iInput]
-
-        if not isinstance(iNumInQuestion, (int, float)):
-
-            print("Inputs are invalid!\niCoeff = {}\niBase = {}\niPower = {}".format(iCoeff, iBase, iPower))
-            return
-
-    return iCoeff * (iBase ** iPower)
+    return iCoeff * (iBase ** iPower) if bValidateInputs(iArrInputs, "iPolynomialTerm") else return
 
 
 def iScientificNotation(iCoeff, iPower):
 
-    iArrInputs = [iCoeff, iPower]
-
-    for iInput in iArrInputs:
-
-        if not isinstance(iArrInputs[iInput], (int, float)):
-
-            print("Inputs are invalid!\niCoeff = {}\niPower = {}".format(iCoeff, iPower))
-            return
-
+    # Validation taken care of in next step
     return iPolynomialTerm(iCoeff, 10, iPower)
 
 
