@@ -263,7 +263,7 @@ def iConvertDecToBinary(iNum):
         iComparator = iPolynomialTerm(1, 2, iExp)
 
 
-    if type(iNum) == int:
+    if type(iNum) == int or iNum == int(iNum):
 
         while iComparator > 0:
 
