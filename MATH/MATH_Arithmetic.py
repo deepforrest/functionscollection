@@ -196,23 +196,19 @@ def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
     # 1 - Validation to ensure inputs are numeric
     iArrInputs = [iNum_1, iDen_1, iNum_2, iDen_2]
 
-    for iInput in iArrInputs:
+    if !bValidateInputs(iArrInputs, "sAddFractions"):
 
-        iNumInt = iArrInputs[iInput]
-
-        if not isinstance(iNumInt, (int, float)):
-
-            print("{} is not a valid input for sAddFractions".format(iNumInt))
-            return
-
+        return
+    
     # 2 - Transformative Process From Float to Integers, which is the definition of a rational num
     iArrFract_1 = [iNum_1, iDen_1]
     iArrFract_2 = [iNum_2, iDen_2]
     iArrFracts = [iArrFract_1, iArrFract_2]
 
-    for iFract in iArrFracts:
+    for iFract in range(len(iArrFracts)):
 
-        for iNum in iFract:
+        # Put Validation Function here, if possible
+        for iNum in range(len(iFract)):
 
             if not isinstance(iNum, int):
 
