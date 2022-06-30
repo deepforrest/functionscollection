@@ -9,16 +9,17 @@ def iIntegratePolyTerm(iCoeff, iVar, iPower):
 
     if iNewPower != 0:
 
-        return (iCoeff * (iVar ** iNewPower)) / iNewPower
+        return iRatio(iPolynomialTerm(iCoeff, iVar, iNewPower), iNewPower)
 
-    return math.log(iCoeff * iVar, iExp)
+    return math.log(iPolynomialTerm(iCoeff, iVar), iExp)
 
 # Numerical solution to a polynomial term according to the power rule
 def iDifferentiatePolyTerm(iCoeff, iVar, iPower):
 
-    iNewPower = iPower - 1
+    iNewPower = iDiff(iPower, 1)
+    iNewCoeff = iCoeff * iPower
 
-    return (iCoeff * iPower * (iVar ** iNewPower))
+    return iPolynomialTerm(iNewCoeff, iVar, iNewPower)
 
 # Tested.  Returns an array of prime numbers that when multiplied together, create the original number.  Optimized for speed
 def iArrFactorsOfNum(iNum):
