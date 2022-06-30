@@ -7,7 +7,11 @@ def iIntegratePolyTerm(iCoeff, iVar, iPower):
 
     iNewPower = iPower + 1
 
-    return (iCoeff * (iVar ** iNewPower)) / iNewPower
+    if iNewPower != 0:
+
+        return (iCoeff * (iVar ** iNewPower)) / iNewPower
+
+    return math.log(iCoeff * iVar, iExp)
 
 # Numerical solution to a polynomial term according to the power rule
 def iDifferentiatePolyTerm(iCoeff, iVar, iPower):
