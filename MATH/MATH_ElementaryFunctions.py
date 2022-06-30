@@ -16,6 +16,7 @@ def iIntegratePolyTerm(iCoeff, iVar, iPower):
 # Numerical solution to a polynomial term according to the power rule
 def iDifferentiatePolyTerm(iCoeff, iVar, iPower):
 
+    # Create new terms for new polynomial
     iNewPower = iDiff(iPower, 1)
     iNewCoeff = iCoeff * iPower
 
