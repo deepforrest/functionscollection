@@ -317,7 +317,19 @@ def sCompoundFraction(iDec):
     print("{} + {}".format(int(iWholeNum), sFraction))
 
 
-def iAddForwardSubtractBackward(iNumAdd, iNumSub, iStopPoint)
+def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop):
+
+    iNum = iNum_Start
+    iCounter = 0
+
+    while iNum < iNum_Stop:
+
+        iNum += iNumAdd
+        iNum -= iNumSub
+        iCounter += 1
+
+    print("It took {} iterations to get from {} to {} by adding {} and subtracting {}")
+
 
 
 
