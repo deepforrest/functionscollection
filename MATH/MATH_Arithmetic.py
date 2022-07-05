@@ -317,6 +317,7 @@ def sCompoundFraction(iDec):
     print("{} + {}".format(int(iWholeNum), sFraction))
 
 
+def iAddForwardSubtractBackward(iNumAdd, iNumSub, iStopPoint)
 
 
 
