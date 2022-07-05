@@ -328,7 +328,7 @@ def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop):
         iNum -= iNumSub
         iCounter += 1
 
-    print("It took {} iterations to get from {} to {} by adding {} and subtracting {}")
+    print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iCounter, iNum_Start, iNum_Stop, iNumAdd, iNumSub))
 
 
 
