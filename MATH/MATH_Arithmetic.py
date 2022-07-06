@@ -317,16 +317,33 @@ def sCompoundFraction(iDec):
     print("{} + {}".format(int(iWholeNum), sFraction))
 
 
-def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop, bPrint):
+def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop, bPrint = False):
 
     iArrInputs = [iNumAdd, iNumSub, iNum_Start, iNum_Stop]
 
     bValidateInputs(iArrInputs, "iAddForwardSubtractBackward")
 
+    # More Validation Steps are Needed For This Function To Ensure No Inf Loops
+
+    bInfLoop = True
+
+    if iNumAdd > iNumSub:
+
+        if iNumStop > iNumStart:
+
+            bInfLoop = False
+
+    if iNumAdd < iNumSub:
+
+        if iNumStop < iNumStart:
+
+            bInfLoop = False
+
+    # Start of Function
     iNum = iNum_Start
     iCounter = 0
 
-    while iNum < iNum_Stop:
+    while iNum < iNum_Stop and !bInfLoop:
 
         iNum += iNumAdd
         iNum -= iNumSub

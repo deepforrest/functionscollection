@@ -134,7 +134,16 @@ def iArrQuadraticSolution(iA, iB, iC):
 
 def iTerm_CompleteTheSquare(iQuadCoeff, iLinearCoeff):
 
-    return((iLinearCoeff / (2 * iQuadCoeff)) ** 2)
+    iArrInputs = [iQuadCoeff, iLinearCoeff]
+
+    for iCoeff in iArrInputs:
+
+        if not isinstance(iArrInputs[iCoeff], (int, float)):
+
+            print("{} is not a usable input!".format(iArrInputs[iCoeff]))
+            return
+
+    return iPolynomialTerm(iLinearCoefficient, iReciprical(iPolynomialTerm(2, iQuadCoeff)), 2)
 
 
 def sCompleteTheSquareStatement(iQuadCoeff, iLinearCoeff):
@@ -145,11 +154,21 @@ def sCompleteTheSquareStatement(iQuadCoeff, iLinearCoeff):
 # (iA_1*x + iB_1)(iA_2*x + iB_2)
 def sFOILExpression(iA_1, iA_2, iB_1, iB_2):
 
-    iQuadCoeff = iA_1 * iA_2
-    iLinearCoeff = iA_1 * iB_2 + iB_1 * iA_2
-    iConstant = iB_1 * iB_2
+    iArrInputs = [iA_1, iA_2, iB_1, iB_2]
+
+    for iCoeff in iArrInputs:
+
+        if not isinstance(iArrInputs[iCoeff], (int, float)):
+
+            print("{} is not a valid input!".format(iArrInputs[iCoeff]))
+            return
+
+    iQuadCoeff = iPolynomialTerm(iA_1, iA_2)
+    iLinearCoeff = iPolynomialTerm(iA_1, iB_2) + iPolynomialTerm(iB_1, iA_2)
+    iConstant = iPolynomialTerm(iB_1, iB_2)
 
     print("{}*x^2 + {}*x + {}".format(iQuadCoeff, iLinearCoeff, iConstant))
+    return [iQuadCoeff, iLinearCoeff, iConstant]
 
 
 # Unfinished
