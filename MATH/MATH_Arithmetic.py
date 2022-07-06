@@ -351,10 +351,6 @@ def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop, bPrint 
 
     bPrint and print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iCounter, iNum_Start, iNum_Stop, iNumAdd, iNumSub))
 
-
-
-
-
 # CONTINUE HERE
 
 
@@ -365,48 +361,50 @@ def sAddByCounting(iNum_1, iNum_2, bDebug = False):
 
     if type(iNum_1) != int or type(iNum_2) != int:
 
-        print("Please use integers!")
+        print("sAddByCounting accepts integer only.  Please check inputs and try again.\niNum_1 = {}\n iNum_2 = {}".format(iNum_1, iNum_2))
         return
 
     iAddCount = 0
 
-    while iAddCount <= iNum2:
+    # Double Check Operations Here
+    while iAddCount <= iNum_2:
 
         iAddCount += 1
-        iIntermediateSum = iNum_1 + iAddCount
+        iIntermediateSum = iNum_1 + 1
 
-        print("{} was added to {} to create {}}".format(iAddCount, iNum_1, iIntermediateSum))
+        print("{} was added to {} to create {}".format(iAddCount, iNum_1, iIntermediateSum))
 
 
 def sSubtractByCounting(iNum_1, iNum_2, bDebug = False):
 
     if type(iNum_1) != int or type(iNum_2) != int:   #DRY!
 
-        print("Please use integers!")
+        print("sSubtractByCounting accepts integer only.  Please check inputs and try again.\niNum_1 = {}\n iNum_2 = {}".format(iNum_1, iNum_2))
         return
+
+    # Swaps Numbers If Entered Out of Sequence
+    iNum_1, iNum_2 = iNum_2, iNum_1 if iNum_2 > iNum_1
 
     iSubtractCount = 0
 
+    # Double Check Operations Here
     while iSubtractCount <= iNum_2:
 
         iSubtractCount += 1
-        iIntermediateDiff = iNum_1 - iSubtractCount
+        iIntermediateDiff = iNum_1 - 1
 
         print("{} was taken away from {} to create {}}".format(iSubtractCount, iNum_1, iIntermediateDiff))
 
 
 def sMultiplyByAdding(iNum_1, iNum_2, bDebug = False):
 
-    if type(iNum_1) != int or type(iNum_2) != int:   #DRY!
-
-        print("Please use integers!")
-        return
+print("sSubtractByCounting accepts integer only.  Please check inputs and try again.\niNum_1 = {}\n iNum_2 = {}".format(iNum_1, iNum_2))
 
     iMultCount = 0
 
-    while iMultCount <= iNum2:
+    while iMultCount <= iNum_2:
 
         iMultCount += 1
         iIntermediateProduct = iNum_1 + iMultCount * iNum_2
 
-        print("{} was added to {} to create {}}".format(iMultCount, iNum1, iIntermediateProduct))
+        print("{} was added to {} to create {}}".format(iMultCount, iNum_1, iIntermediateProduct))
