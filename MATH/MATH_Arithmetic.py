@@ -353,7 +353,15 @@ def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop, bPrint 
 
 # CONTINUE HERE
 
+def vCheckForType(vArrInputs, dataType):
 
+    # Validation for data type
+
+    for vDataPoint in vArrInput:
+
+        vDataInQuestion = vArrInputs[vDataPoint]
+
+        if type(vDataInQuestion)
 
 
 
