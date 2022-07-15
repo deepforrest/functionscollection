@@ -353,7 +353,7 @@ def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop, bPrint 
 
 # CONTINUE HERE
 
-def vCheckForType(vArrInputs, dataType):
+def bCheckForType(sFunctionName, vArrInputs, dataType):
 
     # Validation for data type
 
@@ -361,8 +361,12 @@ def vCheckForType(vArrInputs, dataType):
 
         vDataInQuestion = vArrInputs[vDataPoint]
 
-        if type(vDataInQuestion)
+        if type(vDataInQuestion) != dataType:
 
+            print("{} accepts the type {} only.  Please check inputs and try again.".format(sFunctionName, dataType))
+            return False
+
+    return True
 
 
 def sAddByCounting(iNum_1, iNum_2, bDebug = False):
