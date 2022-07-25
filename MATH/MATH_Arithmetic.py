@@ -23,11 +23,11 @@ B - codeCase Used
 
 '''
 
-from PROG_GenFunctions import bValidateInputs
+from PROG_GenFunctions import validateInputs
 
 # Part 1 - Elementary Functions
 
-def iDiff(iFinal, iInit):
+def difference(finalNum, initialNum):
 
     ''' 
     While this function may seem silly at first glance, I've created it for several reasons:
@@ -39,13 +39,13 @@ def iDiff(iFinal, iInit):
     '''
 
     # 1 - Validation of Inputs
-    iArrInputs = [iFinal, iInit]
+    userInputArr = [finalNum, initialNum]
 
     # 2 - Calculate Result
-    return if bValidateInputs(iArrInputs, "iDiff") else return (iFinal - iInit)
+    return if validateInputs(userInputArr, "difference") else return (finalNum - initialNum)
 
 
-def iRatio(iNum, iDen):
+def ratio(numOfRatio, denOfRatio):
 
     ''' 
         While this function may also seem silly at first glance, I've created it for several reasons:
@@ -57,48 +57,53 @@ def iRatio(iNum, iDen):
     '''
 
     # 1 - Validation of Inputs
-    iArrInputs = [iNum, iDen]
+    userInputArr = [numOfRatio, denOfRatio]
 
     # Checks for Nonnumeric inputs
-    if !bValidateInputs(iArrInputs, "iRatio"):
+    if !validateInputs(userInputArr, "Ratio"):
 
         return # Kill Statement
 
     # Divide by Zero Issues
-    if iDen == 0:
+    if denOfRatio == 0:
 
-        print("Denominator cannot be {} for iRatio!".format(iDen))
+        print("Denominator cannot be {} for ratio!".format(denOfRatio))
         return # Kill Statement
 
-    return (iNum / iDen)
+    return (numOfRatio / denOfRatio)
 
 
-def iFactorial(iNum, bConvertNegative = True):
+def integerRatio(numOfRatio, denOfRatio):
+
+    return ratio(numOfRatio, denOfRatio)
+
+
+def iFactorial(numOfRatio, isNegative = True):
 
     # 1 Validation of Inputs
 
     # First checks to make sure it is an integer
-    if not isinstance(iNum, int):
+    if not isinstance(numOfRatio, int):
 
         # Checks to make sure the number is at least a float, and if not, aborts the function.
-        if not isinstance(iNum, float): 
+        if not isinstance(numOfRatio, float): 
             
-            print("{} is not a number!".format(iNum))
+            print("{} is not a number!".format(numOfRatio))
             return # Kill Statement 
 
         # Attempts to Redeem Float By Converting It Into an Integer Required for Factorial Calculations
-        iNum = int(iNum)
+        numOfRatio = int(numOfRatio)
 
     # Next, check to make sure the number is positive, and if not, convert it unless overridden in function inputs
-    if iNum < 0 and bConvertNegative:
+    if numOfRatio < 0 and isNegative:
 
-        print("{} converted to a positive number!".format(iNum))
-        iNum = -iNum
+        print("{} converted to a positive number!".format(numOfRatio))
+        numOfRatio = -numOfRatio
 
     # Usually only happens if the user explicitly says do not convert.
     else
 
-        print("{} cannot be a negative number in iFactorial!".format(iNum))
+        print("{} cannot be a negative number in iFactorial!".format(numOfRatio))
         return # Kill Statement
 
     # Baseline Starting Point because 1 * n = n
@@ -106,73 +111,73 @@ def iFactorial(iNum, bConvertNegative = True):
 
     # A Factorial Calculation is given as n * (n - 1) * (n - 2) ... (n - (n - 2) * (n - (n - 1)))
     # Function stops at 1 instead of 0 because multiplying by 1 is meaningless.
-    while iNum != 1:
+    while numOfRatio != 1:
 
-        iResult *= iNum
-        iNum -= 1
+        iResult *= numOfRatio
+        numOfRatio -= 1
 
-    # Once iNum reaches 1, the result is ready for return
+    # Once numOfRatio reaches 1, the result is ready for return
     return iResult
 
 
-def iReciprical(iNum):
+def reciprical(numOfRatio):
 
     # Validation of Inputs
-    if not isinstance(iNum, (int, float)):
+    if not isinstance(numOfRatio, (int, float)):
 
-        print("{} is not a valid input for iReciprical".format(iNum))
+        print("{} is not a valid input for reciprical".format(numOfRatio))
         return
 
     # Shows 
-    if iNum == 0:
+    if numOfRatio == 0:
 
-        print("{} has an indeterminant reciprocal!".format(iNum))
+        print("{} has an indeterminant reciprocal!".format(numOfRatio))
         return
 
-    # Calculates from iRatio as 1 / iNum
-    return iRatio(1, iNum)
+    # Calculates from ratio as 1 / numOfRatio
+    return ratio(1, numOfRatio)
 
 
-def iPolynomialTerm(iCoeff, iBase, iPower = 1):
+def polynomialTerm(polynomialCoeff, polynomialBase, polynomialPower = 1):
 
     # Setup for Validation of Inputs
-    iArrInputs = [iCoeff, iBase, iPower]
+    userInputArr = [polynomialCoeff, polynomialBase, polynomialPower]
 
-    return iCoeff * (iBase ** iPower) if bValidateInputs(iArrInputs, "iPolynomialTerm") else return
+    return polynomialCoeff * (polynomialBase ** polynomialPower) if validateInputs(userInputArr, "polynomialTerm") else return
 
 
-def iScientificNotation(iCoeff, iPower):
+def scientificNotation(polynomialCoeff, polynomialPower):
 
     # Validation taken care of in next step
-    return iPolynomialTerm(iCoeff, 10, iPower)
+    return polynomialTerm(polynomialCoeff, 10, polynomialPower)
 
 
-def iPercent(iDec):
+def convertFloatToPercent(decimalNum):
 
-    if not isinstance(iDec, (int, float)):
+    if not isinstance(decimalNum, (int, float)):
     
-        print("{} is not a valid input for iPercent!".format(iDec))
+        print("{} is not a valid input for convertFloatToPercent!".format(decimalNum))
         return
         
-    return 100 * iDec
+    return 100 * decimalNum
 
 
-def iSumOverProduct(iArrNums):
+def iSumOverProduct(inputNumbersArr):
 
     # Some Good Ol' Fashioned Validation: Make sure it's an array and the array has numbers only.
-    if len(iArrNums) == 1:
+    if len(inputNumbersArr) == 1:
 
-        print("Your input {} is not valid array for iSumOverProduct.".format(iArrNums))
+        print("Your input {} is not valid array for iSumOverProduct.".format(inputNumbersArr))
         return
 
-    for iNum in range(len(iArrNums)):
+    for inputNumber in range(len(inputNumbersArr)):
 
-        if not isinstance(iArrNums[iNum], (int, float)):
+        if not isinstance(inputNumbersArr[inputNumber], (int, float)):
 
-            print("{} is not a valid number within {}!".format(iArrNums[iNum], iArrNums))
+            print("{} is not a valid number within {}!".format(inputNumbersArr[inputNumber], inputNumbersArr))
             return
 
-        elif iArrNums[iNum] == 0:
+        elif inputNumbersArr[inputNumber] == 0:
 
             print("Warning! Digit {} within array {} has a zero which will be disregarded in the Sum over Product!")
 
@@ -181,43 +186,43 @@ def iSumOverProduct(iArrNums):
             pass
     
     
-    iSum  = sum(iArrNums)
+    iSum  = sum(inputNumbersArr)
     iProd = 1
     
-    for iNum in range(len(iArrNums)):
+    for inputNumber in range(len(inputNumbersArr)):
 
-        iProd *= iArrNums[iNum] if iArrNums[iNum] != 0 else iProd = iProd
+        iProd *= inputNumbersArr[inputNumber] if inputNumbersArr[inputNumber] != 0 else iProd = iProd
 
-    return iRatio(iSum, iProd)
+    return ratio(iSum, iProd)
 
 
-def sAddFractions(iNum_1, iDen_1, iNum2, iDen_2, bDebug = False):
+def sAddFractions(numOfRatio_1, denOfRatio_1, numOfRatio2, denOfRatio_2, bDebug = False):
 
     # 1 - Validation to ensure inputs are numeric
-    iArrInputs = [iNum_1, iDen_1, iNum_2, iDen_2]
+    userInputArr = [numOfRatio_1, denOfRatio_1, numOfRatio_2, denOfRatio_2]
 
-    if !bValidateInputs(iArrInputs, "sAddFractions"):
+    if !validateInputs(userInputArr, "sAddFractions"):
 
         return
     
     # 2 - Transformative Process From Float to Integers, which is the definition of a rational num
-    iArrFract_1 = [iNum_1, iDen_1]
-    iArrFract_2 = [iNum_2, iDen_2]
+    iArrFract_1 = [numOfRatio_1, denOfRatio_1]
+    iArrFract_2 = [numOfRatio_2, denOfRatio_2]
     iArrFracts = [iArrFract_1, iArrFract_2]
 
     for iFract in range(len(iArrFracts)):
 
         # Put Validation Function here, if possible
-        for iNum in range(len(iFract)):
+        for numOfRatio in range(len(iFract)):
 
-            if not isinstance(iNum, int):
+            if not isinstance(numOfRatio, int):
 
                 # Do something here to transform them into decimaless integers
 
-    print("Validation Complete:\nFractions: {} / {} + {} / {}".format(iNum_1, iDen_1, iNum_2, iDen_2))
+    print("Validation Complete:\nFractions: {} / {} + {} / {}".format(numOfRatio_1, denOfRatio_1, numOfRatio_2, denOfRatio_2))
 
-    iFractMult_1 = iArrFactorsofNum(iDen_1)
-    iFractMult_2 = iArrFactorsofNum(iDen_2)
+    iFractMult_1 = iArrFactorsofNum(denOfRatio_1)
+    iFractMult_2 = iArrFactorsofNum(denOfRatio_2)
 
     # Creates Factors and Find Correct Multiplier:
     
@@ -245,43 +250,43 @@ def iMinPerimeterForArea(iArea):
     return 4 * math.sqrt(iArea)
 
 
-def iConvertDecToBinary(iNum):
+def iConvertDecToBinary(numOfRatio):
 
-    if not isinstance(iNum, (int, float)):
+    if not isinstance(numOfRatio, (int, float)):
 
-        print("{} is not a valid number for binary!".format(iNum))
+        print("{} is not a valid number for binary!".format(numOfRatio))
         return
 
     iExp = 0
 
-    iComparator = iPolynomialTerm(1, 2, iExp)
+    iComparator = polynomialTerm(1, 2, iExp)
     iArrBinary = []
 
-    while iComparator < iNum:
+    while iComparator < numOfRatio:
 
         iExp += 1
-        iComparator = iPolynomialTerm(1, 2, iExp)
+        iComparator = polynomialTerm(1, 2, iExp)
 
 
-    if type(iNum) == int or iNum == int(iNum):
+    if type(numOfRatio) == int or numOfRatio == int(numOfRatio):
 
         while iComparator > 0:
 
-            if iComparator > iNum:
+            if iComparator > numOfRatio:
 
                 iArrBinary.append(0)
 
             else: 
                 
                 iArrBinary.append(1)
-                iNum -= iComparator
+                numOfRatio -= iComparator
 
             iExp -= 1
-            iComparator = iPolynomialTerm(1, 2, iExp)
+            iComparator = polynomialTerm(1, 2, iExp)
 
         return iArrBinary
 
-    if type(iNum) == float:
+    if type(numOfRatio) == float:
 
         # Set up code to have two bounds to look for
         iComparatorMax = iComparator
@@ -291,16 +296,16 @@ def iConvertDecToBinary(iNum):
     
 # Print Return Statements
 
-def sCompoundFraction(iDec):
+def sCompoundFraction(decimalNum):
 
-    if not isinstance(iDec, (int, float)):
+    if not isinstance(decimalNum, (int, float)):
 
         print("{} is not a valid input for sCompoundFraction!")
         return
 
-    if type(iDec) == int:
+    if type(decimalNum) == int:
 
-        print("Input is already an integer:\n{} / 1".format(iDec))
+        print("Input is already an integer:\n{} / 1".format(decimalNum))
         return 
 
 
@@ -308,48 +313,48 @@ def sCompoundFraction(iDec):
     # Is the code below legit?
     iWholeNum = 0
 
-    while iDec > 1:
+    while decimalNum > 1:
 
         iWholeNum += 1
-        iDec -= 1
+        decimalNum -= 1
 
-    sFraction = sTransformDecToFraction(iDec)
+    sFraction = sTransformDecToFraction(decimalNum)
     print("{} + {}".format(int(iWholeNum), sFraction))
 
 
-def iAddForwardSubtractBackward(iNumAdd, iNumSub, iNum_Start, iNum_Stop, bPrint = False):
+def iAddForwardSubtractBackward(numOfRatioAdd, numOfRatioSub, numOfRatio_Start, numOfRatio_Stop, bPrint = False):
 
-    iArrInputs = [iNumAdd, iNumSub, iNum_Start, iNum_Stop]
+    userInputArr = [numOfRatioAdd, numOfRatioSub, numOfRatio_Start, numOfRatio_Stop]
 
-    bValidateInputs(iArrInputs, "iAddForwardSubtractBackward")
+    validateInputs(userInputArr, "iAddForwardSubtractBackward")
 
     # More Validation Steps are Needed For This Function To Ensure No Inf Loops
 
     bInfLoop = True
 
-    if iNumAdd > iNumSub:
+    if numOfRatioAdd > numOfRatioSub:
 
-        if iNumStop > iNumStart:
+        if numOfRatioStop > numOfRatioStart:
 
             bInfLoop = False
 
-    if iNumAdd < iNumSub:
+    if numOfRatioAdd < numOfRatioSub:
 
-        if iNumStop < iNumStart:
+        if numOfRatioStop < numOfRatioStart:
 
             bInfLoop = False
 
     # Start of Function
-    iNum = iNum_Start
+    numOfRatio = numOfRatio_Start
     iCounter = 0
 
-    while iNum < iNum_Stop and !bInfLoop:
+    while numOfRatio < numOfRatio_Stop and !bInfLoop:
 
-        iNum += iNumAdd
-        iNum -= iNumSub
+        numOfRatio += numOfRatioAdd
+        numOfRatio -= numOfRatioSub
         iCounter += 1
 
-    bPrint and print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iCounter, iNum_Start, iNum_Stop, iNumAdd, iNumSub))
+    bPrint and print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iCounter, numOfRatio_Start, numOfRatio_Stop, numOfRatioAdd, numOfRatioSub))
 
 # CONTINUE HERE
 
@@ -369,53 +374,53 @@ def bCheckForType(sFunctionName, vArrInputs, dataType):
     return True
 
 
-def sAddByCounting(iNum_1, iNum_2, bDebug = False):
+def sAddByCounting(numOfRatio_1, numOfRatio_2, bDebug = False):
 
-    iArrInputs = [iNum_1, iNum_2]
+    userInputArr = [numOfRatio_1, numOfRatio_2]
 
-    if !bCheckForType("sAddByCounting", iArrInputs, int): return
+    if !bCheckForType("sAddByCounting", userInputArr, int): return
 
     iAddCount = 0
 
     # Double Check Operations Here
-    while iAddCount <= iNum_2:
+    while iAddCount <= numOfRatio_2:
 
         iAddCount += 1
-        iIntermediateSum = iNum_1 + 1
+        iIntermediateSum = numOfRatio_1 + 1
 
-        print("{} was added to {} to create {}".format(iAddCount, iNum_1, iIntermediateSum))
+        print("{} was added to {} to create {}".format(iAddCount, numOfRatio_1, iIntermediateSum))
 
 
-def sSubtractByCounting(iNum_1, iNum_2, bDebug = False):
+def sSubtractByCounting(numOfRatio_1, numOfRatio_2, bDebug = False):
 
-    if type(iNum_1) != int or type(iNum_2) != int:   #DRY!
+    if type(numOfRatio_1) != int or type(numOfRatio_2) != int:   #DRY!
 
-        print("sSubtractByCounting accepts integer only.  Please check inputs and try again.\niNum_1 = {}\n iNum_2 = {}".format(iNum_1, iNum_2))
+        print("sSubtractByCounting accepts integer only.  Please check inputs and try again.\nnumOfRatio_1 = {}\n numOfRatio_2 = {}".format(numOfRatio_1, numOfRatio_2))
         return
 
     # Swaps Numbers If Entered Out of Sequence
-    iNum_1, iNum_2 = iNum_2, iNum_1 if iNum_2 > iNum_1
+    numOfRatio_1, numOfRatio_2 = numOfRatio_2, numOfRatio_1 if numOfRatio_2 > numOfRatio_1
 
     iSubtractCount = 0
 
     # Double Check Operations Here
-    while iSubtractCount <= iNum_2:
+    while iSubtractCount <= numOfRatio_2:
 
         iSubtractCount += 1
-        iIntermediateDiff = iNum_1 - 1
+        iIntermediateDiff = numOfRatio_1 - 1
 
-        print("{} was taken away from {} to create {}}".format(iSubtractCount, iNum_1, iIntermediateDiff))
+        print("{} was taken away from {} to create {}}".format(iSubtractCount, numOfRatio_1, iIntermediateDiff))
 
 
-def sMultiplyByAdding(iNum_1, iNum_2, bDebug = False):
+def sMultiplyByAdding(numOfRatio_1, numOfRatio_2, bDebug = False):
 
-print("sSubtractByCounting accepts integer only.  Please check inputs and try again.\niNum_1 = {}\n iNum_2 = {}".format(iNum_1, iNum_2))
+print("sSubtractByCounting accepts integer only.  Please check inputs and try again.\nnumOfRatio_1 = {}\n numOfRatio_2 = {}".format(numOfRatio_1, numOfRatio_2))
 
     iMultCount = 0
 
-    while iMultCount <= iNum_2:
+    while iMultCount <= numOfRatio_2:
 
         iMultCount += 1
-        iIntermediateProduct = iNum_1 + iMultCount * iNum_2
+        iIntermediateProduct = numOfRatio_1 + iMultCount * numOfRatio_2
 
-        print("{} was added to {} to create {}}".format(iMultCount, iNum_1, iIntermediateProduct))
+        print("{} was added to {} to create {}}".format(iMultCount, numOfRatio_1, iIntermediateProduct))
