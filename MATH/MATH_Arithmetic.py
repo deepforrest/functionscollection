@@ -162,12 +162,12 @@ def convertFloatToPercent(decimalNum):
     return 100 * decimalNum
 
 
-def iSumOverProduct(inputNumbersArr):
+def sumOfNumsOverProduct(inputNumbersArr):
 
     # Some Good Ol' Fashioned Validation: Make sure it's an array and the array has numbers only.
     if len(inputNumbersArr) == 1:
 
-        print("Your input {} is not valid array for iSumOverProduct.".format(inputNumbersArr))
+        print("Your input {} is not valid array for sumOfNumsOverProduct.".format(inputNumbersArr))
         return
 
     for inputNumber in range(len(inputNumbersArr)):
@@ -186,43 +186,43 @@ def iSumOverProduct(inputNumbersArr):
             pass
     
     
-    iSum  = sum(inputNumbersArr)
-    iProd = 1
+    sumOfNums  = sum(inputNumbersArr)
+    prodOfNums = 1
     
     for inputNumber in range(len(inputNumbersArr)):
 
-        iProd *= inputNumbersArr[inputNumber] if inputNumbersArr[inputNumber] != 0 else iProd = iProd
+        prodOfNums *= inputNumbersArr[inputNumber] if inputNumbersArr[inputNumber] != 0 else prodOfNums = prodOfNums
 
-    return ratio(iSum, iProd)
+    return ratio(sumOfNums, prodOfNums)
 
 
-def sAddFractions(numOfRatio_1, denOfRatio_1, numOfRatio2, denOfRatio_2, bDebug = False):
+def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction2, denOfFraction_2, bDebug = False):
 
     # 1 - Validation to ensure inputs are numeric
-    userInputArr = [numOfRatio_1, denOfRatio_1, numOfRatio_2, denOfRatio_2]
+    userInputArr = [numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2]
 
     if !validateInputs(userInputArr, "sAddFractions"):
 
         return
     
     # 2 - Transformative Process From Float to Integers, which is the definition of a rational num
-    iArrFract_1 = [numOfRatio_1, denOfRatio_1]
-    iArrFract_2 = [numOfRatio_2, denOfRatio_2]
+    iArrFract_1 = [numOfFraction_1, denOfFraction_1]
+    iArrFract_2 = [numOfFraction_2, denOfFraction_2]
     iArrFracts = [iArrFract_1, iArrFract_2]
 
     for iFract in range(len(iArrFracts)):
 
         # Put Validation Function here, if possible
-        for numOfRatio in range(len(iFract)):
+        for numOfFraction in range(len(iFract)):
 
-            if not isinstance(numOfRatio, int):
+            if not isinstance(numOfFraction, int):
 
                 # Do something here to transform them into decimaless integers
 
-    print("Validation Complete:\nFractions: {} / {} + {} / {}".format(numOfRatio_1, denOfRatio_1, numOfRatio_2, denOfRatio_2))
+    print("Validation Complete:\nFractions: {} / {} + {} / {}".format(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2))
 
-    iFractMult_1 = iArrFactorsofNum(denOfRatio_1)
-    iFractMult_2 = iArrFactorsofNum(denOfRatio_2)
+    iFractMult_1 = iArrFactorsofNum(denOfFraction_1)
+    iFractMult_2 = iArrFactorsofNum(denOfFraction_2)
 
     # Creates Factors and Find Correct Multiplier:
     
