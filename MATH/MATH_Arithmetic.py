@@ -219,68 +219,68 @@ def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFracti
     # Multiply Numerator
 
 
-def iMaxPerimeterForArea(iArea):
+def maximumPerimeterOfRectangle(areaOfRectangle):
 
-    if not isinstance(iArea, (int, float)):
+    if not isinstance(areaOfRectangle, (int, float)):
         
-        print({} "is not a valid input for iMaxPerimeterForArea()".format(iArea))
+        print({} "is not a valid input for maximumPerimeterOfRectangle()".format(areaOfRectangle))
         return
 
-    return 2 * (iArea + 1)
+    return 2 * (areaOfRectangle + 1)
 
 
-def iMinPerimeterForArea(iArea):
+def minimumPerimeterOfRectangle(areaOfRectangle):
 
-    if not isinstance(iArea, (int, float)):
+    if not isinstance(areaOfRectangle, (int, float)):
         
-        print({} "is not a valid input for iMinPerimeterForArea()".format(iArea))
+        print({} "is not a valid input for minimumPerimeterOfRectangle()".format(areaOfRectangle))
         return
 
-    return 4 * math.sqrt(iArea)
+    return 4 * math.sqrt(areaOfRectangle)
 
 
-def iConvertDecToBinary(numOfRatio):
+def decimalToBinary(numOfRatio):
 
     if not isinstance(numOfRatio, (int, float)):
 
         print("{} is not a valid number for binary!".format(numOfRatio))
         return
 
-    iExp = 0
+    exponent = 0
 
-    iComparator = polynomialTerm(1, 2, iExp)
-    iArrBinary = []
+    comparativeNum = polynomialTerm(1, 2, exponent)
+    binaryDigitsArr = []
 
-    while iComparator < numOfRatio:
+    while comparativeNum < numOfRatio:
 
-        iExp += 1
-        iComparator = polynomialTerm(1, 2, iExp)
+        exponent += 1
+        comparativeNum = polynomialTerm(1, 2, exponent)
 
 
     if type(numOfRatio) == int or numOfRatio == int(numOfRatio):
 
-        while iComparator > 0:
+        while comparativeNum > 0:
 
-            if iComparator > numOfRatio:
+            if comparativeNum > numOfRatio:
 
-                iArrBinary.append(0)
+                binaryDigitsArr.append(0)
 
             else: 
                 
-                iArrBinary.append(1)
-                numOfRatio -= iComparator
+                binaryDigitsArr.append(1)
+                numOfRatio -= comparativeNum
 
-            iExp -= 1
-            iComparator = polynomialTerm(1, 2, iExp)
+            exponent -= 1
+            comparativeNum = polynomialTerm(1, 2, exponent)
 
-        return iArrBinary
+        return binaryDigitsArr
 
     if type(numOfRatio) == float:
 
         # Set up code to have two bounds to look for
-        iComparatorMax = iComparator
-        iComparatorMid = 0
-        # iComparatorMin = -infinity
+        comparativeNumMax = comparativeNum
+        comparativeNumMid = 0
+        # comparativeNumMin = -infinity
             
     
 # Print Return Statements
