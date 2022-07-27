@@ -10,17 +10,6 @@ A - Coding Philosophy
 
     and so you shall see in the code below.
 
-B - codeCase Used
-
-    The codeCase I use is called sTypeCase, which identifies the expected data type for the variable within the first letter:
-
-        - b: Boolean
-        - i: Numeric
-        - s: String
-        - v: Variants (Usually with Arrays)
-
-    If there is an Array/List involved, it is denoted after the data type with Arr, such as vArr, sArr, iArr, etc.
-
 '''
 
 from PROG_GenFunctions import validateInputs
@@ -196,24 +185,24 @@ def sumOfNumsOverProduct(inputNumbersArr):
     return ratio(sumOfNums, prodOfNums)
 
 
-def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction2, denOfFraction_2, bDebug = False):
+def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2, bDebug = False):
 
     # 1 - Validation to ensure inputs are numeric
     userInputArr = [numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2]
 
-    if !validateInputs(userInputArr, "sAddFractions"):
+    if validateInputs(userInputArr, "sAddFractions") != True:
 
         return
     
     # 2 - Transformative Process From Float to Integers, which is the definition of a rational num
-    iArrFract_1 = [numOfFraction_1, denOfFraction_1]
-    iArrFract_2 = [numOfFraction_2, denOfFraction_2]
-    iArrFracts = [iArrFract_1, iArrFract_2]
+    componentsOfFraction_1 = [numOfFraction_1, denOfFraction_1]
+    componentsOfFraction_2 = [numOfFraction_2, denOfFraction_2]
+    fractionsArr = [componentsOfFraction_1, componentsOfFraction_2]
 
-    for iFract in range(len(iArrFracts)):
+    for fraction in range(len(fractionsArr)):
 
         # Put Validation Function here, if possible
-        for numOfFraction in range(len(iFract)):
+        for numOfFraction in range(len(fraction)):
 
             if not isinstance(numOfFraction, int):
 
@@ -221,8 +210,8 @@ def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction2, denOfFractio
 
     print("Validation Complete:\nFractions: {} / {} + {} / {}".format(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2))
 
-    iFractMult_1 = iArrFactorsofNum(denOfFraction_1)
-    iFractMult_2 = iArrFactorsofNum(denOfFraction_2)
+    fractionMult_1 = factorsOfNumArr(denOfFraction_1)
+    fractionMult_2 = factorsOfNumArr(denOfFraction_2)
 
     # Creates Factors and Find Correct Multiplier:
     
