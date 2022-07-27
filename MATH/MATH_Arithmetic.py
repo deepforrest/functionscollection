@@ -310,9 +310,9 @@ def decimalToCompoundFraction(decimalNum):
     print("{} + {}".format(int(integer), fractionStatement))
 
 
-def iAddForwardSubtractBackward(numOfRatioAdd, numOfRatioSub, numOfRatio_Start, numOfRatio_Stop, bPrint = False):
+def addForwardSubtractBackward(numOfRatio_Add, numOfRatio_Sub, numOfRatio_Start, numOfRatio_Stop, bPrint = False):
 
-    userInputArr = [numOfRatioAdd, numOfRatioSub, numOfRatio_Start, numOfRatio_Stop]
+    userInputArr = [numOfRatio_Add, numOfRatio_Sub, numOfRatio_Start, numOfRatio_Stop]
 
     validateInputs(userInputArr, "iAddForwardSubtractBackward")
 
@@ -320,13 +320,13 @@ def iAddForwardSubtractBackward(numOfRatioAdd, numOfRatioSub, numOfRatio_Start, 
 
     bInfLoop = True
 
-    if numOfRatioAdd > numOfRatioSub:
+    if numOfRatio_Add > numOfRatio_Sub:
 
         if numOfRatioStop > numOfRatioStart:
 
             bInfLoop = False
 
-    if numOfRatioAdd < numOfRatioSub:
+    if numOfRatio_Add < numOfRatio_Sub:
 
         if numOfRatioStop < numOfRatioStart:
 
@@ -336,13 +336,13 @@ def iAddForwardSubtractBackward(numOfRatioAdd, numOfRatioSub, numOfRatio_Start, 
     numOfRatio = numOfRatio_Start
     iCounter = 0
 
-    while numOfRatio < numOfRatio_Stop and !bInfLoop:
+    while numOfRatio < numOfRatio_Stop and bInfLoop != True:
 
-        numOfRatio += numOfRatioAdd
-        numOfRatio -= numOfRatioSub
+        numOfRatio += numOfRatio_Add
+        numOfRatio -= numOfRatio_Sub
         iCounter += 1
 
-    bPrint and print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iCounter, numOfRatio_Start, numOfRatio_Stop, numOfRatioAdd, numOfRatioSub))
+    bPrint and print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iCounter, numOfRatio_Start, numOfRatio_Stop, numOfRatio_Add, numOfRatio_Sub))
 
 # CONTINUE HERE
 
@@ -362,11 +362,11 @@ def bCheckForType(sFunctionName, vArrInputs, dataType):
     return True
 
 
-def sAddByCounting(numOfRatio_1, numOfRatio_2, bDebug = False):
+def addByCounting(numOfRatio_1, numOfRatio_2, bDebug = False):
 
     userInputArr = [numOfRatio_1, numOfRatio_2]
 
-    if !bCheckForType("sAddByCounting", userInputArr, int): return
+    if bCheckForType("addByCounting", userInputArr, int) != True: return
 
     iAddCount = 0
 
