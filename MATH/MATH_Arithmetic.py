@@ -283,13 +283,12 @@ def decimalToBinary(numOfRatio):
         # comparativeNumMin = -infinity
             
     
-# Print Return Statements
-
-def sCompoundFraction(decimalNum):
+# Print
+def decimalToCompoundFraction(decimalNum):
 
     if not isinstance(decimalNum, (int, float)):
 
-        print("{} is not a valid input for sCompoundFraction!")
+        print("{} is not a valid input for decimalToCompoundFraction!")
         return
 
     if type(decimalNum) == int:
@@ -300,15 +299,15 @@ def sCompoundFraction(decimalNum):
 
     # Post Validation
     # Is the code below legit?
-    iWholeNum = 0
+    integer = 0
 
     while decimalNum > 1:
 
-        iWholeNum += 1
+        integer += 1
         decimalNum -= 1
 
-    sFraction = sTransformDecToFraction(decimalNum)
-    print("{} + {}".format(int(iWholeNum), sFraction))
+    fractionStatement = decimalToFraction(decimalNum)
+    print("{} + {}".format(int(integer), fractionStatement))
 
 
 def iAddForwardSubtractBackward(numOfRatioAdd, numOfRatioSub, numOfRatio_Start, numOfRatio_Stop, bPrint = False):
