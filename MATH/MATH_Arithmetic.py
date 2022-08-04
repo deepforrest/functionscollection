@@ -310,39 +310,39 @@ def decimalToCompoundFraction(decimalNum):
     print("{} + {}".format(int(integer), fractionStatement))
 
 
-def addForwardSubtractBackward(numOfRatio_Add, numOfRatio_Sub, numOfRatio_Start, numOfRatio_Stop, bPrint = False):
+def addForwardSubtractBackward(numOfRatioAdd, numOfRatioSub, numOfRatioStart, numOfRatioStop, printStatements = False):
 
-    userInputArr = [numOfRatio_Add, numOfRatio_Sub, numOfRatio_Start, numOfRatio_Stop]
+    userInputArr = [numOfRatioAdd, numOfRatioSub, numOfRatioStart, numOfRatioStop]
 
     validateInputs(userInputArr, "iAddForwardSubtractBackward")
 
     # More Validation Steps are Needed For This Function To Ensure No Inf Loops
 
-    bInfLoop = True
+    allowLoop = True
 
-    if numOfRatio_Add > numOfRatio_Sub:
+    if numOfRatioAdd > numOfRatioSub:
 
         if numOfRatioStop > numOfRatioStart:
 
-            bInfLoop = False
+            allowLoop = False
 
-    if numOfRatio_Add < numOfRatio_Sub:
+    if numOfRatioAdd < numOfRatioSub:
 
         if numOfRatioStop < numOfRatioStart:
 
-            bInfLoop = False
+            allowLoop = False
 
     # Start of Function
-    numOfRatio = numOfRatio_Start
-    iCounter = 0
+    numOfRatio = numOfRatioStart
+    iterCounter = 0
 
-    while numOfRatio < numOfRatio_Stop and bInfLoop != True:
+    while numOfRatio < numOfRatioStop and allowLoop != True:
 
-        numOfRatio += numOfRatio_Add
-        numOfRatio -= numOfRatio_Sub
-        iCounter += 1
+        numOfRatio += numOfRatioAdd
+        numOfRatio -= numOfRatioSub
+        iterCounter += 1
 
-    bPrint and print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iCounter, numOfRatio_Start, numOfRatio_Stop, numOfRatio_Add, numOfRatio_Sub))
+    printStatements and print("It took {} iterations to get from {} to {} by adding {} and subtracting {}".format(iterCounter, numOfRatioStart, numOfRatioStop, numOfRatioAdd, numOfRatioSub))
 
 # CONTINUE HERE
 
