@@ -67,46 +67,46 @@ def integerRatio(numOfRatio, denOfRatio):
     return ratio(numOfRatio, denOfRatio)
 
 
-def iFactorial(numOfRatio, isNegative = True):
+def calcFactorial(userInput, isNegative = True):
 
     # 1 Validation of Inputs
 
     # First checks to make sure it is an integer
-    if not isinstance(numOfRatio, int):
+    if not isinstance(userInput, int):
 
         # Checks to make sure the number is at least a float, and if not, aborts the function.
-        if not isinstance(numOfRatio, float): 
+        if not isinstance(userInput, float): 
             
-            print("{} is not a number!".format(numOfRatio))
+            print("{} is not a number!".format(userInput))
             return # Kill Statement 
 
         # Attempts to Redeem Float By Converting It Into an Integer Required for Factorial Calculations
-        numOfRatio = int(numOfRatio)
+        userInput = int(userInput)
 
     # Next, check to make sure the number is positive, and if not, convert it unless overridden in function inputs
-    if numOfRatio < 0 and isNegative:
+    if userInput < 0 and isNegative:
 
-        print("{} converted to a positive number!".format(numOfRatio))
-        numOfRatio = -numOfRatio
+        print("{} converted to a positive number!".format(userInput))
+        userInput = -userInput
 
     # Usually only happens if the user explicitly says do not convert.
     else
 
-        print("{} cannot be a negative number in iFactorial!".format(numOfRatio))
+        print("{} cannot be a negative number in calcFactorial!".format(userInput))
         return # Kill Statement
 
     # Baseline Starting Point because 1 * n = n
-    iResult = 1
+    factorialResult = 1
 
     # A Factorial Calculation is given as n * (n - 1) * (n - 2) ... (n - (n - 2) * (n - (n - 1)))
     # Function stops at 1 instead of 0 because multiplying by 1 is meaningless.
-    while numOfRatio != 1:
+    while userInput != 1:
 
-        iResult *= numOfRatio
-        numOfRatio -= 1
+        factorialResult *= userInput
+        userInput -= 1
 
     # Once numOfRatio reaches 1, the result is ready for return
-    return iResult
+    return factorialResult
 
 
 def reciprical(numOfRatio):
@@ -184,6 +184,24 @@ def sumOfNumsOverProduct(inputNumbersArr):
 
     return ratio(sumOfNums, prodOfNums)
 
+# Split this up into two numeric 
+
+def calculateNumOfTwoFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2, bDebug = False):
+
+
+def calculateDenOfTwoFractions(denOfFraction_1, denOfFraction_2, bDebug = False):
+
+    #1 - Validation of Inputs
+    userInputArr = [denOfFraction_1, denOfFraction_2]
+
+    if validateInputs(userInputArr, "calculateDenOfTwoFractions") != True:
+
+        return
+
+    
+
+
+
 
 def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2, bDebug = False):
 
@@ -236,14 +254,17 @@ def minimumPerimeterOfRectangle(areaOfRectangle):
         print({} "is not a valid input for minimumPerimeterOfRectangle()".format(areaOfRectangle))
         return
 
-    return 4 * math.sqrt(areaOfRectangle)
+    sidesOfParallelegram = 4   # Better off declared as a global constant
+
+    return sidesOfParallelegram * math.sqrt(areaOfRectangle)
 
 
-def decimalToBinary(numOfRatio):
+def decimalToBinary(numericInput):
 
-    if not isinstance(numOfRatio, (int, float)):
+    # Validation of steps
+    if not isinstance(numericInput, (int, float)):
 
-        print("{} is not a valid number for binary!".format(numOfRatio))
+        print("{} is not a valid number for binary!".format(numericInput))
         return
 
     exponent = 0
@@ -251,31 +272,32 @@ def decimalToBinary(numOfRatio):
     comparativeNum = polynomialTerm(1, 2, exponent)
     binaryDigitsArr = []
 
-    while comparativeNum < numOfRatio:
+    # Updates binary number until it exceeds numeric input
+    while comparativeNum < numericInput:
 
         exponent += 1
         comparativeNum = polynomialTerm(1, 2, exponent)
 
 
-    if type(numOfRatio) == int or numOfRatio == int(numOfRatio):
+    if type(numericInput) == int or numericInput == int(numericInput):
 
         while comparativeNum > 0:
 
-            if comparativeNum > numOfRatio:
+            if comparativeNum > numericInput:
 
                 binaryDigitsArr.append(0)
 
             else: 
                 
                 binaryDigitsArr.append(1)
-                numOfRatio -= comparativeNum
+                numericInput -= comparativeNum
 
             exponent -= 1
             comparativeNum = polynomialTerm(1, 2, exponent)
 
         return binaryDigitsArr
 
-    if type(numOfRatio) == float:
+    if type(numericInput) == float:
 
         # Set up code to have two bounds to look for
         comparativeNumMax = comparativeNum
