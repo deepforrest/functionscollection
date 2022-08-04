@@ -186,10 +186,10 @@ def sumOfNumsOverProduct(inputNumbersArr):
 
 # Split this up into two numeric 
 
-def calculateNumOfTwoFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2, bDebug = False):
+def calculateNumOfTwoFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2, debugActivated = False):
 
 
-def calculateDenOfTwoFractions(denOfFraction_1, denOfFraction_2, bDebug = False):
+def calculateDenOfTwoFractions(denOfFraction_1, denOfFraction_2, debugActivated = False):
 
     #1 - Validation of Inputs
     userInputArr = [denOfFraction_1, denOfFraction_2]
@@ -203,7 +203,7 @@ def calculateDenOfTwoFractions(denOfFraction_1, denOfFraction_2, bDebug = False)
 
 
 
-def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2, bDebug = False):
+def sAddFractions(numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2, debugActivated = False):
 
     # 1 - Validation to ensure inputs are numeric
     userInputArr = [numOfFraction_1, denOfFraction_1, numOfFraction_2, denOfFraction_2]
@@ -368,40 +368,40 @@ def addForwardSubtractBackward(numOfRatioAdd, numOfRatioSub, numOfRatioStart, nu
 
 # CONTINUE HERE
 
-def bCheckForType(sFunctionName, vArrInputs, dataType):
+def validateDataType(functionName, userInputArr, dataType):
 
     # Validation for data type
 
-    for vDataPoint in vArrInput:
+    for dataPointIndex in userInputArr:
 
-        vDataInQuestion = vArrInputs[vDataPoint]
+        dataPoint = userInputArr[dataPointIndex]
 
-        if type(vDataInQuestion) != dataType:
+        if type(dataPoint) != dataType:
 
-            print("{} accepts the type {} only.  Please check inputs and try again.".format(sFunctionName, dataType))
+            print("{} accepts the type {} only.  Please check inputs and try again.".format(functionName, dataType))
             return False
 
     return True
 
 
-def addByCounting(numOfRatio_1, numOfRatio_2, bDebug = False):
+def addByCounting(numOfRatio_1, numOfRatio_2, debugActivated = False):
 
     userInputArr = [numOfRatio_1, numOfRatio_2]
 
-    if bCheckForType("addByCounting", userInputArr, int) != True: return
+    if validateDataType("addByCounting", userInputArr, int) != True: return
 
-    iAddCount = 0
+    addCounter = 0
 
     # Double Check Operations Here
-    while iAddCount <= numOfRatio_2:
+    while addCounter <= numOfRatio_2:
 
-        iAddCount += 1
-        iIntermediateSum = numOfRatio_1 + 1
+        addCounter += 1
+        transitionalSum = numOfRatio_1 + 1
 
-        print("{} was added to {} to create {}".format(iAddCount, numOfRatio_1, iIntermediateSum))
+        print("{} was added to {} to create {}".format(addCounter, numOfRatio_1, transitionalSum))
 
 
-def sSubtractByCounting(numOfRatio_1, numOfRatio_2, bDebug = False):
+def subtractByCounting(numOfRatio_1, numOfRatio_2, debugActivated = False):
 
     if type(numOfRatio_1) != int or type(numOfRatio_2) != int:   #DRY!
 
@@ -411,26 +411,29 @@ def sSubtractByCounting(numOfRatio_1, numOfRatio_2, bDebug = False):
     # Swaps Numbers If Entered Out of Sequence
     numOfRatio_1, numOfRatio_2 = numOfRatio_2, numOfRatio_1 if numOfRatio_2 > numOfRatio_1
 
-    iSubtractCount = 0
+    subtractCounter = 0
 
     # Double Check Operations Here
-    while iSubtractCount <= numOfRatio_2:
+    while subtractCounter <= numOfRatio_2:
 
-        iSubtractCount += 1
-        iIntermediateDiff = numOfRatio_1 - 1
+        subtractCounter += 1
+        transitionalDifference = numOfRatio_1 - 1
 
-        print("{} was taken away from {} to create {}}".format(iSubtractCount, numOfRatio_1, iIntermediateDiff))
+        print("{} was taken away from {} to create {}}".format(subtractCounter, numOfRatio_1, transitionalDifference))
 
 
-def sMultiplyByAdding(numOfRatio_1, numOfRatio_2, bDebug = False):
+def multiplyByAdding(numOfRatio_1, numOfRatio_2, debugActivated = False):
 
-print("sSubtractByCounting accepts integer only.  Please check inputs and try again.\nnumOfRatio_1 = {}\n numOfRatio_2 = {}".format(numOfRatio_1, numOfRatio_2))
+    if type(numOfRatio_1) != int or type(numOfRatio_2) != int:   #DRY!
 
-    iMultCount = 0
+        print("multiplyByAdding accepts integer only.  Please check inputs and try again.\nnumOfRatio_1 = {}\n numOfRatio_2 = {}".format(numOfRatio_1, numOfRatio_2))
+        return
 
-    while iMultCount <= numOfRatio_2:
+    multiplicativeCounter = 0
 
-        iMultCount += 1
-        iIntermediateProduct = numOfRatio_1 + iMultCount * numOfRatio_2
+    while multiplicativeCounter <= numOfRatio_2:
 
-        print("{} was added to {} to create {}}".format(iMultCount, numOfRatio_1, iIntermediateProduct))
+        multiplicativeCounter += 1
+        transitionalProduct = numOfRatio_1 + multiplicativeCounter * numOfRatio_2
+
+        print("{} was added to {} to create {}}".format(multiplicativeCounter, numOfRatio_1, transitionalProduct))
