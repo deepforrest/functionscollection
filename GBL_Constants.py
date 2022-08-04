@@ -1,26 +1,26 @@
 import math
 
 # Mathematical Constants / Conversions
-iConvDegToRad = 180 / math.pi       # 180 degrees = pi radians
+degreesToRadians = 180 / math.pi       # 180 degrees = pi radians
 
 # Physics Constants
-iGravityConstant = iScientificNotation(6.67, -11)   # [m][m][s] / [kg][kg][kg]
-iRadius_Earth = iScientificNotation(6.3781, 6)     # [m]
+gravitationConstant = scientificNotation(6.67, -11)   # [m][m][s] / [kg][kg][kg]
+radiusEarth = scientificNotation(6.3781, 6)     # [m]
 
 # Known Astronomical Constants & Data
-iMass_Mercury = iScientificNotation(3.3011, 23)
-iMass_Venus = iScientificNotation(4.5675, 24)
-iMass_Earth = iScientificNotation(5.9722, 24)      # [kg]
-iMass_Moon = iScientificNotation(7.34767309, 22)   # [kg]
-iMass_Mars = iScientificNotation(6.4171, 23)
-iMass_Jupiter = iScientificNotation(1.8982, 27)
-iMass_Saturn = iScientificNotation(5.6834, 26)
-iMass_Uranus = iScientificNotation(8.6810, 25)
-iMass_Neptune = iScientificNotation(1.02413, 26)
-iMass_Pluto = iScientificNotation(1.303, 22)        # Pluto is still a planet!!
+massMercury = scientificNotation(3.3011, 23)
+massVenus = scientificNotation(4.5675, 24)
+massEarth = scientificNotation(5.9722, 24)      # [kg]
+massMoon = scientificNotation(7.34767309, 22)   # [kg]
+massMars = scientificNotation(6.4171, 23)
+massJupiter = scientificNotation(1.8982, 27)
+massSaturn = scientificNotation(5.6834, 26)
+massUranus = scientificNotation(8.6810, 25)
+massNeptune = scientificNotation(1.02413, 26)
+massPluto = scientificNotation(1.303, 22)        # Pluto is still a planet!!
 
 # Calculated Constants
-iAccelGravEarth = (iGravityConstant * iMass_Earth) / (iRadiusOfEarth ** 2)
+accelEarthGravity = (gravitationConstant * massEarth) / polynomialTerm(1, earthRadius, 2)
 
 
 # Time Relationship Definitions
@@ -29,10 +29,10 @@ class ConversionFactor:
     def __init__(self, value, units, system):
 
         self.value = iValue
-        self.units = sUnits
+        self.units = Units
         self.system = sSystemType
 
-def sUnits(sNum, sDen = 1):
+def Units(sNum, sDen = 1):
 
     if sDen == 1:
 
@@ -41,25 +41,25 @@ def sUnits(sNum, sDen = 1):
     return str(sNum) + " / " + str(sDen)
 
 # Time Based Units
-cSecondsPerMinute = ConversionFactor(60, sUnits("[s]", "[min]")) 
-cMinutesPerHour = ConversionFactor(60, sUnits("[min]", "[hr]"))
-cHoursPerDay = ConversionFactor(24, sUnits("[hr]", "[day]"))
-cDaysPerWeek = ConversionFactor(7, sUnits("[day]", "[wk]"))
-cDaysPerYear = ConversionFactor(365, sUnit("[day]", "[yr]"))
-cWeeksPerYear = ConversionFactor(52, sUnit("[wk]", "[yr]"))
-cMonthsPerYear = ConversionFactor(12, sUnit("[mo]", "[yr]"))
+secondsPerMinute = ConversionFactor(60, Units("[s]", "[min]")) 
+minutesPerHour = ConversionFactor(60, Units("[min]", "[hr]"))
+hoursPerDay = ConversionFactor(24, Units("[hr]", "[day]"))
+daysPerWeek = ConversionFactor(7, Units("[day]", "[wk]"))
+daysPerYear = ConversionFactor(365, sUnit("[day]", "[yr]"))
+weeksPerYear = ConversionFactor(52, sUnit("[wk]", "[yr]"))
+wonthsPerYear = ConversionFactor(12, sUnit("[mo]", "[yr]"))
 
 # Calculated Time Constants
-iAvgWeeksPerMonth = iWeeksPerYear / iMonthsPerYear
+weeksPerMonthAvg = weeksPerYear / monthsPerYear
 
 # Economic Constants
-iHoursWorkPerDay = 8
-iWorkDaysPerWeek = 5
-iHoursPerWorkweek = 40
-iOvertimeCoef = 1.5
+workHoursPerDay = 8
+workDaysPerWeek = 5
+hoursPerWorkweek = 40
+hourlyOvertimeCoeff = 1.5
 
 # Calculated Economic Constants
-iWorkDaysPerYear = iWorkDaysPerWeek * iHoursWorkPerDay * iWeeksPerYear
+workDaysPerYear = workDaysPerWeek * workHoursPerDay * weeksPerYear
 
 # Rewrite Constants as a Function of their Units:
 
